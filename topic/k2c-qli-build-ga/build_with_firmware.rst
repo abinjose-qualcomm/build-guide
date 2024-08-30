@@ -60,6 +60,8 @@ that can be downloaded according to the need and entitlements:
        ``meta-qcom``
        
        ``meta-qcom-hwe``
+
+       ``meta-qcom-distro``
        
        ``meta-qcom-extras``
    *  
@@ -69,6 +71,8 @@ that can be downloaded according to the need and entitlements:
      - ``meta-qcom``
 
        ``meta-qcom-hwe``
+
+       ``meta-qcom-distro``
 
        ``meta-qcom-extras``
 
@@ -80,6 +84,8 @@ that can be downloaded according to the need and entitlements:
      - ``meta-qcom``
 
        ``meta-qcom-hwe``
+
+       ``meta-qcom-distro``
 
        ``meta-qcom-extras``
 
@@ -103,6 +109,8 @@ that can be downloaded according to the need and entitlements:
 
        ``meta-qcom-hwe``
 
+       ``meta-qcom-distro``
+
        ``meta-qcom-extras``
    *  
      - Base build + QIMP SDK (GPS only)
@@ -110,7 +118,9 @@ that can be downloaded according to the need and entitlements:
         ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|QIMPSDK``
      - ``meta-qcom``
 
-       ``meta-qcom-hwe`
+       ``meta-qcom-hwe``
+
+       ``meta-qcom-distro``
 
        ``meta-qcom-extras``
 
@@ -125,6 +135,8 @@ that can be downloaded according to the need and entitlements:
 
        ``meta-qcom-hwe``
 
+       ``meta-qcom-distro``
+
        ``meta-qcom-extras``
    *  
      - Base build + QIMP SDK (GPS and modem)
@@ -133,6 +145,8 @@ that can be downloaded according to the need and entitlements:
      - ``meta-qcom``
 
        ``meta-qcom-hwe``
+
+       ``meta-qcom-distro``
 
        ``meta-qcom-extras``
 
@@ -146,6 +160,7 @@ For Yocto layer descriptions, see :ref:`Table : 1. Qualcomm Linux Yocto layers <
 
       .. list-table:: Table : Mapping of firmware distributions and git repositories
          :header-rows: 1
+         :class: longtable
 
          * - Firmware distribution
            - Git command

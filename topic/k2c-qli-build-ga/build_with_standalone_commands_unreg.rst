@@ -64,8 +64,34 @@ The following table shows an example mapping of Yocto layers to the
 manifest release tags that are used to download and build Qualcomm
 Linux:
 
-.. list-table:: 
+.. note::
+   The following is the syntax for manifest release tag:
+   ``qcom-<Linux LTS Kernel Version>-QLI.<version>-Ver.<release>.xml``
+
+   For example, the manifest release tag ``qcom-6.6.28-QLI.1.1-Ver.1.1.1.xml`` denotes the following:
+    - 6.6.28 – Linux Kernel
+    - QLI.1.1 – Qualcomm Linux version 1.1
+    - 1.1 – Milestone release
+    - 1.1.1 – Patch release associated with the milestone release
+
+   The following is the syntax for additional productization manifest release tag:
+   ``qcom-<Linux LTS Kernel version>-QLI.<version>-Ver.<release>_<product/customization>-<release>.xml``
+
+   For example, the additional productization manifest release tag ``qcom-6.6.28-QLI.1.1-Ver.1.1_qim-product-sdk-1.1.3.xml`` denotes the following:
+    - 6.6.28 – Linux Kernel
+    - QLI.1.1 – Qualcomm Linux version 1.1
+    - qim-product-sdk-1.1.3 – QIMP SDK release on top of QLI.1.1
+
+      Other product/customization examples:
+
+        - *realtime-linux-1.0*
+        - *robotics-product-sdk-1.1*
+    - 1.1 – Milestone release
+    - 1.1.3 – Patch release associated with the milestone release
+
+.. list-table:: Yocto layers mapped to manifest release tags
    :header-rows: 1
+   :class: longtable
 
 
    * - Yocto layers
@@ -75,6 +101,7 @@ Linux:
    * - 
         - ``meta-qcom``
         - ``meta-qcom-hwe``
+        - ``meta-qcom-distro``
      - Base build: High-level OS and prebuilt firmware (GPS only)
        
        ``qcom-6.6.28-QLI.1.1-Ver.1.1.xml``
@@ -83,6 +110,7 @@ Linux:
    * - 
         - ``meta-qcom``
         - ``meta-qcom-hwe``
+        - ``meta-qcom-distro``
         - ``meta-qcom-qim-product-sdk``
      - Base build + QIMP SDK build:
        
@@ -91,6 +119,7 @@ Linux:
    * - 
         - ``meta-qcom``
         - ``meta-qcom-hwe``
+        - ``meta-qcom-distro``
         - ``meta-qcom-realtime``
      - Base build + Real-time kernel build:
        
@@ -99,6 +128,7 @@ Linux:
    * - 
         - ``meta-qcom``
         - ``meta-qcom-hwe``
+        - ``meta-qcom-distro``
         - ``meta-ros``
         - ``meta-qcom-robotics``
         - ``meta-qcom-robotics-distro``
@@ -137,6 +167,11 @@ Build base image
       MACHINE=qcm6490 DISTRO=qcom-wayland source setup-environment
       # source setup-environment: Sets the environment settings, creates the build directory build-qcom-wayland,
       # and enters into build-qcom-wayland directory.
+
+   .. note::
+      Build also supports ``base`` and ``custom`` build overrides. The default override is custom and you can override to base when required:
+
+      ``MACHINE=qcm6490 DISTRO=qcom-wayland QCOM_SELECTED_BSP=base``
 
 3. Build the software image:
 

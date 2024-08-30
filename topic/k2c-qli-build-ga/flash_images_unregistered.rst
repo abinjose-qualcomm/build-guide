@@ -93,15 +93,15 @@ EDL mode, use any one of the following methods:
 .. note:: The RB3 Gen 2 device must have a Qualcomm Linux build image.
 
 1. `Install
-   QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-253/connect_to_ssh.html#sub$qsg_instal_qud>`__
+   QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-253/additional_setup.html#sub$qsg_instal_qud>`__
    on the host device.
 
 2. `Install
-   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-253/connect_to_ssh.html#sub$qsg_install_adb>`__
+   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-253/additional_setup.html#sub$qsg_install_adb>`__
    on the host device.
 
 3. `Connect
-   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-253/connect_to_ssh.html#sub$qsg_connect_to_adb>`__
+   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-253/additional_setup.html#sub$qsg_connect_to_adb>`__
    to the RB3 Gen 2 device.
 
 4. Move the device to EDL mode:
@@ -173,19 +173,25 @@ Flash software using QDL
    If you need ModemManager, you can start it again after the flashing
    is complete.
 
-2. Navigate to the following location in the workspace to find the QDL
-   tool and flash the images:
+2. Download the QDL tool, compile it, and flash the images:
 
    ::
 
-      # Usage:
-      # cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/<MACHINE>/<IMAGE>
+      # Download and compile QDL
+      cd <workspace_path>
+      git clone --depth 1 --branch master https://github.com/linux-msm/qdl qdl_tool
+      cd qdl_tool
+      git checkout cbd46184d33af597664e08aff2b9181ae2f87aa6
+      make
+
+      # Flash images
+      # Built images are under <workspace_path>/<DISTRO>/tmp-glibc/deploy/images/<MACHINE>/<IMAGE>
       # build_path: For DISTRO=qcom-wayland, it is build-qcom-wayland. 
       #             For DISTRO=qcom-robotics-ros2-humble, it is build-qcom-robotics-ros2-humble
       # qdl <prog.mbn> [<program> <patch> ...]
       # Example: build_path is build-qcom-wayland
       cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcm6490/qcom-multimedia-image
-      ./qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+      <workspace_path>b/qdl_tool/qdl --storage ufs --include qcom-multimedia-image prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
    Flashing is successful if you see *partition 1 is now bootable* on
    the terminal window as shown in the following message:

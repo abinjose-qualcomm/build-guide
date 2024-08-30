@@ -82,12 +82,11 @@ device to the Linux host.
       .. note:: If the login console does not display as expected, verify the USB connection. If necessary, disconnect and then reconnect the micro-USB.
 
 .. note:: 
-    If you want to run sample applications from the UART shell, ensure to run applications in the Permissive mode:
+    If you want to run sample applications from the UART shell, remount the root file system with write permissions:
 
     ::
 
-       setenforce 0
-       mount -o rw,remount /
+      mount -o rw,remount /
 
 .. _section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279:
 
@@ -109,7 +108,6 @@ To update the Wi-Fi configuration, perform the following from the debug :ref:`UA
 
    ::
 
-      setenforce 0
       mount -o rw,remount /
 
 2. Stop the ``wpa_supplicant``:

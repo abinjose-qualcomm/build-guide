@@ -54,7 +54,7 @@ Install QSC using a CLI
       sudo dpkg -i qsc_installer.deb
 
    After a successful installation, the message
-   ``Installed Qualcomm Software Center vx.x.x successfully`` is
+   ``Installed Qualcomm Software Center vX.X.X successfully`` is
    displayed.
 
 

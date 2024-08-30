@@ -46,6 +46,21 @@ Docker
 
       sudo systemctl restart docker
 
+-  **Failed to download from https://download.docker.com**
+
+   .. note::
+
+      If you are unable to access or download from https://download.docker.com, run the following commands to install docker:
+
+      ::
+
+       sudo apt update
+       sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+       curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add –
+       sudo add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
+
+      ::
+
 -  **Docker failure due to Virtualization not enabled**
 
    This error can be resolved by enabling virtualization from the BIOS.

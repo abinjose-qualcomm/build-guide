@@ -101,6 +101,7 @@ Linux:
 
   .. list-table::
      :header-rows: 1
+     :class: longtable
 
      * - Yocto layers
        - Manifest release tag
@@ -108,6 +109,7 @@ Linux:
      * - 
          - ``meta-qcom``
          - ``meta-qcom-hwe``
+         - ``meta-qcom-distro``
        - Base build: High-level OS and prebuilt firmware (GPS only)
          
          ``qcom-6.6.28-QLI.1.1-Ver.1.1.xml``
@@ -115,6 +117,7 @@ Linux:
      * - 
          - ``meta-qcom``
          - ``meta-qcom-hwe``
+         - ``meta-qcom-distro``
          - ``meta-qcom-qim-product-sdk``
        - Base build + QIMP SDK build:
          
@@ -123,6 +126,7 @@ Linux:
      * - 
          - ``meta-qcom``
          - ``meta-qcom-hwe``
+         - ``meta-qcom-distro``
          - ``meta-qcom-realtime``
        - Base build + Real-time kernel build:
          
@@ -131,6 +135,7 @@ Linux:
      * - 
          - ``meta-qcom``
          - ``meta-qcom-hwe``
+         - ``meta-qcom-distro``
          - ``meta-ros``
          - ``meta-qcom-robotics``
          - ``meta-qcom-robotics-distro``

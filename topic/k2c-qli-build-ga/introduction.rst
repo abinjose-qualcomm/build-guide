@@ -16,21 +16,20 @@ before starting your build.
 Unregistered users
 ------------------
 
-Unregistered users can sync and build Qualcomm Linux using the :doc:`GitHub workflow for unregistered users <github_workflow_unregistered_users>`.
+Unregistered users can sync and build Qualcomm Linux using the :doc:`GitHub workflow for unregistered users <github_workflow_unregistered_users>`. For unregistered users, Qualcomm delivers non high-level operating system (NHLOS) components only as binary.
 
 .. _section_x3d_nqy_v1c:
 
 Registered users
 ----------------
 
-Registered users can use any one of the following three methods to sync
-and build Qualcomm Linux. These methods use the Qualcomm Yocto layers
-and the supporting base Yocto layers.
+Registered users can use any one of the following three methods to sync and build Qualcomm Linux. These methods use the Qualcomm Yocto layers and the supporting base Yocto layers. Registered users have source access to some of the NHLOS components and they can also avail some of the Qualcomm tools (software building and downloading tools).
 
 
 .. list-table:: 
    :header-rows: 1
    :align: center
+   :class: longtable
  
    * - Launcher
      - CLI
@@ -47,11 +46,6 @@ and the supporting base Yocto layers.
       .. figure:: ../../media/k2c-qli-build-ga/explore_QSC.svg
          :align: center
 
-.. only:: latex
-  
-      .. figure:: ../../media/k2c-qli-build-ga/explore_QSC.png
-         :align: center
-   
 
 .. note::
 
@@ -59,9 +53,8 @@ and the supporting base Yocto layers.
     Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240626095531/ReleaseNote.html#prebuilt-flashable-images-along-with-esdk>`__.
 
     The Platform eSDK is an installer generated from the Qualcomm Linux image. It provides a complete Yocto environment that allows you to
-    synchronize, modify, compile, and install applications and open-source plugins. For more details, see :ref:`How to download the PlatformeSDK? <section_imr_xc4_1cc_vinayjk_07-12-24-1513-38-780>`.
+    synchronize, modify, compile, and install applications and open-source plugins. For more details, see :ref:`How to download the Platform eSDK? <section_imr_xc4_1cc_vinayjk_07-12-24-1513-38-780>`.
 
 
 .. note::
-     | Qualcomm Linux allows you to build images for QCS6490 and QCS5430.
-     | QCM6490 and QCS6490 are used interchangeably in this guide.
+     For information about the chip products supported on Qualcomm Linux, see `chip products <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-115/soc.html>`__.

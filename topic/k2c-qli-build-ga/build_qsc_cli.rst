@@ -41,7 +41,9 @@ Download
       Example: For QCM6490 with Linux embedded (LE) build, the input
       parameters are shown in the following table:
 
-        .. list-table:: 
+        .. list-table::
+           :class: longtable
+ 
         
            * - **Product_ID (--product)**
              -  .. code::
@@ -53,26 +55,31 @@ Download
                    QCM6490.LE.1.0-00218-STD.PROD-1
 
 
-    -   Select the appropriate distribution to download. Distribution access is controlled by access levels as listed in the following table:
+    -   Select the appropriate distribution to download. Distribution access is controlled by access levels as listed in the following Access controlled distributions table:
 
    .. note:: 
-         For more details on the available distributions, see **Access Controlled Distribution** table 
+         For more details on the available distributions, see *Access Controlled Distribution* table 
          in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240626095531/>`__.
 
-   .. flat-table::
+   .. note::
+         ``meta-selinux``, ``meta-virtualization``, ``meta-security``, ``meta-rust``, ``meta-openembedded``, and ``poky/meta`` are community layers that are common for all the distributions listed in the following Access controlled distributions table. For more information on Qualcomm Linux BSP layers, see *Qualcomm BSP metadata layers* in the `Qualcomm Linux Yocto Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-27/platform_software_features.html#sub$qualcomm_bsp_metadata_layers>`__.
+
+   .. flat-table:: Access controlled distributions
       :widths: 24 24 24
       :header-rows: 1
 
-      * - **Access level**
-        - **Distribution**
+      * - Access level
+        - Distribution
         - Yocto layers
       * - :rspan:`2` Unregistered/community developer
         - Base build: High-level operating system (OS) and prebuilt firmware (GPS only)
            
           ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PUBLIC``
         - ``meta-qcom``
-           
+         
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
       *  
         - Base build + Qualcomm Intelligent Multimedia Product (QIMP) SDK
            
@@ -80,6 +87,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-qim-product-sdk``
       *  
@@ -89,6 +98,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-ros``
           
@@ -106,6 +117,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
       *  
@@ -115,6 +128,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
           
@@ -126,6 +141,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
           
@@ -147,6 +164,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
       *  
@@ -156,6 +175,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
           
@@ -167,6 +188,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
       *  
@@ -176,6 +199,8 @@ Download
         - ``meta-qcom``
           
           ``meta-qcom-hwe``
+
+          ``meta-qcom-distro``
           
           ``meta-qcom-extras``
           

@@ -101,6 +101,8 @@ Use QSC Launcher
            - ``meta-qcom``       
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
          *  
            - Base build + Qualcomm Intelligent Multimedia Product (QIMP) SDK
              
@@ -108,6 +110,8 @@ Use QSC Launcher
            - ``meta-qcom``      
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-qim-product-sdk``
          *  
@@ -117,6 +121,8 @@ Use QSC Launcher
            - ``meta-qcom``   
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-ros``
              
@@ -134,6 +140,8 @@ Use QSC Launcher
            - ``meta-qcom``    
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
          *  
@@ -143,6 +151,8 @@ Use QSC Launcher
            - ``meta-qcom``  
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
              
@@ -160,6 +170,8 @@ Use QSC Launcher
            - ``meta-qcom``
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
              
@@ -181,6 +193,8 @@ Use QSC Launcher
            - ``meta-qcom``
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
          *  
@@ -190,6 +204,8 @@ Use QSC Launcher
            - ``meta-qcom``
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
              
@@ -201,6 +217,8 @@ Use QSC Launcher
            - ``meta-qcom``
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
          *  
@@ -210,11 +228,19 @@ Use QSC Launcher
            - ``meta-qcom``
              
              ``meta-qcom-hwe``
+
+             ``meta-qcom-distro``
              
              ``meta-qcom-extras``
              
              ``meta-qcom-qim-product-sdk``
 	  
+      .. note::
+         For more details on QIMP SDK and QIRP SDK, see the following guides:
+
+         - `QIMP SDK <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-51>`__
+         - `QIRP SDK <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2>`__
+
       The Qualcomm Linux Yocto layers are described in the following table:
 	  
         .. list-table:: Table : Qualcomm Linux Yocto layers
@@ -231,6 +257,9 @@ Use QSC Launcher
 	  
            * - ``meta-qcom-hwe``
              - Contains Qualcomm hardware support metadata with board support package (BSP) software components.
+
+           * - ``meta-qcom-distro``
+             - Contains reference distribution configuration for Qualcomm products, image recipes, and package groups.
 	  
            * - ``meta-qcom-extras``
              - Enables source compilation of select components, which are otherwise present as binary in ``meta-qcom-hwe``. This
