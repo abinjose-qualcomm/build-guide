@@ -33,7 +33,7 @@ tags:
    *  
      - ``meta-qcom-robotics-sdk``
      - manifest release tag
-     - qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.1.xml
+     - qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.0.xml
    * - Licensed developers with Authorized access
      - ``meta-qcom-extras``
      - meta-qcom-extras release tag
@@ -251,9 +251,9 @@ Build firmware
              qpm-cli --login
              qpm-cli --license-activate sdllvm_arm
 
-             # LLVM requirement for BOOT compilation is 10.0.3
-             qpm-cli --install sdllvm_arm --version 10.0.3 --path <FIRMWARE_ROOT>/llvm/10.0.3
-             chmod -R 777 <FIRMWARE_ROOT>/llvm/10.0.3
+             # LLVM requirement for BOOT compilation is 14.0.4
+             qpm-cli --install sdllvm_arm --version 14.0.4 --path <FIRMWARE_ROOT>/llvm/14.0.4
+             chmod -R 777 <FIRMWARE_ROOT>/llvm/14.0.4
 
              # LLVM requirement for TZ compilation is 16.0.7
              qpm-cli --install sdllvm_arm --version 16.0.7 --path <FIRMWARE_ROOT>/llvm/16.0.7
@@ -277,7 +277,7 @@ Build firmware
 
           .. note:: Set the environment variable HEXAGON_ROOT to the path where the Hexagon SDK is installed. To change the install path when using ``qpm-cli``, see :ref:`How can I change the Hexagon tool install path? <section_nqg_cj3_v1c_vinayjk_03-23-24-006-3-877>`.
 
-       .. rubric:: Build cDSP      
+       .. rubric:: Build cDSP 
 
        **Tools required**
 
@@ -408,7 +408,7 @@ Build firmware
 
           ::
 
-            cd <FIRMWARE_ROOT>/TZ.XF.5.0/trustzone_images/build/ms/
+            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
             vi build_config_deploy_kodiak.xml
             # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
 
@@ -416,8 +416,8 @@ Build firmware
 
           ::
 
-            cd <FIRMWARE_ROOT>/TZ.XF.5.0/trustzone_images/build/ms/
-            python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml
+            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
+            python build_all.py -b TZ.XF.5.29 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml
 
        .. rubric:: AOP firmware
 
@@ -474,7 +474,7 @@ Build firmware
            -  ``QCM6490_dspso.zip``
            -  ``QCM6490_fw.zip``
 
-   .. tab:: QCS9075 
+   .. tab:: QCS9075
 
        .. rubric:: Prerequisites
 
@@ -508,9 +508,9 @@ Build firmware
              qpm-cli --login
              qpm-cli --license-activate sdllvm_arm
 
-             # LLVM requirement for BOOT compilation is 10.0.3
-             qpm-cli --install sdllvm_arm --version 10.0.3 --path <FIRMWARE_ROOT>/llvm/10.0.3
-             chmod -R 777 <FIRMWARE_ROOT>/llvm/10.0.3
+             # LLVM requirement for BOOT compilation is 14.0.4
+             qpm-cli --install sdllvm_arm --version 14.0.4 --path <FIRMWARE_ROOT>/llvm/14.0.4
+             chmod -R 777 <FIRMWARE_ROOT>/llvm/14.0.4
 
              # LLVM requirement for TZ compilation is 16.0.7
              qpm-cli --install sdllvm_arm --version 16.0.7 --path <FIRMWARE_ROOT>/llvm/16.0.7
@@ -640,7 +640,7 @@ Build firmware
 
           ::
 
-            cd <FIRMWARE_ROOT>/TZ.XF.5.0/trustzone_images/build/ms/
+            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
             vi build_config_deploy_lemans.xml
             # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
 
@@ -648,8 +648,8 @@ Build firmware
 
           ::
 
-            cd <FIRMWARE_ROOT>/TZ.XF.5.0/trustzone_images/build/ms/
-            python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml
+            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
+            python build_all.py -b TZ.XF.5.29 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml
 
        .. rubric:: AOP firmware
 
@@ -745,13 +745,13 @@ Build base image with extras
 
    ::
 
-      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=<override> source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       # source setup-environment: Sets the environment, creates the build directory build-qcom-wayland,
       # and enters into build-qcom-wayland directory.
 
    .. note::
-      For various ``<machine>`` and ``<override>`` combinations, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
+      To know the ``<machine>``parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
 #. Compile the Yocto build:
 
@@ -835,13 +835,13 @@ Build QIMP SDK image with extras
 
    ::
 
-      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=<override> source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       # source setup-environment: Sets the environment, creates the build directory build-qcom-wayland,
       # and enters into build-qcom-wayland directory.
 
    .. note::
-      For various ``<machine>`` and ``<override>`` combinations, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
+      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
 #. Compile the QIMP SDK build:
 
@@ -908,7 +908,7 @@ Build QIRP SDK image with extras
       # Example, <meta-qcom-qim-product-sdk release tag> is qcom-6.6.38-QLI.1.2-Ver.1.0_qim-product-sdk-1.1.1
 
    .. note:: 
-      For the ``<manifest release tag>``, ``<meta-qcom-extras release tag>``, and ``<meta-qcom-qim-product-sdk release tag>`` information, see the *Build-critical release tags* section in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
+       For the ``<manifest release tag>``, ``<meta-qcom-extras release tag>``, and ``<meta-qcom-qim-product-sdk release tag>`` information, see the *Build-critical release tags* section in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240626095531/>`__.
 
 #. Set up the Yocto build:
 
@@ -942,14 +942,14 @@ Build QIRP SDK image with extras
 
       ln -s layers/meta-qcom-robotics-distro/set_bb_env.sh ./setup-robotics-environment
       ln -s layers/meta-qcom-robotics-sdk/scripts/qirp-build ./qirp-build
-      MACHINE=<machine> DISTRO=qcom-robotics-ros2-humble QCOM_SELECTED_BSP=<override> source setup-robotics-environment
+      MACHINE=<machine> DISTRO=qcom-robotics-ros2-humble QCOM_SELECTED_BSP=custom source setup-robotics-environment
       # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-robotics-environment
       # source setup-robotics-environment: Sets the environment, creates the build directory build-qcom-robotics-ros2-humble,
       # and enters into build-qcom-robotics-ros2-humble directory.
       ../qirp-build qcom-robotics-full-image
 
    .. note::
-      For various ``<machine>`` and ``<override>`` combinations, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
+      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
    On a successful build, you can see the QIRP SDK build artifacts at the following paths:
 

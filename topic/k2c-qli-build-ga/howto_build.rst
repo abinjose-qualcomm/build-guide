@@ -58,12 +58,13 @@ environment and generate eSDK:
 
    ::
 
-      MACHINE=<machine> DISTRO=qcom-wayland source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       bitbake -c do_populate_sdk_ext <image>
+      # Example, bitbake -c do_populate_sdk_ext qcom-multimedia-image
 
-      # Example
-      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
-      bitbake -c do_populate_sdk_ext qcom-multimedia-image
+   .. note::
+      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.    
 
 2. After building with ``meta-qcom-extras`` and firmware sources with
    QSC CLI:
@@ -76,7 +77,8 @@ environment and generate eSDK:
       export EXTRALAYERS="meta-qcom-extras"
       export CUST_ID="213195"
       export FWZIP_PATH="/local/mnt/workspace/extras/DEV/QCM6490.LE.1.0/common/build/ufs/bin"
-      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       bitbake -c do_populate_sdk_ext qcom-multimedia-image
 
 3. After building Standalone instructions within the same shell (shell
@@ -95,12 +97,12 @@ environment and generate eSDK:
    ::
 
       cd <workspace_path>
-      MACHINE=<machine> DISTRO=qcom-wayland source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       bitbake -c do_populate_sdk_ext <image>
 
       # Example
       cd /local/mnt/workspace/LE.QCLINUX.1.0.r1
-      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
+      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       bitbake -c do_populate_sdk_ext qcom-multimedia-image
 
 5. After building with standalone instructions using Dockerfile.
@@ -118,11 +120,11 @@ environment and generate eSDK:
 
       ::
 
-         MACHINE=<machine> DISTRO=qcom-wayland source setup-environment
+         MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
          bitbake -c do_populate_sdk_ext <image>
 
          # Example
-         MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
+         MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
          bitbake -c do_populate_sdk_ext qcom-multimedia-image
 
 **eSDK generation troubleshooting – basehash mismatch**
@@ -163,14 +165,19 @@ setup and then use the BitBake commands to rebuild:
    ::
 
       # Rebuild commands
-      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       bitbake qcom-multimedia-image
+
+   .. note::
+      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
 -  Build image ``qcom-multimedia-test-image``:
 
    ::
 
-      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       bitbake qcom-multimedia-test-image
 
 .. _how_to_build_qdl_standalone:

@@ -8,9 +8,19 @@ Setup
 How to connect to a UART shell?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To set up the debug UART connection and view diagnostic messages, connect the micro-USB cable from the micro-USB port on the RB3 Gen 2 device to the Linux host.
+.. tabs::
 
-.. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
+   .. tab:: QCS6490/QCS5430
+       
+       To set up the debug UART connection and view diagnostic messages, connect the micro-USB cable from the micro-USB port on the RB3 Gen 2 device to the Linux host.
+
+       .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
+
+   .. tab:: QCS9075
+
+       To set up the debug UART connection and view diagnostic messages, connect the debug-USB cable from the debug-USB port on the QCS9075 device to the Linux host.
+
+       .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
 
 1. Install Minicom on the Linux host:
 

@@ -50,8 +50,9 @@ Registered users can use any one of the following three methods to sync and buil
 
 .. note::
 
+   - See *Sync and build methods* table in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/ReleaseNote.html#github-workflow-related-release-tags->`__ to know the build procedures supported for various products.
    - Prebuilt binaries along with Platform eSDK links are hosted in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/ReleaseNote.html#prebuilt-flashable-images-along-with-esdk>`__.
 
-     The Platform eSDK is an installer generated from the Qualcomm Linux software. It provides a complete Yocto environment that allows you to synchronize, modify, compile, and install applications and open-source plugins. For more details, see :ref:`How to download the Platform eSDK? <section_imr_xc4_1cc_vinayjk_07-12-24-1513-38-780>`.
+     The Platform eSDK is an installer generated from the Qualcomm Linux software. It provides a complete Yocto environment that allows you to sync, modify, compile, and install applications and open-source plugins. For more details, see :ref:`How to download the Platform eSDK? <section_imr_xc4_1cc_vinayjk_07-12-24-1513-38-780>`.
     
-   - For the list of chipsets supported on Qualcomm Linux, see `chip products <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-115/soc.html>`__.
+   - See `chip products <https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-115/soc.html>`__ that are supported on Qualcomm Linux.

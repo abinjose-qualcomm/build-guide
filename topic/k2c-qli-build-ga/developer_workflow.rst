@@ -109,7 +109,7 @@ Download layers for the QIRP SDK:
    mkdir <WORKSPACE_DIR>
    cd <WORKSPACE_DIR>
    repo init -u https://github.com/quic-yocto/qcom-manifest -b qcom-linux-kirkstone -m <manifest release tag>
-   # Example, <manifest release tag> is qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.1.xml
+   # Example, <manifest release tag> is qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.0.xml
    repo sync
 
 .. note:: 
@@ -161,9 +161,13 @@ follow these steps to build ``meta-qcom-qim-product-sdk``:
 
    ::
 
-      MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland source setup-environment
+      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
       # source setup-environment: Sets the environment, creates the build directory build-qcom-wayland,
       # and enters into build-qcom-wayland directory
+
+   .. note::
+      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
 3. Build the software image:
 

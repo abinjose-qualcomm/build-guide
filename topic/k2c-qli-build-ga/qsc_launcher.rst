@@ -5,11 +5,9 @@ Use QSC Launcher
 
 .. note::
   
-    A one-time login is required into `chipcode.qti.qualcomm.com <http://chipcode.qti.qualcomm.com/>`__ to download Qualcomm proprietary git repositories. Use your Qualcomm login
-    credentials to complete this step.
+    A one-time login is required into `chipcode.qti.qualcomm.com <http://chipcode.qti.qualcomm.com/>`__ to download Qualcomm proprietary git repositories. Use your Qualcomm login credentials to complete this step.
 
-1. To open the QSC desktop application, either launch **Qualcomm
-   Software Center** from the **Applications** menu or run the following command from the Linux terminal:
+1. To open the QSC desktop application, either launch **Qualcomm Software Center** from the **Applications** menu or run the following command from the Linux terminal:
 
    ::
 
