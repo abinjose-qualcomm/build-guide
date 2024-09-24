@@ -160,7 +160,7 @@ Sync
       git config --global http.sslverify false
 
    If your region is blocking access to ``android.googlesource``, try
-   the following configuration to fetch Repo from Codelinaro Mirror:
+   the following configuration to fetch Repo from CodeLinaro Mirror:
 
    ::
 

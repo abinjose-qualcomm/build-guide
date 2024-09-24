@@ -3,8 +3,7 @@
 Workspace view
 ------------------------
 
-This section provides sample workspace structures with ``qsc-cli`` and
-GitHub workflow standalone use cases for QCS6490 and QCS5430.
+This section provides sample workspace structures with ``qsc-cli`` and GitHub workflow standalone use cases for QCS6490 and QCS5430.
 
 .. _section_bsj_xhm_q1c_vinayjk_03-05-24-1606-7-713:
 

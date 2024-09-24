@@ -104,12 +104,12 @@ Linux:
 
      * - Yocto layers
        - Manifest release tag
-       - Distribution (``DISTRO``)
+       - Reference distribution (``DISTRO``)
      * - 
          - ``meta-qcom``
          - ``meta-qcom-hwe``
          - ``meta-qcom-distro``
-       - Default build: High-level OS and prebuilt firmware (GPS only)
+       - BSP build: High-level OS and prebuilt firmware (GPS only)
          
          ``qcom-6.6.38-QLI.1.2-Ver.1.0.xml``
        - ``qcom-wayland``
@@ -118,7 +118,7 @@ Linux:
          - ``meta-qcom-hwe``
          - ``meta-qcom-distro``
          - ``meta-qcom-qim-product-sdk``
-       - Default build + QIMP SDK build:
+       - BSP build + QIMP SDK build:
          
          ``qcom-6.6.38-QLI.1.2-Ver.1.0_qim-product-sdk-1.1.1.xml``
        - ``qcom-wayland``
@@ -127,7 +127,7 @@ Linux:
          - ``meta-qcom-hwe``
          - ``meta-qcom-distro``
          - ``meta-qcom-realtime``
-       - Default build + Real-time kernel build:
+       - BSP build + Real-time kernel build:
          
          ``qcom-6.6.38-QLI.1.2-Ver.1.0_realtime-linux-1.0.xml``
        - ``qcom-wayland``
@@ -140,7 +140,7 @@ Linux:
          - ``meta-qcom-robotics-distro``
          - ``meta-qcom-robotics-sdk``
          - ``meta-qcom-qim-product-sdk``
-       - Default build + QIRP SDK build:
+       - BSP build + QIRP SDK build:
          
          ``qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.0.xml``
        - ``qcom-robotics-ros2-humble``
@@ -153,7 +153,7 @@ For Yocto layer descriptions, see :ref:`Table: Qualcomm Linux Yocto layers <host
 
 .. _section_sk2_xk2_fbc:
 
-Build default image
+Build BSP image
 ^^^^^^^^^^^^^^^^^^^^^
 
 1. Download Qualcomm Yocto and supporting layers:
@@ -209,8 +209,8 @@ Build QIMP SDK image
 1. Download Qualcomm Yocto and supporting layers:
 
    .. note:: The ``<manifest release tag>`` for QIMP SDK build is the
-             same as the default build. QIMP SDK layer must be cloned on top of the
-             default build.
+             same as the BSP build. QIMP SDK layer must be cloned on top of the
+             BSP build.
 
    ::
 
@@ -276,8 +276,8 @@ Build QIRP SDK image
 1. Download Qualcomm Yocto and supporting layers:
 
    .. note:: The ``<manifest release tag>`` for QIRP SDK build is the
-             same as the default build. QIRP SDK layers must be cloned on top of the
-             default build.
+             same as the BSP build. QIRP SDK layers must be cloned on top of the
+             BSP build.
 
    ::
 
@@ -292,7 +292,7 @@ Build QIRP SDK image
               *Build-critical release tags* section in the `Release
               Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
-#. Download the QIRP SDK layers into the default build ``<WORKSPACE DIR>``
+#. Download the QIRP SDK layers into the BSP build ``<WORKSPACE DIR>``
    directory:
 
    ::
@@ -310,7 +310,7 @@ Build QIRP SDK image
       ln -s layers/meta-qcom-robotics-distro/set_bb_env.sh ./setup-robotics-environment
       ln -s layers/meta-qcom-robotics-sdk/scripts/qirp-build ./qirp-build
       MACHINE=<machine> DISTRO=qcom-robotics-ros2-humble QCOM_SELECTED_BSP=<override> source setup-robotics-environment
-      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-robotics-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-robotics-ros2-humble QCOM_SELECTED_BSP=custom source setup-robotics-environment
       # source setup-robotics-environment: Sets the environment, creates the build directory build-qcom-robotics-ros2-humble,
       # and enters into build-qcom-robotics-ros2-humble directory.
 
@@ -339,8 +339,8 @@ Build real-time Linux image
 1. Download Qualcomm Yocto and supporting layers:
 
    .. note:: The ``<manifest release tag>`` for real-time Linux image is
-             the same as the default build. Real-time Linux must be cloned on top of
-             the default build.
+             the same as the BSP build. Real-time Linux must be cloned on top of
+             the BSP build.
 
    ::
 

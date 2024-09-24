@@ -188,7 +188,7 @@ Ensure that a :ref:`Wi-Fi connection <howto_setup_wifi_sub>` is established befo
 
       ifconfig wlan0
 
-#. Use the IP address obtained from **step 1** to SSH the device from the remost host:
+#. Use the IP address obtained from **step 1** to SSH the device from the remote host:
 
    ::
 

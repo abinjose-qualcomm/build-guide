@@ -229,9 +229,7 @@ Flash software using QDL
       LOG: INFO: Will issue reset/power off 100 useconds, if this hangs check if watchdog is enabled
       LOG: INFO: bsp_target_reset() 1
 
-   After a successful flashing operation, run the ``lsusb`` command to
-   see the device information on the terminal window as shown in line 4
-   of the following message:
+   After a successful flashing operation, run the ``lsusb`` command to see the device information on the terminal window as shown in line 4 of the following message:
 
    ::
 

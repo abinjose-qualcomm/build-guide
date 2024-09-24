@@ -77,7 +77,7 @@ Use QSC Launcher
            - **Distribution**
            - Yocto layers
          * - :rspan:`2` Public developers (unregistered)
-           - Default build: High-level operating system (OS) and prebuilt firmware (GPS only)       
+           - BSP build: High-level operating system (OS) and prebuilt firmware (GPS only)       
              
              ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PUBLIC``
            - ``meta-qcom``       
@@ -86,7 +86,7 @@ Use QSC Launcher
 
              ``meta-qcom-distro``
          *  
-           - Default build + Qualcomm Intelligent Multimedia Product (QIMP) SDK
+           - BSP build + Qualcomm Intelligent Multimedia Product (QIMP) SDK
              
              ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK``
            - ``meta-qcom``      
@@ -97,7 +97,7 @@ Use QSC Launcher
              
              ``meta-qcom-qim-product-sdk``
          *  
-           - Default build + QIMP SDK + Qualcomm Intelligent Robotics Product (QIRP) SDK
+           - BSP build + QIMP SDK + Qualcomm Intelligent Robotics Product (QIRP) SDK
              
              ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|RoboApiLnx``
            - ``meta-qcom``   
@@ -115,8 +115,8 @@ Use QSC Launcher
              ``meta-qcom-robotics-sdk``
              
              ``meta-qcom-qim-product-sdk``
-         * - :rspan:`2` Licensed developers with Authorized access
-           - Default build: High-level OS and firmware source (GPS only)
+         * - :rspan:`2` Licensed developers with authorized access
+           - BSP build: High-level OS and firmware source (GPS only)
              
              ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem``
            - ``meta-qcom``    
@@ -127,7 +127,7 @@ Use QSC Launcher
              
              ``meta-qcom-extras``
          *  
-           - Default build + QIMP SDK
+           - BSP build + QIMP SDK
              
              ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIMPSDK``
            - ``meta-qcom``  
@@ -146,7 +146,7 @@ Use QSC Launcher
              
              ``meta-qcom-qim-product-sdk``
          *  
-           - Default build + QIMP SDK + QIRP SDK
+           - BSP build + QIMP SDK + QIRP SDK
              
              ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIRPSDK``
            - ``meta-qcom``
@@ -169,7 +169,7 @@ Use QSC Launcher
              
              ``meta-qcom-qim-product-sdk``
          * - :rspan:`3` Licensed developers (contact Qualcomm for access)
-           - Default build: High-level OS and firmware (GPS only) source
+           - BSP build: High-level OS and firmware (GPS only) source
              
              ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|``
            - ``meta-qcom``
@@ -180,7 +180,7 @@ Use QSC Launcher
              
              ``meta-qcom-extras``
          *  
-           - Default build + QIMP SDK (GPS only)
+           - BSP build + QIMP SDK (GPS only)
              
              ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|QIMPSDK``
            - ``meta-qcom``
@@ -193,7 +193,7 @@ Use QSC Launcher
              
              ``meta-qcom-qim-product-sdk``
          *  
-           - Default build: High-level OS and firmware (GPS and modem) source
+           - BSP build: High-level OS and firmware (GPS and modem) source
              
              ``Qualcomm_Linux.SPF.1.0|AMSS|Standard|OEM|``
            - ``meta-qcom``
@@ -204,7 +204,7 @@ Use QSC Launcher
              
              ``meta-qcom-extras``
          *  
-           - Default build + QIMP SDK (GPS and modem)
+           - BSP build + QIMP SDK (GPS and modem)
              
              ``Qualcomm_Linux.SPF.1.0|AMSS|Standard|OEM|QIMPSDK``
            - ``meta-qcom``

@@ -34,7 +34,7 @@ tags:
      - ``meta-qcom-robotics-sdk``
      - manifest release tag
      - qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.0.xml
-   * - Licensed developers with Authorized access
+   * - Licensed developers with authorized access
      - ``meta-qcom-extras``
      - meta-qcom-extras release tag
      - r1.0_00046.0 
@@ -54,8 +54,8 @@ The following tables describe the available distributions for firmware that can 
    * - **Access level**
      - **Distribution**
      - Yocto layers
-   * - :rspan:`2` Licensed developers with Authorized access
-     - Default build: High-level OS and firmware source (GPS only)
+   * - :rspan:`2` Licensed developers with authorized access
+     - BSP build: High-level OS and firmware source (GPS only)
        
        ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem``
      - 
@@ -67,7 +67,7 @@ The following tables describe the available distributions for firmware that can 
        
        ``meta-qcom-extras``
    *  
-     - Default build + QIMP SDK
+     - BSP build + QIMP SDK
       
         ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIMPSDK``
      - ``meta-qcom``
@@ -80,7 +80,7 @@ The following tables describe the available distributions for firmware that can 
 
        ``meta-qcom-qim-product-sdk``  
    *  
-     - Default build + QIMP SDK + QIRP SDK
+     - BSP build + QIMP SDK + QIRP SDK
       
         ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIRPSDK``
      - ``meta-qcom``
@@ -103,7 +103,7 @@ The following tables describe the available distributions for firmware that can 
 
        ``meta-qcom-qim-product-sdk``
    * - :rspan:`3` Licensed developers (contact Qualcomm for access)
-     - Default build: High-level OS and firmware (GPS only) source
+     - BSP build: High-level OS and firmware (GPS only) source
        
        ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|``
      - 
@@ -115,7 +115,7 @@ The following tables describe the available distributions for firmware that can 
 
        ``meta-qcom-extras``
    *  
-     - Default build + QIMP SDK (GPS only)
+     - BSP build + QIMP SDK (GPS only)
       
         ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|QIMPSDK``
      - ``meta-qcom``
@@ -130,7 +130,7 @@ The following tables describe the available distributions for firmware that can 
 
        ``meta-qcom-qim-product-sdk``
    *  
-     - Default build: High-level OS and firmware (GPS and modem) source
+     - BSP build: High-level OS and firmware (GPS and modem) source
       
         ``Qualcomm_Linux.SPF.1.0|AMSS|Standard|OEM|``
      - ``meta-qcom``
@@ -141,7 +141,7 @@ The following tables describe the available distributions for firmware that can 
 
        ``meta-qcom-extras``
    *  
-     - Default build + QIMP SDK (GPS and modem)
+     - BSP build + QIMP SDK (GPS and modem)
       
         ``Qualcomm_Linux.SPF.1.0|AMSS|Standard|OEM|QIMPSDK``
      - ``meta-qcom``
@@ -412,12 +412,18 @@ Build firmware
             vi build_config_deploy_kodiak.xml
             # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
 
-       2. Build the image:
+       #. Clean the build:
+
+          ::
+
+            python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml --clean
+
+       #. Build the image:
 
           ::
 
             cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
-            python build_all.py -b TZ.XF.5.29 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml
+            python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml
 
        .. rubric:: AOP firmware
 
@@ -562,7 +568,7 @@ Build firmware
 
           ::
 
-             cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nomodem/DSP.AT.1.0/dsp_proc/build/ms
+             cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/DSP.AT.1.0/dsp_proc/build/ms
 
        #. Clean the build:
 
@@ -644,12 +650,18 @@ Build firmware
             vi build_config_deploy_lemans.xml
             # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
 
+       #. Clean the build:
+
+          ::
+
+            python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml --clean
+
        #. Build the image:
 
           ::
 
             cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
-            python build_all.py -b TZ.XF.5.29 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml
+            python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml
 
        .. rubric:: AOP firmware
 
@@ -691,7 +703,7 @@ Build firmware
 
 .. _section_unn_4gq_p1c_vinayjk_03-02-24-1519-24-874:
 
-Build default image with extras
+Build BSP image with extras
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Download Qualcomm Yocto and supporting layers with extras:
@@ -943,7 +955,7 @@ Build QIRP SDK image with extras
       ln -s layers/meta-qcom-robotics-distro/set_bb_env.sh ./setup-robotics-environment
       ln -s layers/meta-qcom-robotics-sdk/scripts/qirp-build ./qirp-build
       MACHINE=<machine> DISTRO=qcom-robotics-ros2-humble QCOM_SELECTED_BSP=custom source setup-robotics-environment
-      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-robotics-environment
+      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-robotics-ros2-humble QCOM_SELECTED_BSP=custom source setup-robotics-environment
       # source setup-robotics-environment: Sets the environment, creates the build directory build-qcom-robotics-ros2-humble,
       # and enters into build-qcom-robotics-ros2-humble directory.
       ../qirp-build qcom-robotics-full-image

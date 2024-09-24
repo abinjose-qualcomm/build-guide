@@ -59,7 +59,7 @@ Check the machine configuration
 
 .. _section_opk_sh4_w1c:
 
-Build default image
+Build BSP image
 ^^^^^^^^^^^^^^^^^^^^^
 
 Create a Yocto Docker image and build:
@@ -132,7 +132,7 @@ Create a Yocto Docker image and build:
 Build QIMP SDK image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. :ref:`Build default image <section_opk_sh4_w1c>` with Docker.
+1. :ref:`Build BSP image <section_opk_sh4_w1c>` with Docker.
 #. Build QIMP SDK on top of the base image with Docker:
 
    a. Run the ``docker run`` command:
