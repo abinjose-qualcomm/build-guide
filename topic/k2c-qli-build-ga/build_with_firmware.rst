@@ -346,14 +346,14 @@ Build firmware
 
        **Tools required**
 
-       -  Compiler version – LLVM version must be updated to 10.0.3
+       -  Compiler version – LLVM version must be updated to 14.0.4
 
           .. note:: 
              To avoid build errors, ensure that there is a ``/`` at the end of the command.
 
           ::
 
-            export LLVM=<FIRMWARE_ROOT>/llvm/10.0.3/
+            export LLVM=<FIRMWARE_ROOT>/llvm/14.0.4/
 
        -  Python version – Python 3.10
 
@@ -587,11 +587,11 @@ Build firmware
 
        **Tools required**
 
-       -  Compiler version – LLVM version must be updated to 10.0.3
+       -  Compiler version – LLVM version must be updated to 14.0.4
 
           ::
 
-            export LLVM=<FIRMWARE_ROOT>/llvm/10.0.3/
+            export LLVM=<FIRMWARE_ROOT>/llvm/14.0.4/
 
        -  Python version – Python 3.10
 
