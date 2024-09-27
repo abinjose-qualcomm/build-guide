@@ -7,7 +7,6 @@ GitHub workflow (firmware and extras)
 
 .. note:: These steps are applicable only for authorized users. To upgrade your access, go to http://www.qualcomm.com/support/working-with-qualcomm.
 
-
 To build various Qualcomm Linux Yocto layers including
 ``meta-qcom-hwe``, ``meta-qcom-extras``, ``meta-qcom-qim-product-sdk``,
 and ``meta-qcom-robotics-sdk`` using selective proprietary sources and binaries/libraries, follow these step-by-step reference instructions.

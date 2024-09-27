@@ -7,7 +7,7 @@ Use QSC Launcher
   
     A one-time login is required into `chipcode.qti.qualcomm.com <http://chipcode.qti.qualcomm.com/>`__ to download Qualcomm proprietary git repositories. Use your Qualcomm login credentials to complete this step.
 
-1. To open the QSC desktop application, either launch **Qualcomm Software Center** from the **Applications** menu or run the following command from the Linux terminal:
+1. To open the QSC Launcher desktop application, either launch **Qualcomm Software Center** from the **Applications** menu or run the following command from the Linux terminal:
 
    ::
 
@@ -34,10 +34,10 @@ Use QSC Launcher
 
 2. Use your Qualcomm ID to log in to the QSC desktop application. A dashboard page appears as shown in the following figure:
 
-   .. image:: ../../media/k2c-qli-build-ga/qsc_launcher_startLauncher.jpg
+   .. image:: ../../media/k2c-qli-build-ga/start_launcher_ab.png
 
-   -  If you do not have a connected device, click **Start Launcher** on the top panel to start the steps to configure, download, compile, and flash Qualcomm Linux to your device.
-   -  If you have a connected device, click **Start Launcher** for the appropriate device in the **Connected devices** panel to download, compile, and flash Qualcomm Linux to your connected device.
+   -  If you do not have a connected device, click **Start Launcher** (A) on the top panel to start the steps to configure, download, compile, and flash Qualcomm Linux to your device.
+   -  If you have a connected device, click **Start Launcher** (B) for the appropriate device in the **Connected devices** panel to download, compile, and flash Qualcomm Linux to your connected device.
 
 3. On the **Specify Environment** page, select the following values based on the build:
 
@@ -48,23 +48,26 @@ Use QSC Launcher
 
    .. note:: For more information on the supported chip products, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.
 
-.. image:: ../../media/k2c-qli-build-ga/qsc_launcher_specifyEnvironment_v2.jpg
+.. image:: ../../media/k2c-qli-build-ga/specify_env.png
 
-4. Click **Next**. The **Select Resources** page appears.
+4. Click **Next**.
+   
+   The **Select Resources** page appears.
 
 5. On the **Select Resources** page, perform the following steps:
 
-   .. image:: ../../media/k2c-qli-build-ga/select_resources.png
+   .. image:: ../../media/k2c-qli-build-ga/prebuilt_software_options.png
 
-   a. In the **Base Workspace Path** text box, specify a directory path where you want to download the software. You can click the select icon to display the directory selection window.
+   a. In the **Base Workspace Path** text box, specify a directory where you want to download the software. To display the directory selection window, click the select icon.
 
-   b. Select product ID (For chipset QCM6490 and target OS LE,
-      **QCM6490.LE.1.0** is the product ID).
+   b. Select the **Software Product** (For chipset QCM6490 and target OS LE,
+      **QCM6490.LE.1.0** is the software product).
 
-   c. Select release ID (See the latest `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__. For example, **r00218.1**).
+   c. Select the **Distribution**.
 
-   d. Select the appropriate distribution to download. Access levels control the distribution access as shown in the following table:
+   d. Select the **Release Tag**. (See the latest `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__. For example, **r00218.1**).
 
+  ..
       .. flat-table:: Access controlled distributions
          :widths: 24 24 24
          :header-rows: 1
@@ -223,21 +226,25 @@ Use QSC Launcher
            - `QIMP SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-51>`__
            - `QIRP SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-265>`__
 
-6.  Click **Download** to download the selected software:
+6.  Click **Download** to download the selected compilable distribution or prebuilt binary.
 
-    .. image:: ../../media/k2c-qli-build-ga/Download_button_exists_page.png
+    The **Download** page displays the download progress as shown in the following figure:
 
-    The **Download** page displays the download progress.
+    .. image:: ../../media/k2c-qli-build-ga/prebuilt_download.png
+
+    Prebuilt binaries do not require compilation. If a prebuilt binary is selected, follow the onscreen prompts to flash to a connected device:
+
+    .. image:: ../../media/k2c-qli-build-ga/prebuilt_compile.png
 
 .. _concept_n2t_tjn_w1c_step7:
 
-7.  Select **Compile** to start compiling (depending on the size of the downloaded software and host machine configuration, compilation may take a few hours):
+7.  After the download completes, select **Compile** to start compiling (depending on the size of the downloaded software and host machine configuration, compilation may take a few hours):
 
-    .. image:: ../../media/k2c-qli-build-ga/qsc_launcher_compile.png
+    .. image:: ../../media/k2c-qli-build-ga/download.png
 
 8.  To view the compilation progress of individual software images, expand the logs panel as shown in the following figure:
 
-    .. image:: ../../media/k2c-qli-build-ga/qsc_compile_progress.png
+    .. image:: ../../media/k2c-qli-build-ga/QSC_compile_progress.png
 
     After a successful build of the ``qcom-wayland`` distributions, you can see the software images at the following path:
 
@@ -258,13 +265,21 @@ Use QSC Launcher
       
        * ``<Base_Workspace_Path>`` is the path that you select on the **Select Resources** page.
        * BitBake fetch errors are typically intermittent fetch failures.
-         Retry :ref:`step 7 <concept_n2t_tjn_w1c_step7>` to work around these intermittent errors. If the issue persists, see :ref:`BitBake Fetcher Error <do_fetch_error_1>` for a solution.
+         Retry :ref:`step 7 <concept_n2t_tjn_w1c_step7>` to get past these intermittent errors. If the issue persists, see :ref:`BitBake Fetcher Error <do_fetch_error_1>` for a solution.
 
-9.  To incorporate changes made after the compilation step is complete, click **Retry** to recompile:
+9.  To flash the software, select the device on which you want to flash the compiled software from the list of connected devices. Select the correct target device when multiple devices are connected to the host machine:
 
-    .. image:: ../../media/k2c-qli-build-ga/qsc_compile_complete.png
+    .. image:: ../../media/k2c-qli-build-ga/flash.png
 
-10. Click **Next** to flash the software to the device.
+10. To execute the build commands for a specific software image, click **Compile using terminal** next to that software image:
+
+    .. note:: Compilations executed through the terminal are not tracked by the Qualcomm Software Center and the ability to monitor their status on the Download page is lost.
+
+    .. image:: ../../media/k2c-qli-build-ga/compile_terminal.png
+
+    .. image:: ../../media/k2c-qli-build-ga/compile_terminal_default.png
+
+    .. image:: ../../media/k2c-qli-build-ga/compile_terminal_example.png
 
 .. _section_cmp_qbj_x1c:
 

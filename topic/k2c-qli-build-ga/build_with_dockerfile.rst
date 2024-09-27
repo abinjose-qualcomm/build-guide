@@ -108,8 +108,8 @@ Create a Yocto Docker image and build:
 
    ::
 
-      bash docker/docker_run.sh -t qcom-6.6.38-qli.1.2-ver.1.0_22.04 -r qcom-6.6.38-QLI.1.2-Ver.1.0 -M <machine> --build-override <override>
-      # Example, bash docker/docker_run.sh -t qcom-6.6.38-qli.1.2-ver.1.0_22.04 -r qcom-6.6.38-QLI.1.2-Ver.1.0 -M qcs6490-rb3gen2-vision-kit --build-override custom
+      bash docker/docker_run.sh -t qcom-6.6.38-qli.1.2-ver.1.0_22.04 -r qcom-6.6.38-QLI.1.2-Ver.1.0 -M <machine> --build-override <override> --alternate-repo true
+      # Example, bash docker/docker_run.sh -t qcom-6.6.38-qli.1.2-ver.1.0_22.04 -r qcom-6.6.38-QLI.1.2-Ver.1.0 -M qcs6490-rb3gen2-vision-kit --build-override custom --alternate-repo true 
 
    .. note::
       For various ``<machine>`` and ``<override>`` combinations, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/>`__.

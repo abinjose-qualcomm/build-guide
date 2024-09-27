@@ -155,7 +155,7 @@ The following tables describe the firmware distributions that can be downloaded 
 
        ``meta-qcom-qim-product-sdk``
 
-For more information on the Yocto layers, see `Qualcomm Linux metadata layers and descriptions <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-27/platform_software_features.html#id7>`__.
+.. note:: For more information on the Yocto layers, see `Qualcomm Linux metadata layers and descriptions <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-27/platform_software_features.html#id7>`__.
 
 .. _Mapping_firmware_table:
 
@@ -216,494 +216,496 @@ The **Git command** column (see :ref:`Table: Mapping of firmware distributions a
 Build firmware
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. tabs::
+.. container:: persistenttab-soc
 
-   .. tab:: QCS6490/QCS5430
+   .. tabs::
 
-       .. rubric:: Prerequisites
+      .. group-tab:: QCS6490/QCS5430
 
-       -  Ensure that the working shell is ``bash``.
+         .. rubric:: Prerequisites
 
-          ::
+         -  Ensure that the working shell is ``bash``.
 
-             echo $0
+            ::
 
-          The expected output of the command should be ``bash``. If not, enter the bash shell:
+               echo $0
 
-          ::
+            The expected output of the command should be ``bash``. If not, enter the bash shell:
 
-             bash
+            ::
 
-       -  Install libffi6 using the following commands. This is required for the QAIC compiler, which generates header and source files from IDL files:
+               bash
 
-          ::
+         -  Install libffi6 using the following commands. This is required for the QAIC compiler, which generates header and source files from IDL files:
 
-             curl -LO http://archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb
-             sudo dpkg -i libffi6_3.2.1-8_amd64.deb
+            ::
 
-       -  Install LLVM for AOP, TZ, and BOOT compilation:
+               curl -LO http://archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb
+               sudo dpkg -i libffi6_3.2.1-8_amd64.deb
 
-          ::
+         -  Install LLVM for AOP, TZ, and BOOT compilation:
 
-             cd <FIRMWARE_ROOT>
-             mkdir llvm
+            ::
 
-             # Log in to qpm-cli and activate the license
-             qpm-cli --login
-             qpm-cli --license-activate sdllvm_arm
+               cd <FIRMWARE_ROOT>
+               mkdir llvm
 
-             # LLVM requirement for BOOT compilation is 14.0.4
-             qpm-cli --install sdllvm_arm --version 14.0.4 --path <FIRMWARE_ROOT>/llvm/14.0.4
-             chmod -R 777 <FIRMWARE_ROOT>/llvm/14.0.4
+               # Log in to qpm-cli and activate the license
+               qpm-cli --login
+               qpm-cli --license-activate sdllvm_arm
 
-             # LLVM requirement for TZ compilation is 16.0.7
-             qpm-cli --install sdllvm_arm --version 16.0.7 --path <FIRMWARE_ROOT>/llvm/16.0.7
-             chmod -R 777 <FIRMWARE_ROOT>/llvm/16.0.7
+               # LLVM requirement for BOOT compilation is 14.0.4
+               qpm-cli --install sdllvm_arm --version 14.0.4 --path <FIRMWARE_ROOT>/llvm/14.0.4
+               chmod -R 777 <FIRMWARE_ROOT>/llvm/14.0.4
 
-       -  Export the ``SECTOOLS`` variable and compile the firmware builds (``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk`` is the top-level directory):
+               # LLVM requirement for TZ compilation is 16.0.7
+               qpm-cli --install sdllvm_arm --version 16.0.7 --path <FIRMWARE_ROOT>/llvm/16.0.7
+               chmod -R 777 <FIRMWARE_ROOT>/llvm/16.0.7
 
-          ::
+         -  Export the ``SECTOOLS`` variable and compile the firmware builds (``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk`` is the top-level directory):
 
-             export SECTOOLS=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux/sectools
-             export SECTOOLS_DIR=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux
-             # An example <product> is QCM6490.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/).
+            ::
 
-       -  Install and set up Qualcomm\ :sup:`®` Hexagon\ :sup:`™`:
+               export SECTOOLS=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux/sectools
+               export SECTOOLS_DIR=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux
+               # An example <product> is QCM6490.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/).
 
-          ::
+         -  Install and set up Qualcomm\ :sup:`®` Hexagon\ :sup:`™`:
 
-             qpm-cli --extract hexagon8.4 --version 8.4.07
-             export HEXAGON_ROOT=$HOME/Qualcomm/HEXAGON_Tools
-             echo $HEXAGON_ROOT
+            ::
 
-          .. note:: Set the environment variable HEXAGON_ROOT to the path where the Hexagon SDK is installed. To change the install path when using ``qpm-cli``, see :ref:`How can I change the Hexagon tool install path? <section_nqg_cj3_v1c_vinayjk_03-23-24-006-3-877>`.
+               qpm-cli --extract hexagon8.4 --version 8.4.07
+               export HEXAGON_ROOT=$HOME/Qualcomm/HEXAGON_Tools
+               echo $HEXAGON_ROOT
 
-       .. rubric:: Build cDSP 
+            .. note:: Set the environment variable HEXAGON_ROOT to the path where the Hexagon SDK is installed. To change the install path when using ``qpm-cli``, see :ref:`How can I change the Hexagon tool install path? <section_nqg_cj3_v1c_vinayjk_03-23-24-006-3-877>`.
 
-       **Tools required**
+         .. rubric:: Build cDSP 
 
-       -  Compiler version – Hexagon 8.4.07
-       -  Python version – Python 3.10.2
-       -  Install libffi6 
-      
-       **Build steps**
+         **Tools required**
 
-       1. Navigate to the following directory:
-
-          ::
-
-             cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/CDSP.HT.2.5.c3/cdsp_proc/build/ms
-
-       2. Clean the build:
-
-          ::
-
-             python ./build_variant.py kodiak.cdsp.prod --clean
-
-       3. Build the image:
-
-          ::
-
-             python ./build_variant.py kodiak.cdsp.prod
-
-       .. rubric:: Build aDSP
-
-       **Tools required**
-
-       -  Compiler version – Hexagon 8.4.07
-       -  Python version – Python 3.10.2
-       -  Install libffi6 
-      
-       **Nanopb integration (only one-time setup)**
-
-       ::
-
-         cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/ADSP.HT.5.5.c8/adsp_proc/qsh_api
-         curl https://jpa.kapsi.fi/nanopb/download/nanopb-0.3.9.5-linux-x86.tar.gz -o nanopb-0.3.9.5-linux-x86.tar.gz
-         cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/ADSP.HT.5.5.c8/adsp_proc/
-         python qsh_api/build/config_nanopb_dependency.py -f nanopb-0.3.9.5-linux-x86
-
-       **Build steps**
-
-       1. Navigate to the following directory:
-
-          ::
-
-            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/ADSP.HT.5.5.c8/adsp_proc/build/ms
-
-       2. Clean the build:
-
-          ::
-
-            python ./build_variant.py kodiak.adsp.prod --clean
-
-       3. Build the image:
-
-          ::
-
-            python ./build_variant.py kodiak.adsp.prod
-
-       .. rubric:: Build Boot
-
-       **Tools required**
-
-       -  Compiler version – LLVM version must be updated to 14.0.4
-
-          .. note:: 
-             To avoid build errors, ensure that there is a ``/`` at the end of the command.
-
-          ::
-
-            export LLVM=<FIRMWARE_ROOT>/llvm/14.0.4/
-
-       -  Python version – Python 3.10
-
-       -  Install libffi6  
-      
-       **Build steps**
-
-       1. Install the device tree compiler:
-
-          ::
-
-            sudo apt-get install device-tree-compiler
-            export DTC=/usr/bin
-
-       #. Navigate to the following directory:
-
-          ::
-
-            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/BOOT.MXF.1.0.c1/
-
-       #. Install the dependencies:
-
-          ::
-
-            python -m pip install -r boot_images/boot_tools/dtschema_tools/oss/requirements.txt
-
-       #. Clean the build:
-
-          ::
-
-            python -u boot_images/boot_tools/buildex.py -t kodiak,QcomToolsPkg -v LAA -r RELEASE --build_flags=cleanall
-
-       #. Build the image:
-
-          ::
-
-            python -u boot_images/boot_tools/buildex.py -t kodiak,QcomToolsPkg -v LAA -r RELEASE
-
-          .. note:: 
-             For debug variant builds, replace ``RELEASE`` with ``DEBUG``.
-
-       .. rubric:: TZ firmware
-
-       **Tools required**
-
-       -  Compiler version – LLVM 16.0.7
-       -  Python version – Python 3.10 
-      
-       **Build steps**
-
-       1. Install LLVM:
-
-          ::
-
-            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
-            vi build_config_deploy_kodiak.xml
-            # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
-
-       #. Clean the build:
-
-          ::
-
-            python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml --clean
-
-       #. Build the image:
-
-          ::
-
-            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
-            python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml
-
-       .. rubric:: AOP firmware
-
-       **Tools required**
-
-       -  Compiler version – LLVM 14.0.4
-       -  Python version – Python 3.10 
+         -  Compiler version – Hexagon 8.4.07
+         -  Python version – Python 3.10.2
+         -  Install libffi6 
          
-       **Build steps**
+         **Build steps**
 
-       1. Navigate to the following directory:
+         1. Navigate to the following directory:
 
-          ::
+            ::
 
-            cd <FIRMWARE_ROOT>/AOP.HO.3.6/aop_proc/build/
+               cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/CDSP.HT.2.5.c3/cdsp_proc/build/ms
 
-       2. Build the image:
+         2. Clean the build:
 
-          ::
+            ::
 
-            ./build_kodiak.sh -l <FIRMWARE_ROOT>/llvm/14.0.4/
+               python ./build_variant.py kodiak.cdsp.prod --clean
 
-       .. rubric:: CPUCP firmware
+         3. Build the image:
 
-       The CPUCP firmware is released as a binary and build compilation is not required.
+            ::
 
-       .. rubric:: CPUSYS.VM firmware
+               python ./build_variant.py kodiak.cdsp.prod
 
-       The CPUSYS.VM firmware is released as a binary and build compilation is not required.
+         .. rubric:: Build aDSP
 
-       .. rubric:: BTFM firmware
+         **Tools required**
 
-       The BTFM firmware is released as a binary and build compilation is not required.
+         -  Compiler version – Hexagon 8.4.07
+         -  Python version – Python 3.10.2
+         -  Install libffi6 
+         
+         **Nanopb integration (only one-time setup)**
 
-       .. rubric:: WLAN firmware
+         ::
 
-       The WLAN firmware is released as a binary and build compilation is not required.
+            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/ADSP.HT.5.5.c8/adsp_proc/qsh_api
+            curl https://jpa.kapsi.fi/nanopb/download/nanopb-0.3.9.5-linux-x86.tar.gz -o nanopb-0.3.9.5-linux-x86.tar.gz
+            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/ADSP.HT.5.5.c8/adsp_proc/
+            python qsh_api/build/config_nanopb_dependency.py -f nanopb-0.3.9.5-linux-x86
 
-       .. rubric:: Generate firmware prebuilds (boot-critical and split-firmware binaries)
+         **Build steps**
 
-       Create an integrated firmware binary from the individual components that you compiled:
+         1. Navigate to the following directory:
 
-       ::
+            ::
 
-         # cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/build
-         # An example <product> is QCM6490.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/)
-         cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCM6490.LE.1.0/common/build
-         python build.py --imf
+               cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/ADSP.HT.5.5.c8/adsp_proc/build/ms
 
-       .. note:: 
-          Firmware prebuild is successful if the following zip files are generated in the ``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCM6490.LE.1.0/common/build/ufs/bin`` directory:
+         2. Clean the build:
 
-           -  ``QCM6490_bootbinaries.zip``
-           -  ``QCM6490_dspso.zip``
-           -  ``QCM6490_fw.zip``
+            ::
 
-   .. tab:: QCS9075
+               python ./build_variant.py kodiak.adsp.prod --clean
 
-       .. rubric:: Prerequisites
+         3. Build the image:
 
-       -  Ensure that the working shell is ``bash``.
+            ::
 
-          ::
+               python ./build_variant.py kodiak.adsp.prod
 
-             echo $0
+         .. rubric:: Build Boot
 
-          The expected output of the command should be ``bash``. If not, enter the bash shell:
+         **Tools required**
 
-          ::
+         -  Compiler version – LLVM version must be updated to 14.0.4
 
-             bash
+            .. note:: 
+               To avoid build errors, ensure that there is a ``/`` at the end of the command.
 
-       -  Install libffi6 using the following commands. This is required for the QAIC compiler, which generates header and source files from IDL files:
+            ::
 
-          ::
+               export LLVM=<FIRMWARE_ROOT>/llvm/14.0.4/
 
-             curl -LO http://archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb
-             sudo dpkg -i libffi6_3.2.1-8_amd64.deb
+         -  Python version – Python 3.10
 
-       -  Install LLVM for AOP, TZ, and BOOT compilation:
+         -  Install libffi6  
+         
+         **Build steps**
 
-          ::
+         1. Install the device tree compiler:
 
-             cd <FIRMWARE_ROOT>
-             mkdir llvm
+            ::
 
-             # Log in to qpm-cli and activate the license
-             qpm-cli --login
-             qpm-cli --license-activate sdllvm_arm
+               sudo apt-get install device-tree-compiler
+               export DTC=/usr/bin
 
-             # LLVM requirement for BOOT compilation is 14.0.4
-             qpm-cli --install sdllvm_arm --version 14.0.4 --path <FIRMWARE_ROOT>/llvm/14.0.4
-             chmod -R 777 <FIRMWARE_ROOT>/llvm/14.0.4
+         #. Navigate to the following directory:
 
-             # LLVM requirement for TZ compilation is 16.0.7
-             qpm-cli --install sdllvm_arm --version 16.0.7 --path <FIRMWARE_ROOT>/llvm/16.0.7
-             chmod -R 777 <FIRMWARE_ROOT>/llvm/16.0.7
+            ::
 
-       -  Export the ``SECTOOLS`` variable and compile the firmware builds (``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk`` is the top-level directory):
+               cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/BOOT.MXF.1.0.c1/
 
-          ::
+         #. Install the dependencies:
 
-             export SECTOOLS=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux/sectools
-             export SECTOOLS_DIR=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux
-             # An example <product> is QCS9100.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/).
+            ::
 
-       -  Install and set up Qualcomm\ :sup:`®` Hexagon\ :sup:`™`:
+               python -m pip install -r boot_images/boot_tools/dtschema_tools/oss/requirements.txt
 
-          ::
+         #. Clean the build:
 
-             qpm-cli --extract hexagon8.6 --version 8.6.05.2
-             export HEXAGON_ROOT=$HOME/Qualcomm/HEXAGON_Tools
-             echo $HEXAGON_ROOT
+            ::
 
-          .. note:: Set the environment variable HEXAGON_ROOT to the path where the Hexagon SDK is installed. To change the install path when using ``qpm-cli``, see :ref:`How can I change the Hexagon tool install path? <section_nqg_cj3_v1c_vinayjk_03-23-24-006-3-877>`.
+               python -u boot_images/boot_tools/buildex.py -t kodiak,QcomToolsPkg -v LAA -r RELEASE --build_flags=cleanall
 
-       .. rubric:: Build DSP      
+         #. Build the image:
 
-       **Tools required**
+            ::
 
-       -  Compiler version – Hexagon 8.6.05.2
-       -  Python version – Python 3.8.2
-      
-       **Build steps**
+               python -u boot_images/boot_tools/buildex.py -t kodiak,QcomToolsPkg -v LAA -r RELEASE
 
-       1. Install the device tree compiler:
+            .. note:: 
+               For debug variant builds, replace ``RELEASE`` with ``DEBUG``.
 
-          ::
+         .. rubric:: TZ firmware
 
-            sudo apt-get install device-tree-compiler
-            export DTC_PATH=/usr/bin
+         **Tools required**
 
-       #. Install the dependencies:
+         -  Compiler version – LLVM 16.0.7
+         -  Python version – Python 3.10 
+         
+         **Build steps**
 
-          ::
+         1. Install LLVM:
 
-            pip install ruamel.yaml==0.17.17
-            pip install dtschema==2021.10
-            pip install jsonschema==4.0.0
+            ::
 
-       #. Navigate to the following directory:
+               cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
+               vi build_config_deploy_kodiak.xml
+               # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
 
-          ::
+         #. Clean the build:
 
-             cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/DSP.AT.1.0/dsp_proc/build/ms
+            ::
 
-       #. Clean the build:
+               python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml --clean
 
-          ::
+         #. Build the image:
 
-             python ./build_variant.py lemans.adsp.prod --clean
-             python ./build_variant.py lemans.cdsp0.prod --clean
-             python ./build_variant.py lemans.cdsp1.prod --clean
-             python ./build_variant.py lemans.gpdsp0.prod --clean
-             python ./build_variant.py lemans.gpdsp1.prod --clean
+            ::
 
-       #. Build the image:
+               cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
+               python build_all.py -b TZ.XF.5.0 CHIPSET=kodiak --cfg=build_config_deploy_kodiak.xml
 
-          ::
+         .. rubric:: AOP firmware
 
-             python ./build_variant.py lemans.adsp.prod && python ./build_variant.py lemans.cdsp0.prod && python ./build_variant.py lemans.cdsp1.prod && python ./build_variant.py lemans.gpdsp0.prod && python ./build_variant.py lemans.gpdsp1.prod
+         **Tools required**
 
-       .. rubric:: Build Boot
+         -  Compiler version – LLVM 14.0.4
+         -  Python version – Python 3.10 
+            
+         **Build steps**
 
-       **Tools required**
+         1. Navigate to the following directory:
 
-       -  Compiler version – LLVM version must be updated to 14.0.4
+            ::
 
-          ::
+               cd <FIRMWARE_ROOT>/AOP.HO.3.6/aop_proc/build/
 
-            export LLVM=<FIRMWARE_ROOT>/llvm/14.0.4/
+         2. Build the image:
 
-       -  Python version – Python 3.10
+            ::
 
-       -  Install libffi6  
-      
-       **Build steps**
+               ./build_kodiak.sh -l <FIRMWARE_ROOT>/llvm/14.0.4/
 
-       1. Install the device tree compiler:
+         .. rubric:: CPUCP firmware
 
-          ::
+         The CPUCP firmware is released as a binary and build compilation is not required.
 
-            sudo apt-get install device-tree-compiler
-            export DTC=/usr/bin
+         .. rubric:: CPUSYS.VM firmware
 
-       #. Navigate to the following directory:
+         The CPUSYS.VM firmware is released as a binary and build compilation is not required.
 
-          ::
+         .. rubric:: BTFM firmware
 
-            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/BOOT.MXF.1.0.c1/
+         The BTFM firmware is released as a binary and build compilation is not required.
 
-       #. Install the dependencies:
+         .. rubric:: WLAN firmware
 
-          ::
+         The WLAN firmware is released as a binary and build compilation is not required.
 
-            python -m pip install -r boot_images/boot_tools/dtschema_tools/oss/requirements.txt
+         .. rubric:: Generate firmware prebuilds (boot-critical and split-firmware binaries)
 
-       #. Clean the build:
+         Create an integrated firmware binary from the individual components that you compiled:
 
-          ::
+         ::
 
-            python -u boot_images/boot_tools/buildex.py -t lemans,QcomToolsPkg - v LAA -r RELEASE --build_flags=cleanall
+            # cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/build
+            # An example <product> is QCM6490.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/)
+            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCM6490.LE.1.0/common/build
+            python build.py --imf
 
-       #. Build the image:
+         .. note:: 
+            Firmware prebuild is successful if the following zip files are generated in the ``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCM6490.LE.1.0/common/build/ufs/bin`` directory:
 
-          ::
+            -  ``QCM6490_bootbinaries.zip``
+            -  ``QCM6490_dspso.zip``
+            -  ``QCM6490_fw.zip``
 
-            python -u boot_images/boot_tools/buildex.py -t lemans,QcomToolsPkg - v LAA -r RELEASE
+      .. group-tab:: QCS9075
 
-          .. note:: 
-             For debug variant builds, replace ``RELEASE`` with ``DEBUG``.
+         .. rubric:: Prerequisites
 
-       .. rubric:: TZ firmware
+         -  Ensure that the working shell is ``bash``.
 
-       **Tools required**
+            ::
 
-       -  Compiler version – LLVM 16.0.7
-       -  Python version – Python 3.10 
-      
-       **Build steps**
+               echo $0
 
-       1. Install LLVM:
+            The expected output of the command should be ``bash``. If not, enter the bash shell:
 
-          ::
+            ::
 
-            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
-            vi build_config_deploy_lemans.xml
-            # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
+               bash
 
-       #. Clean the build:
+         -  Install libffi6 using the following commands. This is required for the QAIC compiler, which generates header and source files from IDL files:
 
-          ::
+            ::
 
-            python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml --clean
+               curl -LO http://archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb
+               sudo dpkg -i libffi6_3.2.1-8_amd64.deb
 
-       #. Build the image:
+         -  Install LLVM for AOP, TZ, and BOOT compilation:
 
-          ::
+            ::
 
-            cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
-            python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml
+               cd <FIRMWARE_ROOT>
+               mkdir llvm
 
-       .. rubric:: AOP firmware
+               # Log in to qpm-cli and activate the license
+               qpm-cli --login
+               qpm-cli --license-activate sdllvm_arm
 
-       The AOP firmware is released as a binary and build compilation is not required.
+               # LLVM requirement for BOOT compilation is 14.0.4
+               qpm-cli --install sdllvm_arm --version 14.0.4 --path <FIRMWARE_ROOT>/llvm/14.0.4
+               chmod -R 777 <FIRMWARE_ROOT>/llvm/14.0.4
 
-       .. rubric:: CPUCP firmware
+               # LLVM requirement for TZ compilation is 16.0.7
+               qpm-cli --install sdllvm_arm --version 16.0.7 --path <FIRMWARE_ROOT>/llvm/16.0.7
+               chmod -R 777 <FIRMWARE_ROOT>/llvm/16.0.7
 
-       The CPUCP firmware is released as a binary and build compilation is not required.
+         -  Export the ``SECTOOLS`` variable and compile the firmware builds (``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk`` is the top-level directory):
 
-       .. rubric:: CPUSYS.VM firmware
+            ::
 
-       The CPUSYS.VM firmware is released as a binary and build compilation is not required.
+               export SECTOOLS=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux/sectools
+               export SECTOOLS_DIR=<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/sectoolsv2/ext/Linux
+               # An example <product> is QCS9100.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/).
 
-       .. rubric:: BTFM firmware
+         -  Install and set up Qualcomm\ :sup:`®` Hexagon\ :sup:`™`:
 
-       The BTFM firmware is released as a binary and build compilation is not required.
+            ::
 
-       .. rubric:: WLAN firmware
+               qpm-cli --extract hexagon8.6 --version 8.6.05.2
+               export HEXAGON_ROOT=$HOME/Qualcomm/HEXAGON_Tools
+               echo $HEXAGON_ROOT
 
-       The WLAN firmware is released as a binary and build compilation is not required.
+            .. note:: Set the environment variable HEXAGON_ROOT to the path where the Hexagon SDK is installed. To change the install path when using ``qpm-cli``, see :ref:`How can I change the Hexagon tool install path? <section_nqg_cj3_v1c_vinayjk_03-23-24-006-3-877>`.
 
-       .. rubric:: Generate firmware prebuilds (boot-critical and split-firmware binaries)
+         .. rubric:: Build DSP      
 
-       Create an integrated firmware binary from the individual components that you compiled:
+         **Tools required**
 
-       ::
+         -  Compiler version – Hexagon 8.6.05.2
+         -  Python version – Python 3.8.2
+         
+         **Build steps**
 
-         # cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/build
-         # An example <product> is QCS9100.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/)
-         cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCS9100.LE.1.0/common/build
-         python build.py --imf
+         1. Install the device tree compiler:
 
-       .. note:: 
-          Firmware prebuild is successful if the following zip files are generated in the ``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCS9100.LE.1.0/common/build/ufs/bin`` directory:
-                  
-          -  ``QCS9100_bootbinaries.zip``
-          -  ``QCS9100_dspso.zip``
-          -  ``QCS9100_fw.zip``
+            ::
+
+               sudo apt-get install device-tree-compiler
+               export DTC_PATH=/usr/bin
+
+         #. Install the dependencies:
+
+            ::
+
+               pip install ruamel.yaml==0.17.17
+               pip install dtschema==2021.10
+               pip install jsonschema==4.0.0
+
+         #. Navigate to the following directory:
+
+            ::
+
+               cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/DSP.AT.1.0/dsp_proc/build/ms
+
+         #. Clean the build:
+
+            ::
+
+               python ./build_variant.py lemans.adsp.prod --clean
+               python ./build_variant.py lemans.cdsp0.prod --clean
+               python ./build_variant.py lemans.cdsp1.prod --clean
+               python ./build_variant.py lemans.gpdsp0.prod --clean
+               python ./build_variant.py lemans.gpdsp1.prod --clean
+
+         #. Build the image:
+
+            ::
+
+               python ./build_variant.py lemans.adsp.prod && python ./build_variant.py lemans.cdsp0.prod && python ./build_variant.py lemans.cdsp1.prod && python ./build_variant.py lemans.gpdsp0.prod && python ./build_variant.py lemans.gpdsp1.prod
+
+         .. rubric:: Build Boot
+
+         **Tools required**
+
+         -  Compiler version – LLVM version must be updated to 14.0.4
+
+            ::
+
+               export LLVM=<FIRMWARE_ROOT>/llvm/14.0.4/
+
+         -  Python version – Python 3.10
+
+         -  Install libffi6  
+         
+         **Build steps**
+
+         1. Install the device tree compiler:
+
+            ::
+
+               sudo apt-get install device-tree-compiler
+               export DTC=/usr/bin
+
+         #. Navigate to the following directory:
+
+            ::
+
+               cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/BOOT.MXF.1.0.c1/
+
+         #. Install the dependencies:
+
+            ::
+
+               python -m pip install -r boot_images/boot_tools/dtschema_tools/oss/requirements.txt
+
+         #. Clean the build:
+
+            ::
+
+               python -u boot_images/boot_tools/buildex.py -t lemans,QcomToolsPkg - v LAA -r RELEASE --build_flags=cleanall
+
+         #. Build the image:
+
+            ::
+
+               python -u boot_images/boot_tools/buildex.py -t lemans,QcomToolsPkg - v LAA -r RELEASE
+
+            .. note:: 
+               For debug variant builds, replace ``RELEASE`` with ``DEBUG``.
+
+         .. rubric:: TZ firmware
+
+         **Tools required**
+
+         -  Compiler version – LLVM 16.0.7
+         -  Python version – Python 3.10 
+         
+         **Build steps**
+
+         1. Install LLVM:
+
+            ::
+
+               cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
+               vi build_config_deploy_lemans.xml
+               # Edit all the occurrences of /pkg/qct/software/llvm/release/arm/16.0.7/ to <FIRMWARE_ROOT>/llvm/16.0.7/
+
+         #. Clean the build:
+
+            ::
+
+               python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml --clean
+
+         #. Build the image:
+
+            ::
+
+               cd <FIRMWARE_ROOT>/TZ.XF.5.29/trustzone_images/build/ms/
+               python build_all.py -b TZ.XF.5.0 CHIPSET=lemans --cfg=build_config_deploy_lemans.xml
+
+         .. rubric:: AOP firmware
+
+         The AOP firmware is released as a binary and build compilation is not required.
+
+         .. rubric:: CPUCP firmware
+
+         The CPUCP firmware is released as a binary and build compilation is not required.
+
+         .. rubric:: CPUSYS.VM firmware
+
+         The CPUSYS.VM firmware is released as a binary and build compilation is not required.
+
+         .. rubric:: BTFM firmware
+
+         The BTFM firmware is released as a binary and build compilation is not required.
+
+         .. rubric:: WLAN firmware
+
+         The WLAN firmware is released as a binary and build compilation is not required.
+
+         .. rubric:: Generate firmware prebuilds (boot-critical and split-firmware binaries)
+
+         Create an integrated firmware binary from the individual components that you compiled:
+
+         ::
+
+            # cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/<product>/common/build
+            # An example <product> is QCS9100.LE.1.0, see the latest Release Notes (https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240911224732/)
+            cd <FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCS9100.LE.1.0/common/build
+            python build.py --imf
+
+         .. note:: 
+            Firmware prebuild is successful if the following zip files are generated in the ``<FIRMWARE_ROOT>/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk/QCS9100.LE.1.0/common/build/ufs/bin`` directory:
+                     
+            -  ``QCS9100_bootbinaries.zip``
+            -  ``QCS9100_dspso.zip``
+            -  ``QCS9100_fw.zip``
 
 .. _section_unn_4gq_p1c_vinayjk_03-02-24-1519-24-874:
 

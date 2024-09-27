@@ -126,51 +126,53 @@ EDL mode, use any one of the following methods:
 
 **Manual**
 
-.. tabs::
+.. container:: persistenttab-soc
 
-   .. tab:: QCS6490/QCS5430
+   .. tabs::
 
-      1. Press and hold the **F_DL** button:
+      .. group-tab:: QCS6490/QCS5430
 
-         .. image:: ../../media/k2c-qli-build-ga/RB3Gen2_device.jpg
+         1. Press and hold the **F_DL** button:
 
-      #. Connect the device to a +12 V wall power supply.
+            .. image:: ../../media/k2c-qli-build-ga/RB3Gen2_device.jpg
 
-      #. Connect the device to the host system using a Type-C cable through the USB Type-C connector.
-      
-      #. Release the **F_DL** button. The device should now be in Qualcomm download (QDL) mode. For this task, QDL is used interchangeably with EDL.
-      
-      #. Verify whether the device has entered the QDL mode:
+         #. Connect the device to a +12 V wall power supply.
 
-         ::
+         #. Connect the device to the host system using a Type-C cable through the USB Type-C connector.
+         
+         #. Release the **F_DL** button. The device should now be in Qualcomm download (QDL) mode. For this task, QDL is used interchangeably with EDL.
+         
+         #. Verify whether the device has entered the QDL mode:
 
-            lsusb
+            ::
 
-         **Sample output**
+               lsusb
 
-         ::
+            **Sample output**
 
-            Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+            ::
 
-   .. tab:: QCS9075
+               Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-      1. Switch on the dip switch S5-4 for EDL mode as shown in the following figure:
+      .. group-tab:: QCS9075
 
-         .. image:: ../../media/k2c-qli-build-ga/qcs9075_qdl_mode_manual.png
+         1. Switch on the dip switch S5-4 for EDL mode as shown in the following figure:
 
-      #. Verify whether the device has entered the QDL mode:
+            .. image:: ../../media/k2c-qli-build-ga/qcs9075_qdl_mode_manual.png
 
-         ::
+         #. Verify whether the device has entered the QDL mode:
 
-            lsusb
+            ::
 
-         **Sample output**
+               lsusb
 
-         ::
+            **Sample output**
 
-            Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+            ::
 
-      #. Switch off the dip switch S5-4 after the flashing completes.
+               Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+         #. Switch off the dip switch S5-4 after the flashing is complete.
 
 .. _section_byn_pdj_x1c:
 

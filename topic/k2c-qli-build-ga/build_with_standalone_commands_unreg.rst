@@ -56,31 +56,7 @@ Sync
 
 This section uses the Repo tool installed in :ref:`Ubuntu host setup <section_twd_1bv_xbc_vinayjk_07-02-24-2039-30-667>` to download a list of git repositories and additional attributes from the `Qualcomm manifest <https://github.com/quic-yocto/qcom-manifest>`__. The Repo tool downloads the manifests using the ``repo init`` command.
 
-The following table shows an example mapping of Yocto layers to the manifest release tags that are used to download and build Qualcomm Linux:
-
-.. note::
-   - The following is the syntax for manifest release tag: ``qcom-<Linux LTS Kernel Version>-QLI.<version>-Ver.<release>.xml``
-    
-     For example, the manifest release tag ``qcom-6.6.38-QLI.1.2-Ver.1.0.xml`` denotes the following:
-     
-     - 6.6.38 – Linux Kernel
-     - QLI.1.2 – Qualcomm Linux version 1.2
-     - 1.0 – Milestone release
-
-   - The following is the syntax for additional productization manifest release tag: ``qcom-<Linux LTS Kernel version>-QLI.<version>-Ver.<release>_<product/customization>-<release>.xml``
-
-     For example, the additional productization manifest release tag ``qcom-6.6.38-QLI.1.2-Ver.1.0_qim-product-sdk-1.1.1.xml`` denotes the following:
-     
-     - 6.6.38 – Linux Kernel
-     - QLI.1.2 – Qualcomm Linux version 1.2
-     - qim-product-sdk-1.1.1 – QIMP SDK release on top of QLI.1.2
-
-       Other product/customization examples:
-
-        - *realtime-linux-1.0*
-        - *robotics-product-sdk-1.1*
-     - 1.0 – Milestone release
-     - 1.1.1 – Patch release associated with the milestone release
+The following table shows an example mapping of the Yocto layers to the manifest release tags, and this mapping is used to download and build the Qualcomm Linux:
 
 .. list-table:: Yocto layers mapped to manifest release tags
    :header-rows: 1
@@ -132,7 +108,35 @@ The following table shows an example mapping of Yocto layers to the manifest rel
        ``qcom-6.6.38-QLI.1.2-Ver.1.0_robotics-product-sdk-1.0.xml``
      - ``qcom-robotics-ros2-humble``
 
-For more information on the Yocto layers, see `Qualcomm Linux metadata layers and descriptions <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-27/platform_software_features.html#id7>`__.
+.. note::
+   - Syntax for the manifest release tag:
+     
+     ``qcom-<Linux LTS Kernel Version>-QLI.<version>-Ver.<release>.xml``
+    
+     For example, the manifest release tag ``qcom-6.6.38-QLI.1.2-Ver.1.0.xml`` denotes the following:
+     
+     - 6.6.38 – Linux Kernel
+     - QLI.1.2 – Qualcomm Linux version 1.2
+     - 1.0 – Milestone release
+
+   - Syntax for the additional productization manifest release tag:
+   
+     ``qcom-<Linux LTS Kernel version>-QLI.<version>-Ver.<release>_<product/customization>-<release>.xml``
+
+     For example, the additional productization manifest release tag ``qcom-6.6.38-QLI.1.2-Ver.1.0_qim-product-sdk-1.1.1.xml`` denotes the following:
+     
+     - 6.6.38 – Linux Kernel
+     - QLI.1.2 – Qualcomm Linux version 1.2
+     - qim-product-sdk-1.1.1 – QIMP SDK release on top of QLI.1.2
+
+       Other product/customization examples:
+
+        - *realtime-linux-1.0*
+        - *robotics-product-sdk-1.1*
+     - 1.0 – Milestone release
+     - 1.1.1 – Patch release associated with the milestone release
+
+   - For more information on the Yocto layers, see `Qualcomm Linux metadata layers and descriptions <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-27/platform_software_features.html#id7>`__.
 
 .. _section_sk2_xk2_fbc:
 

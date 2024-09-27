@@ -89,9 +89,7 @@ Sync
 
 This section uses the Repo tool installed in :ref:`Ubuntu host setup <section_vh2_rqf_v1c_vinayjk_03-22-24-1509-40-643>` to download a list of git repositories and additional attributes from the `Qualcomm manifest <https://github.com/quic-yocto/qcom-manifest>`__. The Repo tool downloads the manifests using the ``repo init`` command.
 
-The following table shows an example mapping of Yocto layers to the
-manifest release tags that are used to download and build Qualcomm
-Linux:
+The following table shows an example mapping of the Yocto layers to the manifest release tags, and this mapping is used to download and build Qualcomm Linux:
 
   .. list-table::
      :header-rows: 1

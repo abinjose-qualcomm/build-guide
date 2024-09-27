@@ -8,19 +8,21 @@ Setup
 How to connect to a UART shell?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. tabs::
+.. container:: persistenttab-soc
 
-   .. tab:: QCS6490/QCS5430
-       
-       To set up the debug UART connection and view diagnostic messages, connect the micro-USB cable from the micro-USB port on the RB3 Gen 2 device to the Linux host.
+   .. tabs::
 
-       .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
+      .. group-tab:: QCS6490/QCS5430
+         
+         To set up the debug UART connection and view diagnostic messages, connect the micro-USB cable from the micro-USB port on the RB3 Gen 2 device to the Linux host.
 
-   .. tab:: QCS9075
+         .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
 
-       To set up the debug UART connection and view diagnostic messages, connect the debug-USB cable from the debug-USB port on the QCS9075 device to the Linux host.
+      .. group-tab:: QCS9075
 
-       .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
+         To set up the debug UART connection and view diagnostic messages, connect the debug-USB cable from the debug-USB port on the QCS9075 device to the Linux host.
+
+         .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
 
 1. Install Minicom on the Linux host:
 
@@ -264,9 +266,7 @@ To check the Ethernet IP address, run the following command:
 How to update USB and Ethernet controller firmware?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you encounter any USB or Ethernet connectivity issues on the RB3 Gen
-2 device, a firmware update for the PCIe to USB controller could be a
-solution.
+For USB or Ethernet connectivity issues on the RB3 Gen 2 device, updating the firmware of the PCIe to USB controller might resolve the issue.
 
 **Prerequisite**: The device should be connected to the SSH terminal.
 

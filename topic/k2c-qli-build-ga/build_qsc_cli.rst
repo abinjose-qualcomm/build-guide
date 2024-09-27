@@ -211,15 +211,14 @@ Download
 When the process is completed successfully, the software product is
 available in the user-provided workspace directory.
 
-.. note:: A new workspace is required for each distribution if you are
-          downloading more than one distribution.
+.. note:: A new workspace is required for each distribution when you download more than one distribution.
 
 .. _section_yhy_11w_q1c_vinayjk_03-07-24-006-28-270:
 
 Compile
 ^^^^^^^^^^^^^^
 
-Start the compilation after the download completes:
+Start the compilation after the download is complete:
 
 .. note:: Depending on the size of the software and host machine configuration, compilation may take a few hours.
 

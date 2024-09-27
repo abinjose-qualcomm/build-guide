@@ -35,7 +35,7 @@ Registered users can use any one of the following three methods to sync and buil
    * - Launcher
      - CLI
      - GitHub
-   * - Easy-to-use, GUI-based, Qualcomm Software Center (QSC) Launcher.
+   * - Easy-to-use, GUI-based, Qualcomm\ :sup:`®` Software Center (QSC) Launcher.
      - Simple QSC command-line interface (CLI).
      - Instructions to use GitHub based workflow.
    * - .. centered:: :doc:`Build with QSC Launcher<build_from_source_qsc_gui_intro>` 
