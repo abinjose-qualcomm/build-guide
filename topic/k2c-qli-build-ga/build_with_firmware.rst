@@ -767,7 +767,7 @@ Build BSP image with extras
       # and enters into build-qcom-wayland directory.
 
    .. note::
-      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
+      To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
 #. Compile the Yocto build:
 
@@ -854,7 +854,7 @@ Build QIMP SDK image with extras
       # and enters into build-qcom-wayland directory.
 
    .. note::
-      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
+      To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
 #. Compile the QIMP SDK build:
 
@@ -959,7 +959,7 @@ Build QIRP SDK image with extras
       ../qirp-build qcom-robotics-full-image
 
    .. note::
-      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
+      To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
    After a successful build, you can see the QIRP SDK build artifacts at the following paths:
 

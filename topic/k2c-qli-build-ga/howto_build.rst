@@ -62,7 +62,7 @@ environment and generate eSDK:
       # Example, bitbake -c do_populate_sdk_ext qcom-multimedia-image
 
    .. note::
-      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.    
+      To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.    
 
 2. After building with ``meta-qcom-extras`` and firmware sources with
    QSC CLI:
@@ -168,7 +168,7 @@ setup and then use the BitBake commands to rebuild:
       bitbake qcom-multimedia-image
 
    .. note::
-      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
+      To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
 -  Build image ``qcom-multimedia-test-image``:
 
@@ -197,7 +197,7 @@ How to build a standalone QDL?
 
    ::
 
-      git clone --depth 1 --branch master https://github.com/linux-msm/qdl
+      git clone --branch master https://github.com/linux-msm/qdl
       cd qdl
       git checkout cbd46184d33af597664e08aff2b9181ae2f87aa6
       make

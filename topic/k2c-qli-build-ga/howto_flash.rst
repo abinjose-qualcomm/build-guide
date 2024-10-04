@@ -24,6 +24,12 @@ For the Qualcomm hardware, the source of platform information on a device is the
 
          wget https://artifacts.codelinaro.org/artifactory/codelinaro-le/qcom-device-config/VISION_KIT_CDT.bin
 
+   -  For the IQ-9100 Kit, download the following file:
+
+      ::
+
+         wget https://codelinaro.jfrog.io/artifactory/codelinaro-le/qcom-device-config/QCS9100/IQ-9100_KIT_CDT.bin
+
 2. Use the CDT binary.
 
    Copy the downloaded CDT binary to a compiled build location. The

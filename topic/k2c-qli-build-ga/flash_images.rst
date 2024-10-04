@@ -41,7 +41,7 @@ Configure the ``udev`` USB rules for the Qualcomm manufacturing vendor ID **05c6
 
       ::
 
-        cat51-qcom-usb.rules
+        cat 51-qcom-usb.rules
 
 3. Restart ``udev``:
 
@@ -56,11 +56,11 @@ If the USB cable is already connected to the host, unplug and reconnect the cabl
 Move to EDL mode
 ------------------
 
-The device must be in the EDL mode before you flash the software. The Qualcomm supported device enters the EDL mode if there is no image on the device after power up or if it is corrupted. To force the device into the EDL mode, use any one of the following methods.
+The device must be in the EDL mode before you flash the software. The Qualcomm supported device by default enters the EDL mode if there is no image on the device after power up or if it is corrupted. To force the device into the EDL mode, use any one of the following methods.
 
 **Using UART**
 
-.. note:: The device must have a Qualcomm Linux build image.
+.. note:: Use UART only if the device has a preloaded build.
 
 1. :ref:`Connect the device to a UART shell <section_ags_ssh_p1c_vinayjk_03-01-24-1109-49-684>`.
 
@@ -70,7 +70,7 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
       reboot edl
 
-3. Verify whether the device has entered the QDL mode:
+3. Verify if the device entered Qualcomm Download (QDL) mode:
 
    ::
 
@@ -82,11 +82,11 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
        Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-.. note:: This procedure is verified on an Ubuntu host machine and not on a VM.
+.. note:: This procedure is applicable for Ubuntu host environment.
 
 **Using ADB**
 
-.. note:: The device must have a Qualcomm Linux build image.
+.. note:: Use ADB only if the device has a preloaded build.
 
 1. `Install
    QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/additional_setup.html#sub$qsg_instal_qud>`__
@@ -118,7 +118,7 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
        Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-.. note:: This procedure is verified on an Ubuntu host machine and not on a VM.
+.. note:: This procedure is applicable for Ubuntu host environment.
 
 **Manual**
 
@@ -168,7 +168,7 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
                 Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-         #. Switch off the dip switch S5-4 after the flashing is complete.
+         .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
 
 .. _section_byn_pdj_x1c:
 
@@ -203,7 +203,7 @@ Flash software using QDL
 
       # Download and compile QDL
       cd <workspace_path>
-      git clone --depth 1 --branch master https://github.com/linux-msm/qdl qdl_tool
+      git clone --branch master https://github.com/linux-msm/qdl qdl_tool
       cd qdl_tool
       git checkout cbd46184d33af597664e08aff2b9181ae2f87aa6
       make
@@ -244,7 +244,9 @@ Flash software using QDL
           2. Disconnect from the host.
           3. Reboot the host.
 
-          Do not move the QDL tool from this location to an alternate path or host machine. If you must use the standalone QDL, see :ref:`How to build a standalone QDL <how_to_build_qdl_standalone>`. To connect to the device, see :ref:`How to SSH <section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279>`.
+          Do not move the QDL tool from the ``<workspace_path>`` location to an alternate path or host machine. If you must use the standalone QDL, see :ref:`How to build a standalone QDL <how_to_build_qdl_standalone>`.
+          
+          To connect to the device, see :ref:`How to SSH <section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279>`.
 
 
 .. note:: The device reboots after the flashing procedure is completed successfully. To verify the updated software version, see `Check software version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#sub$check_sw_version_uart>`__.
@@ -275,7 +277,7 @@ Flash software using PCAT
 
        crw-rw-rw- 1 root 242 0 Dec 10 10:51 /dev/QTI_HS-USB_QDLoader_9008_3-8:1.0
 
-3. Verify whether the device has entered the QDL mode:
+3. Verify if the device entered QDL mode:
 
    ::
 
@@ -301,7 +303,7 @@ Flash software using PCAT
       ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
       NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
 
-5. Download the build:
+5. Flash the build:
 
    ::
 
@@ -330,5 +332,5 @@ Flash software using PCAT
        Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 
 .. note::
-   -  To connect to the device, see :ref:`How to SSH <section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279>`.
    -  The device reboots on successful completion of the flashing procedure. To verify the updated software version, see `Check software version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#sub$check_sw_version_uart>`__.
+   -  To connect to the device, see :ref:`How to SSH <section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279>`.

@@ -166,7 +166,7 @@ Build QIMP SDK image
          # and enters into build-qcom-wayland directory.
 
       .. note::
-          To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
+          To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
    #. Build the software image:
 

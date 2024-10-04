@@ -164,7 +164,7 @@ follow these steps to build ``meta-qcom-qim-product-sdk``:
       # and enters into build-qcom-wayland directory
 
    .. note::
-      To know the ``<machine>`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
+      To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
 3. Build the software image:
 
