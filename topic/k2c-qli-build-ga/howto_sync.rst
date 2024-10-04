@@ -5,12 +5,10 @@ Sync
 
 .. _section_znd_jcg_v1c_vinayjk_03-22-24-1638-43-232:
 
-Repo installation alternate methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Alternative methods to install Repo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The latest Repo works with python3 and if your default Python is pointed
-to python2, then install ``python-is-python3`` to make python3 as the
-default Python.
+The latest Repo works with python3. If your default Python is pointed to python2, then install ``python-is-python3`` to make python3 as the default Python.
 
 ::
 
@@ -23,8 +21,7 @@ default Python.
    git checkout -b v2.41
    export PATH=~/bin/repo_tool:$PATH
 
-If the previous steps do not work, you can install Repo using the
-following commands:
+If the previous steps do not work, install Repo using the following commands:
 
 ::
 
@@ -39,37 +36,36 @@ following commands:
 
 .. _section_em1_xng_q1c_vinayjk_03-04-24-2103-35-76:
 
-How does QSC-CLI work?
+How does QSC CLI work?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. **Setup**
 
-   QSC-CLI installs Docker and configures git.
+   QSC CLI installs Docker and configures git.
 
 2. **Sync**
 
-   QSC-CLI downloads the firmware sources and the Qualcomm Yocto layers, based on the input parameters.
+   QSC CLI downloads the firmware sources and the Qualcomm Yocto layers, based on the input parameters.
 
 3. **Build**
 
-   QSC-CLI builds the necessary Qualcomm firmware and the Qualcomm Yocto layers.
+   QSC CLI builds the necessary Qualcomm firmware and the Qualcomm Yocto layers.
 
-4. Internally, QSC-CLI implements the standalone commands covered in the :doc:`GitHub workflow (firmware and extras) <build_addn_info>` and leverages the prebuilt Docker images for the respective Qualcomm style software images. For example, ``LE.QCLINUX.1.0.r1``.
+4. Internally, QSC CLI implements the standalone commands covered in the :doc:`GitHub workflow (firmware and extras) <build_addn_info>` and leverages the prebuilt Docker images for the respective Qualcomm style software images. For example, ``LE.QCLINUX.1.0.r1``.
 
 .. _section_gcp_5hh_q1c_vinayjk_03-04-24-2335-11-750:
 
-How to see more information on commands and options supported by QSC-CLI?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+View information about QSC CLI commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To see all the commands provided by QSC-CLI, run the following commands:
+To see all the commands provided by QSC CLI, run the following commands:
 
 ::
 
    qsc-cli -h
    qsc-cli download –h
 
-To see more details about a particular command, you can append ``-h`` to
-the command. For example:
+To see more details about a particular command, you can append ``-h`` to the command. For example:
 
 ::
 
@@ -77,8 +73,8 @@ the command. For example:
 
 .. _section_hxv_5hh_q1c_vinayjk_03-04-24-2335-16-353:
 
-How to manage workspaces using QSC-CLI?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Manage workspaces using QSC CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 List the workspaces using the following command:
 
@@ -97,16 +93,12 @@ To delete a workspace, run the following command:
 
 .. _section_kw3_vhh_q1c_vinayjk_03-04-24-2335-25-119:
 
-How do I find my Yocto workspace with QSC-CLI?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Find a Yocto workspace using QSC CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can install the ``tree`` command and run it on your workspace. The
-Yocto workspace is under the ``LE.QCLINUX.1.0.r1`` directory as shown in
-the following views. These directories stay the same for future
-releases.
+You can install the ``tree`` command and run it on your workspace. The Yocto workspace is under the ``LE.QCLINUX.1.0.r1`` directory. These directories stay the same for future releases.
 
--  **QSC-CLI workspace structure after
-   ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK`` distribution
+-  **QSC CLI workspace structure after ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK`` distribution
    build**
 
    The following is a sample view, in which:
@@ -117,7 +109,7 @@ releases.
       ``LE.QCLINUX.1.0.r1/layers``.       
       |YoctoLEQCLinux|
 
--  **QSC-CLI workspace structure after
+-  **QSC CLI workspace structure after
    ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem`` distribution build
    with firmware and extras**
 
@@ -153,7 +145,7 @@ This includes the following steps:
 
    .. note:: For the ``<manifest release tag>`` information, see the
              *Build-critical release tags* section in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
-             An example ``<manifest release tag>`` is ``qcom-6.6.38-QLI.1.2-Ver.1.0.xml``.
+             An example ``<manifest release tag>`` is ``qcom-6.6.38-QLI.1.2-Ver.1.1.xml``.
 
 2. Set up the build environment:
 

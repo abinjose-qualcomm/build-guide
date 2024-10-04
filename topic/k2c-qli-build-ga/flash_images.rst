@@ -1,4 +1,4 @@
-.. _flash_images_unregistered:
+.. _flash_images:
 
 Flash images
 ===============
@@ -15,7 +15,7 @@ Follow these steps to flash the software:
 .. _update_udev_rules:
 
 Update ``udev`` rules
-------------------------------------
+------------------------
 
 Configure the ``udev`` USB rules for the Qualcomm manufacturing vendor ID **05c6** on the Linux host:
 
@@ -35,26 +35,26 @@ Configure the ``udev`` USB rules for the Qualcomm manufacturing vendor ID **05c6
 
       ::
 
-         SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0666", GROUP="plugdev"
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0666", GROUP="plugdev"
 
    -  If the file exists, then check for the previous content:
 
       ::
 
-         cat51-qcom-usb.rules
+        cat51-qcom-usb.rules
 
 3. Restart ``udev``:
 
    ::
 
-      sudo systemctl restart udev
+     sudo systemctl restart udev
 
-If the USB cable is already connected to the host, unplug the cable and then reconnect it for the updated rules to take effect.
+If the USB cable is already connected to the host, unplug and reconnect the cable for the updated rules to take effect.
 
 .. _section_vgg_mly_v1c:
 
 Move to EDL mode
-------------------------------------
+------------------
 
 The device must be in the EDL mode before you flash the software. The Qualcomm supported device enters the EDL mode if there is no image on the device after power up or if it is corrupted. To force the device into the EDL mode, use any one of the following methods.
 
@@ -177,12 +177,13 @@ Flash software using QDL
 .. note::
    - This process is available for both registered and unregistered users.
    - **Prerequisites**
-      - The modules ``make`` and ``gcc`` must be available.
-      - Install the following dependent packages:
+     
+     - The modules ``make`` and ``gcc`` must be available.
+     - Install the following dependent packages:
 
-        ::
+       ::
 
-          sudo apt-get install git libxml2-dev libusb-1.0-0-dev pkg-config
+         sudo apt-get install git libxml2-dev libusb-1.0-0-dev pkg-config
 
 1. Ensure that the ModemManager tool is not running.
 
@@ -260,7 +261,7 @@ Flash software using PCAT
     qpm-cli --install pcat --activate-default-license
     qpm-cli --install qud --activate-default-license
 
-   .. note:: For Ubuntu 22.04, you may encounter an issue while installing QUD, where you might be asked to enroll the public key on your Linux host for a successful QUD installation. For additional details, follow the steps provided in the README file available in the ``/opt/QUIC/sign/signReadme.txt`` directory.
+   .. note:: For Ubuntu 22.04, you may encounter an issue while installing QUD, where you might be asked to enroll the public key on your Linux host for a successful QUD installation. For additional details, follow the steps provided in the README file available in the ``/opt/QTI/sign/signReadme.txt`` directory.
 
 2. Check if the ``QTI_HS-USB_QDLoader`` driver is available in the installed directory:
 
@@ -294,11 +295,11 @@ Flash software using PCAT
 
    **Sample output**
 
-   .. container:: screenoutput
+   ::
 
-       Searching devices in Device Manager, please wait for a moment…
-       ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
-       NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
+      Searching devices in Device Manager, please wait for a moment…
+      ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
+      NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
 
 5. Download the build:
 
@@ -329,6 +330,5 @@ Flash software using PCAT
        Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 
 .. note::
-
    -  To connect to the device, see :ref:`How to SSH <section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279>`.
    -  The device reboots on successful completion of the flashing procedure. To verify the updated software version, see `Check software version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#sub$check_sw_version_uart>`__.

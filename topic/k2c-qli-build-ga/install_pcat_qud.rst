@@ -19,4 +19,4 @@ Install PCAT and QUD using ``qpm-cli``:
 
 The ``qpm-cli --help`` command lists the help options.
 
-For Ubuntu 22.04, you may encounter an issue while installing QUD where you are asked to enroll the public key on your Linux host for a successful QUD installation. For more information, follow the steps provided in the ``signReadme.txt`` file available at the ``/opt/QUIC/sign/`` directory.
+For Ubuntu 22.04, you may encounter an issue while installing QUD where you are asked to enroll the public key on your Linux host for a successful QUD installation. For more information, follow the steps provided in the ``signReadme.txt`` file available at the ``/opt/QTI/sign/`` directory.

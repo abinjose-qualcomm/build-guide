@@ -40,11 +40,8 @@ Registered users can use any one of the following three methods to sync and buil
      - .. centered:: :doc:`Build with QSC CLI <build_from_source_QSC_CLI>`
      - .. centered:: :doc:`GitHub workflow for registered users <build_from_source_github_intro>`
 
-.. only:: html
-
-      .. figure:: ../../media/k2c-qli-build-ga/explore_QSC.svg
-         :align: center
-
+.. figure:: ../../media/k2c-qli-build-ga/explore_QSC.svg
+   :align: center
 
 .. note::
 

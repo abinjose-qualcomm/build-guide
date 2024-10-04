@@ -33,7 +33,7 @@ Host machine requirements
       
 
    * - 300 GB free disk space (swap partition > 32 GB)
-     - 300 GB free space for the VirtualBox VM
+     - 300 GB free space for the Windows Subsystem for Linux (WSL)
      - 300 GB free space for UTM
      - Python 3.10.2 or later versions
       

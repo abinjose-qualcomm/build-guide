@@ -28,6 +28,7 @@ QSC             Qualcomm software center
 QUD             Qualcomm USB drivers
 SDK             Software development kit
 TZ              TrustZone
+WSL             Windows Subsystem for Linux
 =============== =======================================
 
 

@@ -206,7 +206,7 @@ Sync
 
    **Solution**
 
-   This error occurs because QSC-CLI is incompatible with Qlauncher.
+   This error occurs because QSC CLI is incompatible with Qlauncher.
    Qlauncher is going to be deprecated and replaced with a new
    application from the QSC. If you have Qlauncher in the workspace, you
    can run the following commands:
@@ -259,9 +259,9 @@ Sync
    ::
 
       # Replace the following command
-      repo init -u https://github.com/quic-yocto/qcom-manifest -b qcom-linuxSTXkirkstone -m qcom-6.6.38-QLI.1.2-Ver.1.0.xml
+      repo init -u https://github.com/quic-yocto/qcom-manifest -b qcom-linuxSTXkirkstone -m qcom-6.6.38-QLI.1.2-Ver.1.1.xml
       # with
-      repo init -u https://github.com/quic-yocto/qcom-manifest -b qcom-linux-kirkstone -m qcom-6.6.38-QLI.1.2-Ver.1.0.xml
+      repo init -u https://github.com/quic-yocto/qcom-manifest -b qcom-linux-kirkstone -m qcom-6.6.38-QLI.1.2-Ver.1.1.xml
 
 .. _section_ays_4gc_p1c_vinayjk_02-29-24-1707-9-256:
 
@@ -400,8 +400,7 @@ Build
              can significantly increase the build time. It is recommended to
              enable it only in required recipes on a need basis.
 
--  **Failed SP Download with error: <> Sp Download failed. ExitCode: 128
-   Signal: 0 with errorcode 4**
+-  **Failed SP Download with error: <> Sp Download failed. ExitCode: 128 Signal: 0 with errorcode 4**
 
    **Error excerpt**
 
@@ -436,8 +435,7 @@ Build
       export LC_ALL=en_US.UTF-8
       export LANG=en_US.UTF-8
 
--  **layer directories do not exist
-   build-qcom-wayland/conf/../../layers/meta-qcom-qim-product-sdk**
+-  **layer directories do not exist build-qcom-wayland/conf/../../layers/meta-qcom-qim-product-sdk**
 
    This error occurs due to one of the following reasons:
 
@@ -460,16 +458,11 @@ Build
    -  Remove the ``build-qcom-wayland`` directory.
    -  Rerun the commands in :ref:`Build QIMP SDK image <section_lrb_1nd_fbc>`.
 
--  **failed: database disk image is malformed. abort()ing pseudo client
-   by server request**
+-  **failed: database disk image is malformed. abort()ing pseudo client by server request**
 
-   The Pseudo tool encounters path mismatch and corrupt database issues
-   when processing file system operations. When Pseudo simulates file
-   system operations in a Yocto project, problems might occur in the
-   process of handling file paths and permissions.
+   The Pseudo tool encounters path mismatch and corrupt database issues when processing file system operations. When Pseudo simulates file system operations in a Yocto project, problems might occur in the process of handling file paths and permissions.
 
-   This is a known issue in the `Yocto
-   community <https://wiki.yoctoproject.org/wiki/Pseudo_Abort>`__.
+   This is a known issue in the `Yocto community <https://wiki.yoctoproject.org/wiki/Pseudo_Abort>`__.
 
    **Solution**
 
@@ -480,6 +473,19 @@ Build
       rm -rf <workspace_path>/build-qcom-robotics-ros2-humble/tmp-glibc
       bitbake -c cleanall pseudo-native & bitbake pseudo-native
       ../qirp-build qcom-robotics-full-image
+
+-  **pyinotify.WatchManagerError: No space left on device (ENOSPC)**
+
+   This error is triggered during compilation.
+
+   **Solution**
+
+   Run the following commands:
+
+   ::
+
+      sudo su
+      echo 1048576 > /proc/sys/fs/inotify/max_user_watches
 
 .. _section_uwl_lhc_p1c_vinayjk_02-29-24-1713-48-740:
 

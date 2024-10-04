@@ -42,5 +42,3 @@ For the Qualcomm hardware, the source of platform information on a device is the
       <program SECTOR_SIZE_IN_BYTES="4096" file_sector_offset="0" filename="CORE_KIT_CDT.bin" label="cdt" num_partition_sectors="32" partofsingleimage="false" physical_partition_number="3" readbackverify="false" size_in_KB="128.0" sparse="false" start_byte_hex="0x20000" start_sector="32"/>
 
 Continue with the flashing instructions.
-
-

@@ -10,26 +10,26 @@ This section provides sample workspace structures with ``qsc-cli`` and GitHub wo
 Workspace structure with qsc-cli
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Directory structure before the
+-  The directory structure before the
    ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK`` distribution build
    is shown in the following figure (``LE.QCLINUX.1.0.r1`` contains the
    Yocto workspace):
 
          .. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_1.png
 
--  Directory structure after
+-  The directory structure after
    ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK`` distribution build
    is shown in the following figure:
 
          .. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_2.png
 
--  Directory structure before
+-  The directory structure before
    ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem`` distribution build
    with firmware and extras is shown in the following figure:
 
          .. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_3.png
 
--  Directory structure after
+-  The directory structure after
    ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem`` distribution build
    with firmware and extras is shown in the following figure:
 
@@ -40,17 +40,17 @@ Workspace structure with qsc-cli
 Workspace structure with GitHub workflow standalone instructions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Directory structure before GitHub workflow QIMP SDK standalone build
+-  The directory structure before GitHub workflow QIMP SDK standalone build
    is shown in the following figure:
 
         .. image:: ../../media/k2c-qli-build-ga/ws_standalone_1.png
 
--  Directory structure after GitHub workflow QIMP SDK standalone build
+-  The directory structure after GitHub workflow QIMP SDK standalone build
    is shown in the following figure:
 
         .. image:: ../../media/k2c-qli-build-ga/ws_standalone_2.png
 
--  Directory structure after building firmware of
+-  The directory structure after building firmware of
    ``qualcomm-linux-spf-1-0_ap_standard_oem_nomodem`` is shown in the
    following figure:
 
@@ -60,7 +60,7 @@ Workspace structure with GitHub workflow standalone instructions
    
    |ws_standalone_3|
 
--  Directory structure after building firmware of
+-  The directory structure after building firmware of
    ``qualcomm-linux-spf-1-0_amss_standard_oem_nomodem`` is shown in the
    following figure:
 
@@ -75,7 +75,7 @@ Workspace structure with GitHub workflow standalone instructions
 Images directory structure after successful build
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Images directory after a successful build is shown in the following figure:
+-  The following figure shows the Images directory after a successful build:
 
    .. image:: ../../media/k2c-qli-build-ga/ws_standalone_5.png
 

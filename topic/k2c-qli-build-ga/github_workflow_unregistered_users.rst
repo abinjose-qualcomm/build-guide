@@ -5,7 +5,7 @@
 GitHub workflow for unregistered users
 =============================================
 
-.. note:: To know the chip products that support this build method, see the *Sync and build methods* table in the Release Notes.
+.. note:: To know the chip products that support this build method, see the *Sync and build methods* table in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-240929204440/>`__.
 
 The following sections explain how to use GitHub and make a build using the prebuilt proprietary binaries/images.
 
