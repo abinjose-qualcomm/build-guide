@@ -6,8 +6,10 @@ Flash images
 Follow these steps to flash the software images:
 
 1. Update the ``udev`` rules (one-time prerequisite).
-2. Move the device to Emergency Download (EDL) mode.
-3. Flash the software:
+#. Move the device to Emergency Download (EDL) mode.
+#. Provision UFS.
+#. Flash CDT.
+#. Flash the software:
 
    - Using QDL
    - Using PCAT
@@ -80,7 +82,9 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
    .. container:: screenoutput
 
-       Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+      .. line-block::
+
+          Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 .. note:: This procedure applies to the Ubuntu host environment.
 
@@ -116,7 +120,9 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
    .. container:: screenoutput
 
-       Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+      .. line-block::
+
+          Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 .. note:: This procedure applies to the Ubuntu host environment.
 
@@ -148,9 +154,11 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
             .. container:: screenoutput
 
-                Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+               .. line-block::
 
-      .. group-tab:: QCS9075
+                   Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+      .. group-tab:: QCS9075/QCS8300
 
          1. Switch on the dip switch S5-4 to put the device in the EDL mode.
 
@@ -166,24 +174,24 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
             .. container:: screenoutput
 
-                Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+               .. line-block::
+
+                   Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
          .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
+
+Provision UFS
+---------------
+See :ref:`Provision UFS <ufs_provisioning>`.
+
+Flash CDT
+----------
+See :ref:`Flash CDT <flash_CDT>`.
 
 .. _section_byn_pdj_x1c:
 
 Flash software using QDL
 ------------------------------------
-.. note::
-   - This process is available for both registered and unregistered users.
-   - **Prerequisites**
-     
-     - The modules ``make`` and ``gcc`` must be available.
-     - Install the following dependent packages:
-
-       ::
-
-         sudo apt-get install git libxml2-dev libusb-1.0-0-dev pkg-config
 
 1. Ensure that the ModemManager tool is not running.
 
@@ -197,46 +205,56 @@ Flash software using QDL
 
    If you need the ModemManager, you can restart it after the flashing is complete.
   
-#. Download the QDL tool, compile it, and flash the images:
+#. Download the QDL tool:
 
-   ::
+   a. Using GUI
 
-      # Download and compile QDL
-      cd <workspace_path>
-      git clone --branch master https://github.com/linux-msm/qdl qdl_tool
-      cd qdl_tool
-      git checkout cbd46184d33af597664e08aff2b9181ae2f87aa6
-      make
+      Download QDL tool from https://softwarecenter.qualcomm.com/api/download/software/tool/Qualcomm_Device_Loader/1.0.1/Windows/Qualcomm_Device_Loader.Core.1.0.1.Windows-AnyCPU.zip and unzip the contents of the downloaded folder.
 
-      # Flash images
+   #. Using CLI
+
+      ::
+
+         mkdir <qdl_tool_path>
+         cd <qdl_tool_path>
+         curl -L https://apigwx-aws.qualcomm.com/qsc/public/v1/api/download/software/tool/Qualcomm_Device_Loader/1.0.1/Windows/Qualcomm_Device_Loader.Core.1.0.1.Windows-AnyCPU.zip -o qdl_all.zip
+         unzip qdl_all.zip
+
+#. Flash the images:
+
       # Built images are under <workspace_path>/build-<DISTRO>/tmp-glibc/deploy/images/<MACHINE>/<IMAGE>
       # build_path: For DISTRO=qcom-wayland, it is build-qcom-wayland. 
       #             For DISTRO=qcom-robotics-ros2-humble, it is build-qcom-robotics-ros2-humble
       # qdl <prog.mbn> [<program> <patch> ...]
       # Example: build_path is build-qcom-wayland
       cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image
-      <workspace_path>/qdl_tool/qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+      <qdl_tool_path>/qdl_1.0.1/QDL_Linux_x64/qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+
+   .. note:: Use QDL binary based on the host machine architecture. For example, linux_x64 supported qdl binary is ``qdl_1.0.1/QDL_Linux_x64/qdl``.
 
    Flashing is successful if you see *partition 1 is now bootable* on the terminal window as shown in the following message:
 
-   ::
+   .. container:: screenoutput
 
-      LOG: INFO: Calling handler for setbootablestoragedrive
-      LOG: INFO: Using scheme of value = 1 
-      partition 1 is now bootable
-      LOG: INFO: Calling handler for power
-      LOG: INFO: Will issue reset/power off 100 useconds, if this hangs check if watchdog is enabled
-      LOG: INFO: bsp_target_reset() 1
+      .. line-block::
+
+         LOG: INFO: Calling handler for setbootablestoragedrive
+         LOG: INFO: Using scheme of value = 1 
+         partition 1 is now bootable
+         LOG: INFO: Calling handler for power
+         LOG: INFO: Will issue reset/power off 100 useconds, if this hangs check if watchdog is enabled
+         LOG: INFO: bsp_target_reset() 1
 
    After a successful flashing operation, run the ``lsusb`` command to see the device information on the terminal window as shown in line 4 of the following message:
    
-
    .. container:: screenoutput
+
+      .. line-block::
       
-       # Sample output for QCS6490
-       Bus 002 Device 003: ID 05c6:9135 Qualcomm, Inc. qcs6490-rb3gen2-vision-kit
-       Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-       Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+         # Sample output for QCS6490
+         Bus 002 Device 003: ID 05c6:9135 Qualcomm, Inc. qcs6490-rb3gen2-vision-kit
+         Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+         Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
    To verify the updated software version, see `Check software version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#check-software-version>`__.
 
@@ -270,7 +288,9 @@ Flash software using PCAT
 
    .. container:: screenoutput
 
-       crw-rw-rw- 1 root 242 0 Dec 10 10:51 /dev/QTI_HS-USB_QDLoader_9008_3-8:1.0
+      .. line-block::
+
+          crw-rw-rw- 1 root 242 0 Dec 10 10:51 /dev/QTI_HS-USB_QDLoader_9008_3-8:1.0
 
 3. Verify if the device entered the QDL mode:
 
@@ -282,7 +302,9 @@ Flash software using PCAT
 
    .. container:: screenoutput
 
-       Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+      .. line-block::
+
+          Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 4. Check if the device is recognized by the PCAT:
 
@@ -292,11 +314,13 @@ Flash software using PCAT
 
    **Sample output**
 
-   ::
+   .. container:: screenoutput
 
-      Searching devices in Device Manager, please wait for a moment…
-      ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
-      NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
+      .. line-block::
+
+         Searching devices in Device Manager, please wait for a moment…
+         ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
+         NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
 
 5. Flash the build:
 
@@ -311,19 +335,22 @@ Flash software using PCAT
 
    .. container:: screenoutput
 
+      .. line-block::
 
-       xxxx INFO] [ FIRMWARE DOWNLOAD LOG ] Process Finished
-       xxxx INFO] Status   - TRUE
-       xxxx INFO] Response - Downloading software images completed on the device Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
+         xxxx INFO] [ FIRMWARE DOWNLOAD LOG ] Process Finished
+         xxxx INFO] Status   - TRUE
+         xxxx INFO] Response - Downloading software images completed on the device Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
 
    After a successful flashing operation, run the ``lsusb`` command to see the device information on the terminal window as shown in line 4 of the following message:
 
    .. container:: screenoutput
+
+      .. line-block::
  
-       # Sample output for QCS6490
-       Bus 002 Device 003: ID 05c6:9135 Qualcomm, Inc. qcs6490-rb3gen2-vision-kit
-       Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-       Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+         # Sample output for QCS6490
+         Bus 002 Device 003: ID 05c6:9135 Qualcomm, Inc. qcs6490-rb3gen2-vision-kit
+         Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+         Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
    The device reboots after the flashing procedure is completed successfully. To verify the updated software version, see `Check software version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#check-software-version>`__.
 

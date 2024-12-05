@@ -1,15 +1,14 @@
 .. _howto_build:
 
 Build
------------
+-------
 
 .. _section_gcp_5hh_q1c_vinayjk_03-04-24-2335-11-750:
 
 Check if the build is complete
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If your build instruction is ``bitbake qcom-multimedia-image``, check if the ``system.img`` is present in the ``<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image``
-directory:
+If your build instruction is ``bitbake qcom-multimedia-image``, check if the ``system.img`` is present in the ``<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image`` directory:
 
 ::
 
@@ -31,11 +30,13 @@ Generate an eSDK
 
    The output for this command is as follows:
 
-   ::
+   .. container:: screenoutput
 
-      REPOSITORY                                                           TAG                         IMAGE ID       CREATED        SIZE
-      032693710300.dkr.ecr.us-west-2.amazonaws.com/stormchaser/ql-tool     20.04.20231220102843864.9   864b345bd707   2 months ago   715MB
-      032693710300.dkr.ecr.us-west-2.amazonaws.com/stormchaser/le.um-k2c   20.04.20231215014450998.7   4678dda58a91   2 months ago   929MB
+      .. line-block::
+
+         REPOSITORY                                                           TAG                         IMAGE ID       CREATED        SIZE
+         032693710300.dkr.ecr.us-west-2.amazonaws.com/stormchaser/ql-tool     20.04.20231220102843864.9   864b345bd707   2 months ago   715MB
+         032693710300.dkr.ecr.us-west-2.amazonaws.com/stormchaser/le.um-k2c   20.04.20231215014450998.7   4678dda58a91   2 months ago   929MB
 
 2. Attach the container:
 
@@ -130,13 +131,15 @@ Set up the environment and generate eSDK:
 
 **Error excerpt**
 
-::
+.. container:: screenoutput
 
-   ERROR: When reparsing /local/mnt/workspace/extras/DEV/LE.QCLINUX.1.0.r1/build-qcom-wayland/conf/../../layers/meta-qcom-distro/recipes-products/images/qcom-multimedia-image.bb:do_populate_sdk_ext, the basehash value changed from 7bce27b0510cb666f1bba1d03f055cfef48f9db2eabc17d490e14bbe4c632eba to 48ccd9d7370e0bf2435aa8b5067162932e07a3832adfa6ca037aa0ddb765c8de. The metadata is not deterministic and this needs to be fixed.
-   ERROR: The following commands may help:
-   ERROR: $ bitbake qcom-multimedia-image -cdo_populate_sdk_ext -Snone
-   ERROR: Then:
-   ERROR: $ bitbake qcom-multimedia-image -cdo_populate_sdk_ext -Sprintdiff
+   .. line-block::
+
+      ERROR: When reparsing /local/mnt/workspace/extras/DEV/LE.QCLINUX.1.0.r1/build-qcom-wayland/conf/../../layers/meta-qcom-distro/recipes-products/images/qcom-multimedia-image.bb:do_populate_sdk_ext, the basehash value changed from 7bce27b0510cb666f1bba1d03f055cfef48f9db2eabc17d490e14bbe4c632eba to 48ccd9d7370e0bf2435aa8b5067162932e07a3832adfa6ca037aa0ddb765c8de. The metadata is not deterministic and this needs to be fixed.
+      ERROR: The following commands may help:
+      ERROR: $ bitbake qcom-multimedia-image -cdo_populate_sdk_ext -Snone
+      ERROR: Then:
+      ERROR: $ bitbake qcom-multimedia-image -cdo_populate_sdk_ext -Sprintdiff
 
 **Solution**
 

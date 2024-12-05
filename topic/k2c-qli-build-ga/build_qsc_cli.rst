@@ -71,11 +71,11 @@ Flash
 
 .. note:: For the QSC CLI to detect the connected devices and flash the software builds, ensure that the Qualcomm Product Configuration Assistant Tool (PCAT) and Qualcomm USB Driver (QUD) are installed on the host machine. Use the ``qpm-cli`` command to install PCAT and QUD:
 
-::
+   ::
 
-  qpm-cli --login
-  qpm-cli --install pcat --activate-default-license
-  qpm-cli --install qud --activate-default-license
+      qpm-cli --login
+      qpm-cli --install pcat --activate-default-license
+      qpm-cli --install qud --activate-default-license
 
 The ``qpm-cli --help`` command lists the help options.
 

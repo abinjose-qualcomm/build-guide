@@ -31,4 +31,5 @@ TZ              TrustZone
 WSL             Windows Subsystem for Linux
 =============== =======================================
 
-
+.. image:: ../../media/k2c-qli-build-ga/accept.png
+    :align: Center

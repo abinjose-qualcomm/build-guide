@@ -18,7 +18,7 @@ Connect to a UART shell
 
          .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
 
-      .. group-tab:: QCS9075
+      .. group-tab:: QCS9075/QCS8300
 
          To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the QCS9075 device to the Linux host.
 
@@ -99,10 +99,10 @@ Connect to a UART shell
 
       mount -o rw,remount /
 
-.. _section_hmw_vsh_p1c_vinayjk_03-01-24-1110-45-279:
+.. _connect_to_network:
 
-Connect to Network
-^^^^^^^^^^^^^^^^^^
+Connect to the network
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _howto_setup_wifi_sub:
 
@@ -180,10 +180,10 @@ To update the Wi-Fi configuration, perform the following from the debug :ref:`UA
 
       ping qualcomm.com
 
-.. _howto_login_via_ssh:
+.. _login_using_ssh:
 
-**Login via SSH**
-^^^^^^^^^^^^^^^^^
+**Log in using SSH**
+^^^^^^^^^^^^^^^^^^^^^
 
 Ensure that a :ref:`Wi-Fi connection <howto_setup_wifi_sub>` is established before connecting to SSH.
 
@@ -216,9 +216,7 @@ Ensure that a :ref:`Wi-Fi connection <howto_setup_wifi_sub>` is established befo
 Configure Ethernet with RJ45 port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ethernet/RJ45 port is enabled as a downstream port of PCIe to USB
-controller (``renesas``). Ensure that the ``renesas_usb_fw.mem`` is
-available at the ``/lib/firmware`` directory.
+Ethernet/RJ45 port is enabled as a downstream port of PCIe to USB controller (``renesas``). Ensure that the ``renesas_usb_fw.mem`` file is available at the ``/lib/firmware`` directory.
 
 .. note:: 
    - If the ``renesas_usb_fw.mem`` firmware is not available at the ``/lib/firmware`` directory, then :ref:`connect to UART <section_ags_ssh_p1c_vinayjk_03-01-24-1109-49-684>` and :ref:`enable the Wi-Fi <howto_setup_wifi_sub>`.
@@ -308,7 +306,9 @@ If you encounter USB or Ethernet connectivity issues on the RB3 Gen 2 device, co
 
    .. container:: screenoutput
 
-       7dc85f5e     fastboot
+      .. line-block::
+
+         7dc85f5e     fastboot
 
 #. Flash the ``usb_fw.img`` image to the device:
 
