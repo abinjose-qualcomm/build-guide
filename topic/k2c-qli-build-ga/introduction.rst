@@ -48,7 +48,7 @@ Registered users can use any one of the following three methods to sync and buil
      - Simple QSC command-line interface (CLI).
      - Instructions to use GitHub based workflow.
    * - .. centered:: :doc:`Build with QSC Launcher <build_from_source_qsc_gui_intro>` 
-     - .. centered:: :doc:`Build with QSC CLI <build_from_source_QSC_CLI>`
+     - .. centered:: :doc:`Build with QSC CLI <build_from_source_qsc_cli>`
      - .. centered:: :doc:`Build with GitHub for registered users <build_from_source_github_intro>`
 
 .. only:: html
@@ -61,4 +61,7 @@ Registered users can use any one of the following three methods to sync and buil
    .. figure:: ../../media/k2c-qli-build-ga/explore_QSC_pdf.svg
       :align: center
 
-.. note:: See `hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-115/soc.html>`__ that are supported on Qualcomm Linux.
+.. note::
+  
+   - See `hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-115/soc.html>`__ that are supported on Qualcomm Linux.
+   - For QCS615 build instructions, see `QCS615.LE.1.0 Software User Guide <https://docs.qualcomm.com/bundle/resource/topics/80-70018-75/introduction_1.html>`__.

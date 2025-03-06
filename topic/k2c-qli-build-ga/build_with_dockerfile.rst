@@ -33,6 +33,7 @@ The Ubuntu host computer must be setup to ensure that the required software tool
       
       ::
 
+         sudo groupadd docker
          sudo usermod -aG docker $USER
          newgrp docker
          # To check if user is part of a Docker group, run the following command:

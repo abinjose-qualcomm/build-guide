@@ -3,6 +3,8 @@ Build Qualcomm Linux Software
 
 .. raw:: html
 
+  <link rel="stylesheet" type="text/css" href="https://d3je78mjrgbmx8.cloudfront.net/topic-card.css">
+
   <style>
 
     .topic-card .header-container>.sd-card-text img,
@@ -35,32 +37,33 @@ Build Qualcomm Linux Software
   </style>
 
 .. grid:: 2 2 3 3
-    :gutter: 4
+  :gutter: 4
 
-    .. grid-item-card::
-      :class-card: topic-card card-bg-fill
+  .. grid-item-card::
+    :class-card: topic-card card-bg-fill
 
-      .. container:: header-container
+    .. container:: header-container
 
-        |icn-sparkles|
+      |icn-sparkles|
 
-        .. container:: topic-container
+      .. container:: topic-container
 
-          |icn-book-blue| Topics
+        |icn-book-blue| Topics
 
-          Featured topics
+        Featured topics
 
-      .. container:: body-container
+    .. container:: body-container
 
-        |icn-book-blue| :ref:`Build with QSC Launcher <build_from_source_qsc_gui_intro>` |icn-arrow-right|
+      |icn-book-blue| :ref:`Build with QSC Launcher <build_from_source_qsc_gui_intro>` |icn-arrow-right|
 
-        |icn-book-blue| :ref:`Flash software images <flash_images>` |icn-arrow-right|
+      |icn-book-blue| :ref:`Flash software images <flash_images>` |icn-arrow-right|
 
 .. grid:: 2 2 3 3
     :gutter: 4
     :class-container: get-started-cards
 
     .. grid-item-card::  |icn-book-blue|  Build with QSC Launcher
+        :class-card: card-base-line
         :class-title: font-link
         :class-body: font-gray-60
         :link: build_from_source_qsc_gui_intro
@@ -69,6 +72,7 @@ Build Qualcomm Linux Software
         The Qualcomm® Software Center (QSC) launcher is a GUI-based desktop application where users can download, compile, and flash the Qualcomm Linux software builds through a GUI.
 
     .. grid-item-card::  |icn-book-blue|  Build with QSC CLI
+        :class-card: card-base-line
         :class-title: font-link
         :class-body: font-gray-60
         :link: build_from_source_qsc_cli
@@ -77,6 +81,7 @@ Build Qualcomm Linux Software
         The QSC CLI is a command line interface (CLI) where users can download, compile, and flash the Qualcomm Linux builds through a command line.
 
     .. grid-item-card::  |icn-book-blue|  Build with GitHub for unregistered users
+        :class-card: card-base-line
         :class-title: font-link
         :class-body: font-gray-60
         :link: github_workflow_unregistered_users
@@ -85,6 +90,7 @@ Build Qualcomm Linux Software
         The GitHub workflow for unregistered users provide a set of instructions to setup the host computer environment, sync, and compile. Firmware components are available as prebuilt binaries.
 
     .. grid-item-card::  |icn-book-blue|  Build with GitHub for registered users
+        :class-card: card-base-line
         :class-title: font-link
         :class-body: font-gray-60
         :link: build_from_source_github_intro
@@ -93,6 +99,7 @@ Build Qualcomm Linux Software
         The GitHub workflow for registered users provide a set of instructions to setup the host computer environment, sync, and compile. Firmware components are available as prebuilt binaries.
 
     .. grid-item-card::  |icn-book-blue|  Build with GitHub using firmware and extras
+        :class-card: card-base-line
         :class-title: font-link
         :class-body: font-gray-60
         :link: build_addn_info
@@ -108,6 +115,7 @@ Flash Qualcomm Linux Software
     :class-container: get-started-cards
 
     .. grid-item-card::  |icn-book-blue|  Flash software images
+        :class-card: card-base-line
         :class-title: font-link
         :class-body: font-gray-60
         :link: flash_images

@@ -178,7 +178,59 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
                    Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-      .. group-tab:: QCS9075/QCS8275
+      .. group-tab:: QCS9075
+
+         .. tabs:: 
+
+            .. group-tab:: Qualcomm® IQ-9 Beta Evaluation Kit
+
+               1. Switch on the dip switch S5-4 to put the device in the EDL mode.
+
+                  .. image:: ../../media/k2c-qli-build-ga/qcs9075_qdl_mode_manual.png
+
+               #. Verify whether the device has entered the QDL mode:
+
+                  .. container:: nohighlight
+      
+                     ::
+
+                        lsusb
+
+                  **Sample output**
+
+                  .. container:: screenoutput
+
+                     .. line-block::
+
+                        Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+               .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
+
+            .. group-tab:: Qualcomm® IQ-9075 EVK
+
+               1. Switch on the dip switch S2-8 to put the device in the EDL mode.
+
+                  .. image:: ../../media/k2c-qli-build-ga/IQ_9075_EVK.png
+
+               #. Verify whether the device has entered the QDL mode:
+
+                  .. container:: nohighlight
+      
+                     ::
+
+                        lsusb
+
+                  **Sample output**
+
+                  .. container:: screenoutput
+
+                     .. line-block::
+
+                        Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+               .. note:: Dip switch S2-8 must be turned off after the flashing is complete.
+      
+      .. group-tab:: QCS8275
 
          1. Switch on the dip switch S5-4 to put the device in the EDL mode.
 
@@ -202,12 +254,13 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
          .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
 
+
+
 Provision UFS
 ---------------
 Universal Flash Storage (UFS) provisioning helps to divide the storage into multiple LUNS allowing different types of data to be stored separately. This improves access efficiency and system organization.
 
 .. note::
-    - This procedure is available for registered users only.
     - UFS is provisioned by default. If there are any changes in LUNs, UFS re-provisioning must be done again. To download the provision XML file and to check the applicability of UFS provisioning for different SoCs, see the table *UFS Provision* in `Release Specific Information <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-241225194606/ReleaseNote.html#release-specific-information>`__.
 
 1. Download the provision file:
