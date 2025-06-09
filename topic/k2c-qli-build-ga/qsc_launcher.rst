@@ -3,8 +3,8 @@ Use QSC Launcher
 
 .. _launcher_download_sw:
 
-Software download
-^^^^^^^^^^^^^^^^^^^
+Download the software
+^^^^^^^^^^^^^^^^^^^^^^
 
 1. To open the QSC Launcher desktop application, launch :guilabel:`Qualcomm Software Center` from the :guilabel:`Applications` menu.
 
@@ -36,16 +36,16 @@ Software download
 
    .. image:: ../../media/k2c-qli-build-ga/start_launcher_ab.png
 
-   -  If you don't have a connected device, click :guilabel:`Start Launcher` (A) on the top panel.
+   -  If you don't have a connected device, click :guilabel:`Start Launcher` (A).
    -  If you have a connected device, select :guilabel:`Start Launcher` (B) for the appropriate device in the :guilabel:`Connected devices` panel.
 
-3. On the :guilabel:`Specify Environment` page, select the appropriate values for :guilabel:`Category`, :guilabel:`Chipset`, :guilabel:`Host Operating System`, and :guilabel:`Target Operating System`.
+3. On the :guilabel:`Specify Environment` page, select the appropriate values for :guilabel:`Category`, :guilabel:`Chipset`, :guilabel:`Host Operating System`, :guilabel:`Target Operating System`, and then select :guilabel:`Next`.
 
    .. note:: See `chipsets (hardware SoCs) <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-115/soc.html>`__ that are supported on Qualcomm Linux.
 
    .. image:: ../../media/k2c-qli-build-ga/specify_env.png
 
-4. Select :guilabel:`Next`. The :guilabel:`Select Resources` page appears.
+4. In the :guilabel:`Select Resources` window, do the following:
    
    .. image:: ../../media/k2c-qli-build-ga/select_resource_page.png
 
@@ -57,14 +57,14 @@ Software download
 
       .. note::
          
-         - For information on the supported distributions for your hardware SoCs, see the table *Access Controlled Distribution* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
-         - For information on the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.        
-         - For information on the QIMP and QIRP SDKs, see the following guides:
+         - For information about the supported distributions for your hardware SoCs, see the table *Access Controlled Distribution* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
+         - For information about the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.        
+         - For information about the Qualcomm IM and QIR SDKs, see the following guides:
 
-           - `QIMP SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__
-           - `QIRP SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-265>`__
+           - `Qualcomm IM SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__
+           - `QIR SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-265>`__
 
-5. Select :guilabel:`Download` to download the selected compilable distribution or flashable binary. After the software download is successful, a *Download complete* status appears.
+5. To download the selected compilable distribution or flashable binary, select :guilabel:`Download`. After the software download is successful, a *Download complete* status appears.
 
    .. image:: ../../media/k2c-qli-build-ga/software_download_complete.png
 
@@ -88,7 +88,7 @@ Build and flash default configuration
 
    .. _launcher_compile_step:
 
-   a. After the download is complete, select :guilabel:`Compile` to start compiling. Depending on the size of the downloaded software and the host computer configuration, the compilation process may take a few hours.
+   a. After the download of the selected compilable distribution or flashable binary is complete, select :guilabel:`Compile` to start compiling. Depending on the size of the downloaded software and the host computer configuration, the compilation process can take a few hours.
 
       .. image:: ../../media/k2c-qli-build-ga/download.png
 
@@ -125,8 +125,6 @@ Build and flash default configuration
 
       .. note:: The device reboots after the flashing procedure completes successfully. To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
 
-   f. To establish UART and network connections, see :ref:`Connect to UART shell and network <connect_uart_network>`.
-
 .. _launcher_build_own_config:
 
 Build your own configuration
@@ -147,7 +145,7 @@ To build your own configuration, compile the build for default machine configura
 
          .. image:: ../../media/k2c-qli-build-ga/compile_terminal_dialog.png
       
-   b. Select :guilabel:`Open Terminal`. A terminal window with the expanded default build command appears.
+   b. Select :guilabel:`Open Terminal`.
 
    c. Update the highlighted command with your own configuration and run it on the terminal:
 
@@ -169,9 +167,9 @@ To build your own configuration, compile the build for default machine configura
 
 3. To flash your build, see :ref:`Flash software images <flash_images>`.
 
-   .. note::
-      - Before flashing, update the build images path to the compiled build images workspace at ``<Base_Workspace_Path>/DEV/LE.QCLINUX.1.0.r1/build-<DISTRO>/tmp-glibc/deploy/images/<MACHINE>/qcom-multimedia-image``.
-
-        For example, ``<Base Workspace Path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-core-kit/qcom-multimedia-image``.
-
-4. To establish UART and network connections, see :ref:`Connect to UART shell and network <connect_uart_network>`.
+Related topics
+---------------
+- :ref:`Connect to UART shell <connect_uart>`
+- :ref:`Connect to network <connect_to_network>`
+- :ref:`Sign in using SSH <use-ssh>`
+- :ref:`Troubleshoot sync, build, and flash issues <troubleshoot_sync_build_and_flash>`

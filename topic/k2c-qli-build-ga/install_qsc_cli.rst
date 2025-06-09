@@ -34,7 +34,7 @@ Install QSC CLI
 
 4. Sign in to ``qsc-cli`` using your registered email ID:
 
-   .. note:: To register, go to https://www.qualcomm.com/support/working-with-qualcomm.
+   .. note:: To register with Qualcomm, go to https://www.qualcomm.com/support/working-with-qualcomm.
 
    .. container:: nohighlight
       
@@ -42,4 +42,4 @@ Install QSC CLI
 
          qsc-cli login -u <username>
 
-.. note:: For more information, see ``qsc-cli`` related topics in :ref:`How to Sync <howto_sync>`.
+For more information about ``qsc-cli``, see :ref:`How to Sync <howto_sync>`.

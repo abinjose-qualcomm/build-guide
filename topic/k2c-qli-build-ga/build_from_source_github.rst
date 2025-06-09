@@ -123,7 +123,7 @@ The following table shows an example mapping of the Yocto layers to the manifest
          - ``meta-qcom-hwe``
          - ``meta-qcom-distro``
          - ``meta-qcom-qim-product-sdk``
-       - BSP build + QIMP SDK build:
+       - BSP build + Qualcomm IM SDK build:
          
          ``qcom-6.6.65-QLI.1.4-Ver.1.1_qim-product-sdk-1.1.2.xml``
        - ``qcom-wayland``
@@ -145,14 +145,14 @@ The following table shows an example mapping of the Yocto layers to the manifest
          - ``meta-qcom-robotics-distro``
          - ``meta-qcom-robotics-sdk``
          - ``meta-qcom-qim-product-sdk``
-       - BSP build + QIRP SDK build:
+       - BSP build + QIR SDK build:
          
          ``qcom-6.6.65-QLI.1.4-Ver.1.0_robotics-product-sdk-1.0.xml``
        - ``qcom-robotics-ros2-humble``
 
 .. note::
    
-   - For more information on the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
+   - For more information about the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
    
    - For information on building the ``meta-qcom-extras`` add-on layer and select firmware sources, see :doc:`Build with GitHub using firmware and extras <build_addn_info>`.
 
@@ -212,17 +212,15 @@ For more details, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com
          cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image
          ls -al system.img
 
-Build QIMP SDK image
+Build Qualcomm IM SDK image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. note:: This is not applicable for QCS615.
+The Qualcomm IM SDK is a collection of four standalone function SDKs, namely, Qualcomm IM SDK, Qualcomm Neural Processing SDK, Qualcomm AI Engine direct SDK, and LiteRT. It also includes reference applications that you can use to develop use cases. 
 
-The QIMP SDK is a collection of four standalone function SDKs, namely, IM SDK, Qualcomm Neural Processing SDK, Qualcomm AI Engine direct SDK, and LiteRT. It also includes reference applications that you can use to develop use cases. 
-
-For more details, see `QIMP SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__.
+For more details, see `Qualcomm IM SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__.
 
 1. Download Qualcomm Yocto and the supporting layers:
 
-   .. note:: The ``<manifest release tag>`` for QIMP SDK build is the same as the BSP build. Clone the QIMP SDK layer on top of the BSP build.
+   .. note:: The ``<manifest release tag>`` for Qualcomm IM SDK build is the same as the BSP build. Clone the Qualcomm IM SDK layer on top of the BSP build.
 
    .. container:: nohighlight
       
@@ -237,7 +235,7 @@ For more details, see `QIMP SDK Quick Start Guide <https://docs.qualcomm.com/bun
 
    .. note:: For the latest ``<manifest release tag>``, see the section *Build-critical release tags* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
 
-#. Clone the QIMP SDK layer into the workspace:
+#. Clone the Qualcomm IM SDK layer into the workspace:
 
    .. container:: nohighlight
       
@@ -246,7 +244,7 @@ For more details, see `QIMP SDK Quick Start Guide <https://docs.qualcomm.com/bun
          git clone https://github.com/quic-yocto/meta-qcom-qim-product-sdk -b <meta-qcom-qim-product-sdk release tag> layers/meta-qcom-qim-product-sdk
          # Example, <meta-qcom-qim-product-sdk release tag> is qcom-6.6.65-QLI.1.4-Ver.1.1_qim-product-sdk-1.1.2
 
-   To build a QIMP SDK layer, the following export is required:
+   To build a Qualcomm IM SDK layer, the following export is required:
 
    .. container:: nohighlight
       
@@ -286,18 +284,16 @@ For more details, see `QIMP SDK Quick Start Guide <https://docs.qualcomm.com/bun
          cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image
          ls -al system.img
 
-Build QIRP SDK image
+Build QIR SDK image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. note:: This is not applicable for QCS615.
+The Qualcomm® Intelligent Robotics (QIR) SDK 2.0 is a collection of components that enable you to develop robotic features on Qualcomm Linux releases.
 
-The Qualcomm® Intelligent Robotics Product (QIRP) SDK 2.0 is a collection of components that enable you to develop robotic features on Qualcomm Linux releases.
-
-For more details, see `QIRP SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-265>`__.
+For more details, see `QIR SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-265>`__.
 
 1. Download Qualcomm Yocto and the supporting layers:
 
-   .. note:: The ``<manifest release tag>`` for QIRP SDK build is the
-             same as the BSP build. Clone the QIRP SDK layer on top of the BSP build.
+   .. note:: The ``<manifest release tag>`` for QIR SDK build is the
+             same as the BSP build. Clone the QIR SDK layer on top of the BSP build.
 
    .. container:: nohighlight
       
@@ -312,7 +308,7 @@ For more details, see `QIRP SDK 2.0 User Guide <https://docs.qualcomm.com/bundle
 
    .. note::  For the latest ``<manifest release tag>``, see the section *Build-critical release tags* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
 
-#. Download the QIRP SDK layers into the BSP build ``<WORKSPACE DIR>``
+#. Download the QIR SDK layers into the BSP build ``<WORKSPACE DIR>``
    directory:
 
    .. container:: nohighlight
@@ -340,7 +336,7 @@ For more details, see `QIRP SDK 2.0 User Guide <https://docs.qualcomm.com/bundle
 
    .. note:: For various ``<machine>`` and ``<override>`` combinations, see `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
 
-#. Build the robotics image and the QIRP SDK artifacts:
+#. Build the robotics image and the QIR SDK artifacts:
 
    .. container:: nohighlight
       
@@ -348,13 +344,13 @@ For more details, see `QIRP SDK 2.0 User Guide <https://docs.qualcomm.com/bundle
 
          ../qirp-build qcom-robotics-full-image
 
-   After a successful build, you can see the QIRP SDK build artifacts at the following paths:
+   After a successful build, you can see the QIR SDK build artifacts at the following paths:
 
    .. container:: nohighlight
       
       ::
 
-         QIRP SDK artifacts: <WORKSPACE DIR>/build-qcom-robotics-ros2-humble/tmp-glibc/deploy/qirpsdk_artifacts/qirp-sdk_<version>.tar.gz
+         QIR SDK artifacts: <WORKSPACE DIR>/build-qcom-robotics-ros2-humble/tmp-glibc/deploy/qirpsdk_artifacts/qirp-sdk_<version>.tar.gz
          # system.img is present in the following path
          Robotics image: <WORKSPACE DIR>/build-qcom-robotics-ros2-humble/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-robotics-full-image
 
@@ -432,3 +428,10 @@ Flash
 ^^^^^^^
 
 To flash the software images to the device, see :ref:`Flash software images <flash_images>`.
+
+Related topics
+---------------
+- :ref:`Connect to UART shell <connect_uart>`
+- :ref:`Connect to network <connect_to_network>`
+- :ref:`Sign in using SSH <use-ssh>`
+- :ref:`Troubleshoot sync, build, and flash issues <troubleshoot_sync_build_and_flash>`

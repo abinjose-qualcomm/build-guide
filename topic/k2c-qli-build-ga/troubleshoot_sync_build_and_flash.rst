@@ -517,7 +517,7 @@ Build
    **Solution**
 
    -  Remove the ``build-qcom-wayland`` directory.
-   -  Rerun the commands in :ref:`Build QIMP SDK image <build_qimp_sdk_image_unreg>`.
+   -  Rerun the commands in :ref:`Build Qualcomm IM SDK image <build_qimp_sdk_image_unreg>`.
 
 -  **failed: database disk image is malformed. abort()ing pseudo client by server request**
 

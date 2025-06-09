@@ -137,11 +137,11 @@ Create a Yocto Docker image and build:
 
    - If you see and fix a build error, run the commands in :ref:`Rebuild <build_with_docker_rebuild>`.
 
-Build QIMP SDK image
-^^^^^^^^^^^^^^^^^^^^^^
+Build Qualcomm IM SDK image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. :ref:`Build BSP image <build_with_docker_bsp_image>` using Docker.
-#. Build QIMP SDK on top of the base image using Docker:
+#. Build Qualcomm IM SDK on top of the base image using Docker:
 
    a. Run the ``docker run`` command:
 
@@ -154,7 +154,7 @@ Build QIMP SDK image
             bash
             docker run -it -v "${HOME}/.gitconfig":"/home/${USER}/.gitconfig" -v "${HOME}/.netrc":"/home/${USER}/.netrc" -v $(pwd):$(pwd) -w $(pwd) qcom-6.6.65-qli.1.4-ver.1.1_22.04 /bin/bash
 
-   #. Clone the QIMP SDK layer into the workspace:
+   #. Clone the Qualcomm IM SDK layer into the workspace:
 
       .. container:: nohighlight
       
@@ -163,7 +163,7 @@ Build QIMP SDK image
             git clone https://github.com/quic-yocto/meta-qcom-qim-product-sdk -b <meta-qcom-qim-product-sdk release tag> layers/meta-qcom-qim-product-sdk
             # Example, <meta-qcom-qim-product-sdk release tag> is qcom-6.6.65-QLI.1.4-Ver.1.1_qim-product-sdk-1.1.2
 
-      Build the QIMP SDK layer:
+      Build the Qualcomm IM SDK layer:
 
       .. container:: nohighlight
       

@@ -237,8 +237,10 @@ Build a standalone QDL
          # Example: build_path is build-qcom-wayland
          cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image
          # For UFS storage
+         cp -r ../partition_ufs/* ./
          <qdl_download_path>/qdl_<version>/QDL_Linux_x64/qdl --storage ufs prog_firehose_ddr.elf rawprogram*.xml patch*.xml
          # For EMMC storage
+         cp -r ../partition_emmc/* ./
          <qdl_download_path>/qdl_<version>/QDL_Linux_x64/qdl --storage emmc prog_firehose_ddr.elf rawprogram0.xml patch0.xml
 
 .. _change_hex_tool_install_path:
@@ -339,7 +341,7 @@ Download the Platform eSDK
 
 6. Ensure that the eSDK installation is successful.
 
-   After installation, you can see the QIMP SDK layers under ``<workspace_path>/layers``:
+   After installation, you can see the Qualcomm IM SDK layers under ``<workspace_path>/layers``:
 
    |imageLayerWorkspace|
 
@@ -361,7 +363,7 @@ Download the Platform eSDK
 
          export ESDK_ROOT=/local/mnt/workspace/Platform_eSDK_plus_QIM
 
-The QIMP SDK installation is now complete. To develop an application for
+The Qualcomm IM SDK installation is now complete. To develop an application for
 the device, see `Develop your first application <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51/content-develop-your-first-application.html>`__.
 
 

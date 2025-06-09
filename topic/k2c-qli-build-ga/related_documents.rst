@@ -27,10 +27,10 @@ Related documents
    * - `RB3 Gen 2 Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253>`__
      - 80-70018-253
 
-   * - `Qualcomm Intelligent Multimedia Product (QIMP) SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__
+   * - `Qualcomm® Intelligent Multimedia (IM SDK) Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__
      - 80-70018-51
 
-   * - `Qualcomm® Linux Intelligent Robotics Product SDK (QIRP SDK) 2.0 Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2>`__
+   * - `Qualcomm® Linux Intelligent Robotics SDK (QIR SDK) 2.0 Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2>`__
      - 80-70018-265
 
    * - `Qualcomm Linux Virtual Machine Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-41/>`__
@@ -38,9 +38,6 @@ Related documents
 
    * - `Qualcomm Software Center User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-72780-2/>`__
      - 80-72780-2
-
-   * - `QCS615.LE.1.0 Software User Guide <https://docs.qualcomm.com/bundle/resource/topics/80-70018-75/introduction_1.html>`__
-     - 80-70018-75 
 
    * - :cspan:`1` **Resources**      
 

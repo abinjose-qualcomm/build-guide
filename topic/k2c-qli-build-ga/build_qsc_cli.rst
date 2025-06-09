@@ -5,10 +5,12 @@ This section explains how to configure, download, compile, and flash Qualcomm Li
 
 .. _qsc_cli_software_download:
 
-Software download
-^^^^^^^^^^^^^^^^^^^
+Download the software
+^^^^^^^^^^^^^^^^^^^^^^
 
--  Download a software release by specifying the absolute workspace path, product ID, distribution, and release ID as shown in the following example:
+-  Download a software release by specifying the absolute workspace path, product ID, distribution, and release ID:
+
+   .. note:: If you are downloading more than one distribution, create a new workspace for each distribution that you download.
 
    .. container:: nohighlight
 
@@ -18,12 +20,11 @@ Software download
          # Example, qsc-cli chip-software download --workspace-path '/local/mnt/workspace/sample_workspace' --product 'QCM6490.LE.1.0' --distribution 'Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem' --release 'r00270.1'
 
    .. note::
-      - If you are downloading more than one distribution, create a new workspace for each distribution that you download.
       - For the Product_ID, Distribution, and Release_ID values, see the table *QSC-CLI Input Parameters* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
-      - For more information on the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
+      - For more information about the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
 
-Build default configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Build the default configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _compile_qsc_cli:
 
@@ -31,9 +32,9 @@ Compile
 ''''''''
 .. note:: For information on the default configurations, see the table *Default values of MACHINE and QCOM_SELECTED_BSP parameters for QSC* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
 
-Start the compilation process after the download is complete:
+When the download is complete, start the complilation process:
 
-.. note:: Depending on the size of the software and the host computer configuration, the compilation process may take a few hours.
+.. note:: Depending on the size of the software and the host computer configuration, the compilation process can take a few hours.
 
 .. container:: nohighlight
    
@@ -45,7 +46,9 @@ Start the compilation process after the download is complete:
 
 This process builds the necessary Qualcomm firmware and completes the Qualcomm Linux build.
 
-.. note:: If you get a BitBake fetcher error, try recompiling to resolve the issue. If the issue persists, see :ref:`BitBake Fetcher Error <do_fetch_error_1>` for a solution.
+.. note:: If you get a BitBake fetcher error, try :ref:`recompiling <recompile_qsc_cli>` to resolve the issue. If the issue persists, see :ref:`BitBake Fetcher Error <do_fetch_error_1>` for a solution.
+
+.. _recompile_qsc_cli:
 
 Recompile
 '''''''''''
@@ -87,44 +90,42 @@ For Ubuntu 22.04, you may see an issue while installing QUD, where you must enro
    #. :ref:`Flash CDT <flash_cdt>`.
    #. :ref:`Flash SAIL <flash_sail>`.
   
-1. Flash a device.
+Flash a device:
 
-   .. container:: nohighlight
+.. container:: nohighlight
       
-      ::
+   ::
 
-         qsc-cli chip-software flash --workspace-path <Base_Workspace_Path> --buildflavor "sa2150p_emmc" --serialnumber <serial number>
+      qsc-cli chip-software flash --workspace-path <Base_Workspace_Path> --buildflavor "sa2150p_emmc" --serialnumber <serial number>
          
-         # Example, qsc-cli chip-software flash --workspace-path '/local/mnt/workspace/sample_workspace' --serialnumber 'be116704'
+      # Example, qsc-cli chip-software flash --workspace-path '/local/mnt/workspace/sample_workspace' --serialnumber 'be116704'
       
-   The ``--buildflavor`` argument is optional and only required for devices that have multiple flavors. To list the build flavors, run the following command on the host computer:
+The ``--buildflavor`` argument is optional and only required for devices that have multiple flavors. To list the build flavors, run the following command on the host computer:
       
-   .. container:: nohighlight
+.. container:: nohighlight
       
-      ::
+   ::
 
-         qsc-cli chip-software flash --workspace-path <workspace path> --list-buildflavor
+      qsc-cli chip-software flash --workspace-path <workspace path> --list-buildflavor
 
-   .. note::
-      - To find the `<serial number>`, run the following command on the host computer:
+.. note::
+   - To find the `<serial number>`, run the following command on the host computer:
 
-        .. container:: nohighlight
+     .. container:: nohighlight
          
-           ::
+        ::
       
-              pcat -devices
+           pcat -devices
 
-        **Sample output**
+     **Sample output**
         
-        .. container:: screenoutput
+     .. container:: screenoutput
 
-           Searching devices in Device Manager, please wait for a moment…
-           ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
-           NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
+        Searching devices in Device Manager, please wait for a moment…
+        ID | DEVICE TYPE | DEVICE STATE | SERIAL NUMBER | ADB SERIAL NUMBER | DESCRIPTION
+        NA | NA          | EDL          | BE116704      | be116704          | Qualcomm USB Composite Device:QUSB_BULK_CID:042F_SN:BE116704
 
-      - The device reboots after the flashing procedure completes successfully. To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
-
-2. To establish UART and network connections, see :ref:`Connect to UART shell and network <connect_uart_network>`.
+   - The device reboots after the flashing procedure completes successfully. To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
 
 .. _build_own_config:
 
@@ -182,4 +183,9 @@ To build your own configuration, you must compile the build for default machine 
 
         For example, ``<Base Workspace Path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-core-kit/qcom-multimedia-image``.
 
-4. To establish UART and network connections, see :ref:`Connect to UART shell and network <connect_uart_network>`.
+Related topics
+---------------
+- :ref:`Connect to UART shell <connect_uart>`
+- :ref:`Connect to network <connect_to_network>`
+- :ref:`Sign in using SSH <use-ssh>`
+- :ref:`Troubleshoot sync, build, and flash issues <troubleshoot_sync_build_and_flash>`

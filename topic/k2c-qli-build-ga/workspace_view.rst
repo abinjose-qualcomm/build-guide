@@ -32,11 +32,11 @@ Workspace structure with qsc-cli
 Workspace structure with GitHub workflow standalone instructions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  The following figure shows the directory structure before the GitHub workflow QIMP SDK standalone build:
+-  The following figure shows the directory structure before the GitHub workflow Qualcomm IM SDK standalone build:
 
         .. image:: ../../media/k2c-qli-build-ga/ws_standalone_1.png
 
--  The following figure shows the directory structure after the GitHub workflow QIMP SDK standalone build:
+-  The following figure shows the directory structure after the GitHub workflow Qualcomm IM SDK standalone build:
 
         .. image:: ../../media/k2c-qli-build-ga/ws_standalone_2.png
 

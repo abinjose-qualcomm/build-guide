@@ -1,14 +1,14 @@
 Install QSC using a GUI
 -----------------------------
 
-1. Download the latest `Qualcomm Software Center <https://softwarecenter.qualcomm.com/#/catalog/item/Qualcomm_Software_Center>`__, and then select :guilabel:`Download`.
+1. Go to the `Qualcomm Software Center <https://softwarecenter.qualcomm.com/#/catalog/item/Qualcomm_Software_Center>`__, and then select :guilabel:`Download`.
 
    .. image:: ../../media/k2c-qli-build-ga/QSC_download.png
 
 
-   The QSC Debian package (``.deb``) is downloaded to your machine.
+   The QSC Debian package (``.deb``) downloads to your machine.
 
-2. To install the QSC Debian package using the Ubuntu GNOME GUI, GDebi must be installed first. Run the following command on your Linux host computer to install GDebi:
+2. To install the QSC Debian package using the Ubuntu GNOME GUI, install GDebi first. Run the following command on your Linux host computer to install GDebi:
 
    ::
 
@@ -19,7 +19,7 @@ Install QSC using a GUI
 
    .. image:: ../../media/k2c-qli-build-ga/deb_gui_installer.png
 
-4. Select :guilabel:`Package`.
+4. Select :guilabel:`Install Package`.
 
    .. image:: ../../media/k2c-qli-build-ga/install_package.png
 
@@ -27,7 +27,7 @@ Install QSC using a GUI
 
    .. image:: ../../media/k2c-qli-build-ga/current_user.png
 
-6. Accept the license agreement. Select :guilabel:`Next`.
+6. To accept the license agreement, select :guilabel:`Next`.
 
    .. image:: ../../media/k2c-qli-build-ga/lic_agreement_next.png
 

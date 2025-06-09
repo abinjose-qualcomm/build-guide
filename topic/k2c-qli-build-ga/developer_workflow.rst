@@ -6,7 +6,7 @@ Developer workflow
 Sync and build with real-time Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``meta-qcom-realtime`` layer provides ``PREEMPT_RT`` patches for the Qualcomm Linux kernel. This layer is available in the Qualcomm `GitHub <https://github.com/quic-yocto/meta-qcom-realtime>`__ and it's built on top of the BSP build image. For more information on this layer, see
+``meta-qcom-realtime`` layer provides ``PREEMPT_RT`` patches for the Qualcomm Linux kernel. This layer is available in the Qualcomm `GitHub <https://github.com/quic-yocto/meta-qcom-realtime>`__ and it's built on top of the BSP build image. For more information about this layer, see
 `meta-qcom-realtime <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#meta-qcom-realtime>`__
 from the `Qualcomm Linux Yocto Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27>`__.
 
@@ -54,7 +54,7 @@ Customize Qualcomm Yocto layers
 See `user
 customizations <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/user_customizations.html>`__.
 
-Download layers for the QIMP SDK build using the manifest release tag
+Download layers for the Qualcomm IM SDK build using the manifest release tag
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note:: For the latest ``<manifest release tag>``, see the section *Build-critical release tags* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
@@ -69,9 +69,9 @@ Download layers for the QIMP SDK build using the manifest release tag
    repo sync
 
 .. note:: 
-   For the steps to set up environment and build software images, see :ref:`Build QIMP SDK image <build_qimp_sdk_image_unreg>`.
+   For the steps to set up environment and build software images, see :ref:`Build Qualcomm IM SDK image <build_qimp_sdk_image_unreg>`.
 
-Download layers for the QIRP SDK build by using the manifest release tag
+Download layers for the QIR SDK build by using the manifest release tag
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note:: For the latest ``<manifest release tag>``, see the section *Build-critical release tags* in the `Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__.
@@ -86,7 +86,7 @@ Download layers for the QIRP SDK build by using the manifest release tag
    repo sync
 
 .. note:: 
-   For the steps to set up the environment and build software images, see :ref:`Build QIRP SDK image <build_qirp_sdk_image_unreg>`.
+   For the steps to set up the environment and build software images, see :ref:`Build QIR SDK image <build_qirp_sdk_image_unreg>`.
 
 Download layers for the real-time Linux build by using the manifest release tag
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -119,7 +119,7 @@ commands and already have an existing ``<WORKSPACE DIR>``, follow these steps to
       rm -rf layers/meta-qcom-qim-product-sdk
       git clone https://github.com/quic-yocto/meta-qcom-qim-product-sdk -b <meta-qcom-qim-product-sdk release tag> layers/meta-qcom-qim-product-sdk
 
-   .. note:: For more information on 
+   .. note:: For more information about 
              ``<meta-qcom-qim-product-sdk release tag>``, see https://github.com/quic-yocto/meta-qcom-qim-product-sdk/tags. An
              example ``<meta-qcom-qim-product-sdk release tag>`` is ``qcom-6.6.65-QLI.1.4-Ver.1.1_qim-product-sdk-1.1.2.xml``.
 

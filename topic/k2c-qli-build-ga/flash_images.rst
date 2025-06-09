@@ -3,6 +3,8 @@
 Flash software images
 ======================
 
+.. note:: Before flashing, update the build images path to the compiled build images workspace at ``<Base_Workspace_Path>/DEV/LE.QCLINUX.1.0.r1/build-<DISTRO>/tmp-glibc/deploy/images/<MACHINE>/qcom-multimedia-image``. For example, ``<Base Workspace Path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-core-kit/qcom-multimedia-image``.
+
 Follow these steps to flash the software images:
 
 1. Update the ``udev`` rules (one-time prerequisite).
@@ -108,15 +110,15 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 .. note:: Use ADB only if the device has a preloaded build.
 
 1. `Install
-   QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html>`__
+   QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-qud>`__
    on the host device.
 
 2. `Install
-   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html>`__
+   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-adb>`__
    on the host device.
 
 3. `Connect
-   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html>`__
+   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-adb>`__
    to the device.
 
 4. Move the device to EDL mode by running the following command on the host computer:
@@ -179,11 +181,11 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
                    Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-      .. group-tab:: QCS9075
+      .. group-tab:: IQ-9075
 
          .. tabs:: 
 
-            .. group-tab:: Qualcomm® IQ-9 Beta Evaluation Kit (EVK)
+            .. group-tab:: IQ-9 Beta Evaluation Kit (EVK)
 
                1. Switch on the dip switch S5-4 to put the device in the EDL mode.
 
@@ -207,7 +209,7 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
                .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
 
-            .. group-tab:: Qualcomm Dragonwing™ IQ-9075 EVK
+            .. group-tab:: IQ-9075 EVK
 
                1. Switch on the dip switch S2-8 to put the device in the EDL mode.
 
@@ -231,7 +233,7 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
                .. note:: Dip switch S2-8 must be turned off after the flashing is complete.
       
-      .. group-tab:: QCS8275
+      .. group-tab:: IQ-8275
 
          1. Switch on the dip switch S5-4 to put the device in the EDL mode.
 
@@ -254,30 +256,6 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
                    Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
          .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
-
-      .. group-tab:: QCS615
-
-         1. Switch on the dip switch S3-7 to put the device in the EDL mode.
-
-            .. image:: ../../media/k2c-qli-build-ga/qcs615_qdl_mode_manual.png
-
-         #. Verify whether the device has entered the QDL mode:
-
-            .. container:: nohighlight
-      
-               ::
-
-                  lsusb
-
-            **Sample output**
-
-            .. container:: screenoutput
-
-               .. line-block::
-
-                   Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
-
-         .. note:: Dip switch S3-7 must be turned off after the flashing is complete.
 
 .. _provision_ufs:
 
@@ -348,13 +326,13 @@ Universal Flash Storage (UFS) provisioning helps to divide the storage into many
 
 Flash SAIL
 -----------
-.. note:: Safety Island (SAIL) is applicable only for QCS9075 and QCS8275.
+.. note:: Safety Island (SAIL) is applicable only for Qualcomm Dragonwing™ IQ9 and Qualcomm Dragonwing™ IQ8.
 
 .. container:: persistenttab-soc
 
    .. tabs::
 
-      .. group-tab:: QCS9075
+      .. group-tab:: IQ-9075/IQ-8275
          
          1. Download the QDL tool.
 
@@ -384,12 +362,6 @@ Flash SAIL
                   # Example: build_path is build-qcom-wayland
                   cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs9075-rb8-core-kit/qcom-multimedia-image/sail_nor
                   <qdl_download_path>/qdl_<version>/QDL_Linux_x64/qdl --storage spinor prog_firehose_ddr.elf rawprogram0.xml patch0.xml
-
-      .. group-tab:: QCS8275
-
-         .. note:: This procedure is available for registered users only.
-
-         For QCS8275 SAIL flashing steps, see Section 4.4 (Flash SAIL) from the `Qualcomm IQ-8 Beta Evaluation Kit Quick Start Guide <https://docs.qualcomm.com/bundle/80-70017-263/resource/80-70017-263_REV_AB_Qualcomm_IQ-8_Beta_Evaluation_KitQuick_Start_Guide.pdf>`__.
          
 .. _flash_cdt:
 
@@ -493,8 +465,10 @@ Flash software using QDL
          # Example: build_path is build-qcom-wayland
          cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image
          # For UFS storage
+         cp -r ../partition_ufs/* ./
          <qdl_download_path>/qdl_<version>/QDL_Linux_x64/qdl --storage ufs prog_firehose_ddr.elf rawprogram*.xml patch*.xml
          # For EMMC storage
+         cp -r ../partition_emmc/* ./
          <qdl_download_path>/qdl_<version>/QDL_Linux_x64/qdl --storage emmc prog_firehose_ddr.elf rawprogram0.xml patch0.xml
 
    .. note:: Use QDL binary based on the host computer architecture. For example, linux_x64 supported qdl binary is ``qdl_<version>/QDL_Linux_x64/qdl``.
@@ -530,8 +504,6 @@ Flash software using QDL
           1. Power off the device.
           2. Disconnect from the host.
           3. Restart the host.
-
-To establish UART and network connections, see :ref:`Connect to UART shell and network <connect_uart_network>`.
 
 Flash software using PCAT
 ------------------------------------
@@ -605,12 +577,22 @@ Flash software using PCAT
    .. container:: nohighlight
       
       ::
-         # For UFS storage
-         PCAT –PLUGIN SD -DEVICE <device_serial_number> -BUILD “<build_images_path>” -MEMORYTYPE UFS -FLAVOR asic
-         # For EMMC storage
-         PCAT –PLUGIN SD -DEVICE <device_serial_number> -BUILD “<build_images_path>” -MEMORYTYPE EMMC -FLAVOR asic
 
-         # Example, PCAT -PLUGIN SD -DEVICE be116704 -BUILD "<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image" -MEMORYTYPE UFS -FLAVOR asic
+         cd <workspace_path>/build-<DISTRO>/tmp-glibc/deploy/images/<MACHINE>/<IMAGE>
+
+         # Example, cd <workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image
+ 
+         # For UFS storage
+         cp -r ../partition_ufs/* ./
+         PCAT –PLUGIN SD -DEVICE <device_serial_number> -BUILD “<build_images_path>” -MEMORYTYPE UFS -FLAVOR asic
+         
+         # Example, PCAT –PLUGIN SD -DEVICE be116704 -BUILD "<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image" -MEMORYTYPE UFS -FLAVOR asic
+ 
+         # For EMMC storage
+         cp -r ../partition_emmc/* ./
+         PCAT –PLUGIN SD -DEVICE <device_serial_number> -BUILD “<build_images_path>” -MEMORYTYPE EMMC -FLAVOR asic -RAWPROG "<build_images_path>/rawprogram0.xml" -PATCHPROG "<build_images_path>/patch0.xml"
+         
+         # Example, PCAT –PLUGIN SD -DEVICE be116704 -BUILD "<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image" -MEMORYTYPE EMMC -FLAVOR asic -RAWPROG "<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image/rawprogram0.xml" -PATCHPROG "<workspace_path>/build-qcom-wayland/tmp-glibc/deploy/images/qcs6490-rb3gen2-vision-kit/qcom-multimedia-image/patch0.xml"
 
    If flashing the software is successful, you will see the following message:
 
@@ -635,12 +617,8 @@ Flash software using PCAT
 
    The device reboots after the flashing procedure completes successfully. To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
 
-.. _connect_uart_network:
-
-Connect to UART shell and network
-----------------------------------
-After flashing and booting the device, follow these steps to establish the connections:
- 
-* :ref:`Connect to UART shell <connect_uart>`
-* :ref:`Connect to network <connect_to_network>`
-* :ref:`Sign in using SSH <use-ssh>`
+Related topics
+---------------
+- :ref:`Connect to UART shell <connect_uart>`
+- :ref:`Connect to network <connect_to_network>`
+- :ref:`Sign in using SSH <use-ssh>`

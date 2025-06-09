@@ -18,33 +18,27 @@ Connect to a UART shell
 
          .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
 
-      .. group-tab:: QCS9075
+      .. group-tab:: IQ-9075
 
          .. tabs:: 
 
-            .. group-tab:: Qualcomm® IQ-9 Beta EVK
+            .. group-tab:: IQ-9 Beta EVK
 
                To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® IQ-9 Beta Evaluation Kit device to the Linux host.
 
                .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
 
-            .. group-tab:: Dragonwing IQ-9075 EVK
+            .. group-tab:: IQ-9075 EVK
 
                To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® Dragonwing™ IQ-9075 EVK device to the Linux host.
 
                .. image:: ../../media/k2c-qli-build-ga/uart_iq9075_evk.png
 
-      .. group-tab:: QCS8275   
+      .. group-tab:: IQ-8275   
 
          To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® IQ-8 Beta Evaluation Kit device to the Linux host.
 
          .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
-
-      .. group-tab:: QCS615
-
-         To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® IQ-6 Beta Evaluation Kit device to the Linux host.
-
-         .. image:: ../../media/k2c-qli-build-ga/uart_qcs615.png
 
 1. Install Minicom on the Linux host:
 
@@ -284,7 +278,7 @@ Establish the :ref:`network connectivity <connect_to_network>` before connecting
 .. note:: 
    
    - Connect the remote host to the same Wi-Fi access point as the device.
-   - To create a non-root user account, see `Create a non-root user account <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html>`__.
+   - To create a non-root user account, see `Create a non-root user account <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#non-root-acc>`__.
 
 Configure Ethernet with RJ45 port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
