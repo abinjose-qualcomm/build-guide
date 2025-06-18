@@ -1,7 +1,7 @@
 Workspace view
 -----------------
 
-This section provides sample workspace structures with ``qsc-cli`` and GitHub workflow standalone use cases, for the supported `hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-115/soc.html>`__.
+This section provides sample workspace structures with ``qsc-cli`` and GitHub workflow standalone use cases, for the supported `hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-115/soc.html>`__.
 
 Workspace structure with qsc-cli
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,7 +84,7 @@ Images directory structure after successful build
       * - ``rawprogram*.xml``
         - Image ``lun`` and start sector ``lba`` values
       * - ``efi.bin``
-        - EFI system partition image. For more information, see `Qualcomm Linux Yocto Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_software_components.html#managing-partitions-in-qualcomm-linux>`__.
+        - EFI system partition image. For more information, see `Qualcomm Linux Yocto Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-27/qualcomm_linux_software_components.html#managing-partitions-in-qualcomm-linux>`__.
       * - ``qdl``
         - Flashing tool binary
       * - ``dtb.bin``

@@ -8,7 +8,7 @@ Build with standalone commands
 Ubuntu host setup
 ^^^^^^^^^^^^^^^^^^^^^
 
-The Ubuntu host computer must be set up to install the required software tools and configure them for use.
+Install and configure the required software tools on the Ubuntu host computer.
 
 1. Install the following packages to prepare your host environment for the Yocto build:
 
@@ -99,7 +99,7 @@ The Ubuntu host computer must be set up to install the required software tools a
 Sync
 ^^^^^^^
 
-This section uses the Repo tool installed in :ref:`Ubuntu host setup <ubuntu_host_setup>` to download a list of git repositories and additional attributes from the `Qualcomm manifest <https://github.com/quic-yocto/qcom-manifest>`__. The Repo tool downloads the manifests using the ``repo init`` command.
+Use the Repo tool that was installed during the :ref:`Ubuntu host setup <ubuntu_host_setup>` to download a list of git repositories and additional attributes from the `Qualcomm manifest <https://github.com/quic-yocto/qcom-manifest>`__. The Repo tool downloads the manifests using the ``repo init`` command.
 
 The following table shows an example mapping of the Yocto layers to the manifest release tags. Use this mapping to download and build Qualcomm Linux:
 
@@ -152,15 +152,15 @@ The following table shows an example mapping of the Yocto layers to the manifest
 
 .. note::
    
-   - For more information about the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
+   - For more information about the Yocto layers, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
    
    - For information on building the ``meta-qcom-extras`` add-on layer and select firmware sources, see :doc:`Build with GitHub using firmware and extras <build_addn_info>`.
 
-Build BSP image
+Build a BSP image
 ^^^^^^^^^^^^^^^^^^^^^
-BSP image build has software components for Qualcomm device support and value-added software features applicable to Qualcomm SoCs. It includes a reference distribution configuration for Qualcomm development kits.
+BSP image build has software components for Qualcomm device support and software features applicable to Qualcomm SoCs. This build includes a reference distribution configuration for Qualcomm development kits.
 
-For more details, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
+For more details, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-27/qualcomm_linux_metadata_layers_overview.html#qualcomm-linux-metadata-layers>`__.
 
 1. Download Qualcomm Yocto and the supporting layers:
 
@@ -214,9 +214,9 @@ For more details, see `Qualcomm Linux metadata layers <https://docs.qualcomm.com
 
 Build Qualcomm IM SDK image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The Qualcomm IM SDK is a collection of four standalone function SDKs, namely, Qualcomm IM SDK, Qualcomm Neural Processing SDK, Qualcomm AI Engine direct SDK, and LiteRT. It also includes reference applications that you can use to develop use cases. 
+The Qualcomm IM SDK is a collection of four standalone function SDKs: Qualcomm IM SDK, Qualcomm Neural Processing SDK, Qualcomm AI Engine direct SDK, and LiteRT. It also includes reference applications that you can use to develop use cases. 
 
-For more details, see `Qualcomm IM SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__.
+For more details, see `Qualcomm IM SDK Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-51>`__.
 
 1. Download Qualcomm Yocto and the supporting layers:
 
@@ -288,7 +288,7 @@ Build QIR SDK image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The Qualcomm® Intelligent Robotics (QIR) SDK 2.0 is a collection of components that enable you to develop robotic features on Qualcomm Linux releases.
 
-For more details, see `QIR SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-265>`__.
+For more details, see `QIR SDK 2.0 User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-265>`__.
 
 1. Download Qualcomm Yocto and the supporting layers:
 
@@ -358,7 +358,7 @@ Build real-time Linux image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The real-time layer provides recipes and configurations required to run the Qualcomm Linux kernel as a real-time kernel. The real-time kernel runs with preemption fully enabled through a configuration, ``CONFIG_PREEMPT_RT=y``. This layer supports ``linux-kernel-qcom-rt`` recipe that fetches and builds the Qualcomm Linux kernel for the supported machine. This layer appends to the kernel and the upstream ``PREEMPT_RT`` patches based on the kernel version, and enables real-time configurations.
 
-For more details, see `Real-time kernel <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-3/real_time_kernel_overview.html>`__.
+For more details, see `Real-time kernel <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-3/real_time_kernel_overview.html>`__.
 
 1. Download Qualcomm Yocto and the supporting layers:
 

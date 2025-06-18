@@ -66,7 +66,7 @@ Check the host computer configuration
 
 .. _build_with_docker_bsp_image:
 
-Build BSP image
+Build a BSP image
 ^^^^^^^^^^^^^^^^^^^^^
 
 Create a Yocto Docker image and build:
@@ -140,7 +140,7 @@ Create a Yocto Docker image and build:
 Build Qualcomm IM SDK image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. :ref:`Build BSP image <build_with_docker_bsp_image>` using Docker.
+1. :ref:`Build a BSP image <build_with_docker_bsp_image>` using Docker.
 #. Build Qualcomm IM SDK on top of the base image using Docker:
 
    a. Run the ``docker run`` command:

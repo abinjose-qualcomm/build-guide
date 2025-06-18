@@ -110,15 +110,15 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 .. note:: Use ADB only if the device has a preloaded build.
 
 1. `Install
-   QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-qud>`__
+   QUD <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/faqs.html#install-qud>`__
    on the host device.
 
 2. `Install
-   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-adb>`__
+   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/faqs.html#install-adb>`__
    on the host device.
 
 3. `Connect
-   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-adb>`__
+   ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/faqs.html#install-adb>`__
    to the device.
 
 4. Move the device to EDL mode by running the following command on the host computer:
@@ -157,7 +157,7 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
 
          1. Press and hold the **F_DL** button.
 
-            .. image:: ../../media/k2c-qli-build-ga/RB3Gen2_device.png
+            .. image:: ../../media/k2c-qli-build-ga/RB3Gen2_device.jpg
 
          #. Connect the device to a +12 V wall power supply.
 
@@ -235,27 +235,55 @@ The device must be in the EDL mode before you flash the software. The Qualcomm s
       
       .. group-tab:: IQ-8275
 
-         1. Switch on the dip switch S5-4 to put the device in the EDL mode.
+          .. tabs:: 
 
-            .. image:: ../../media/k2c-qli-build-ga/qcs9075_qdl_mode_manual.png
+            .. group-tab:: IQ-8 Beta Evaluation Kit (EVK)
 
-         #. Verify whether the device has entered the QDL mode:
+               1. Switch on the dip switch S5-4 to put the device in the EDL mode.
 
-            .. container:: nohighlight
+                  .. image:: ../../media/k2c-qli-build-ga/qcs9075_qdl_mode_manual.png
+
+               #. Verify whether the device has entered the QDL mode:
+
+                  .. container:: nohighlight
       
-               ::
+                     ::
 
-                  lsusb
+                        lsusb
 
-            **Sample output**
+                  **Sample output**
 
-            .. container:: screenoutput
+                  .. container:: screenoutput
 
-               .. line-block::
+                     .. line-block::
 
-                   Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+                        Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
-         .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
+               .. note:: Dip switch S5-4 must be turned off after the flashing is complete.
+
+            .. group-tab:: IQ-8275 EVK
+
+               1. Switch on the dip switch S2-8 to put the device in the EDL mode.
+
+                  .. image:: ../../media/k2c-qli-build-ga/IQ_9075_EVK.png
+
+               #. Verify whether the device has entered the QDL mode:
+
+                  .. container:: nohighlight
+      
+                     ::
+
+                        lsusb
+
+                  **Sample output**
+
+                  .. container:: screenoutput
+
+                     .. line-block::
+
+                        Bus 002 Device 014: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+
+               .. note:: Dip switch S2-8 must be turned off after the flashing is complete.
 
 .. _provision_ufs:
 
@@ -497,7 +525,7 @@ Flash software using QDL
          Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
          Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
-   To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
+   To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
 
 .. note:: If flashing fails, perform the following steps and retry the flashing procedure:
 
@@ -517,12 +545,12 @@ Flash software using PCAT
       
       ::
 
-         qsc-cli --login
+         qsc-cli login
          qsc-cli tool install --name quts --activate-default-license
          qsc-cli tool install --name qud --activate-default-license
          qsc-cli tool install --name pcat --activate-default-license
 
-   .. note:: For Ubuntu 22.04, you may see an issue while installing QUD, where you must enroll the public key on your Linux host for a successful QUD installation. For more details, follow the steps provided in the README file available in the ``/opt/QTI/sign/signReadme.txt`` directory.
+   .. note:: For Ubuntu 22.04, you might see an issue while installing QUD, where you must enroll the public key on your Linux host for a successful QUD installation. For more details, follow the steps provided in the README file available in the ``/opt/QTI/sign/signReadme.txt`` directory.
 
 #. Check if the ``QTI_HS-USB_QDLoader`` driver is available in the installed directory:
 
@@ -615,7 +643,7 @@ Flash software using PCAT
          Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
          Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
-   The device reboots after the flashing procedure completes successfully. To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
+   The device reboots after the flashing procedure completes successfully. To verify the updated software version, see `Verify the Qualcomm Linux version <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/set_up_the_device.html#verify-the-qualcomm-linux-version>`__.
 
 Related topics
 ---------------

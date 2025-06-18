@@ -15,26 +15,26 @@ Related documents
    * - **Qualcomm Technologies, Inc.**
      - 
 
-   * - `Qualcomm Linux Yocto Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-27>`__
-     - 80-70018-27
+   * - `Qualcomm Linux Yocto Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-27>`__
+     - 80-70020-27
 
    * - `Qualcomm Linux Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250403001134/>`__
      - RNO-250403001134
 
-   * - `Qualcomm Linux Kernel Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-3>`__
-     - 80-70018-3
+   * - `Qualcomm Linux Kernel Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-3>`__
+     - 80-70020-3
 
-   * - `RB3 Gen 2 Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253>`__
-     - 80-70018-253
+   * - `RB3 Gen 2 Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253>`__
+     - 80-70020-253
 
-   * - `Qualcomm® Intelligent Multimedia (IM SDK) Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-51>`__
-     - 80-70018-51
+   * - `Qualcomm® Intelligent Multimedia (IM SDK) Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-51>`__
+     - 80-70020-51
 
    * - `Qualcomm® Linux Intelligent Robotics SDK (QIR SDK) 2.0 Quick Start Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2>`__
-     - 80-70018-265
+     - 80-70020-265
 
-   * - `Qualcomm Linux Virtual Machine Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-41/>`__
-     - 80-70018-41
+   * - `Qualcomm Linux Virtual Machine Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-41/>`__
+     - 80-70020-41
 
    * - `Qualcomm Software Center User Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-72780-2/>`__
      - 80-72780-2

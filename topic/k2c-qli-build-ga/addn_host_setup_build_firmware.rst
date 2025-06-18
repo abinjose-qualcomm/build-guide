@@ -1,7 +1,7 @@
 Ubuntu host setup
 -------------------------
 
-The Ubuntu host computer must be set up to install the required software tools and configure them for use.
+Install and configure the required software tools on the Ubuntu host computer.
 
 1. Install the following packages:
 

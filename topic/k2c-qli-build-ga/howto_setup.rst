@@ -16,7 +16,7 @@ Connect to a UART shell
          
          To set up the debug UART connection and view the diagnostic messages, connect the micro-USB cable from the micro-USB port on the RB3 Gen 2 device to the Linux host.
 
-         .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.png
+         .. image:: ../../media/k2c-qli-build-ga/micro_usb_port.jpg
 
       .. group-tab:: IQ-9075
 
@@ -34,11 +34,21 @@ Connect to a UART shell
 
                .. image:: ../../media/k2c-qli-build-ga/uart_iq9075_evk.png
 
-      .. group-tab:: IQ-8275   
+      .. group-tab:: IQ-8275
 
-         To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® IQ-8 Beta Evaluation Kit device to the Linux host.
+         .. tabs:: 
 
-         .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
+            .. group-tab:: IQ-8 Beta EVK
+
+               To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® IQ-8 Beta Evaluation Kit device to the Linux host.
+
+               .. image:: ../../media/k2c-qli-build-ga/uart_ridesx.png
+
+            .. group-tab:: IQ-8275 EVK
+
+               To set up the debug UART connection and view the diagnostic messages, connect the debug-USB cable from the debug-USB port on the Qualcomm® Dragonwing™ IQ-8275 EVK device to the Linux host.
+
+               .. image:: ../../media/k2c-qli-build-ga/uart_iq9075_evk.png
 
 1. Install Minicom on the Linux host:
 
@@ -126,7 +136,7 @@ Connect to a UART shell
 
 Connect to ADB
 ^^^^^^^^^^^^^^^^
-See `Install and connect to ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#install-adb>`__.
+See `Install and connect to ADB <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/faqs.html#install-adb>`__.
 
 .. _connect_to_network:
 
@@ -278,7 +288,7 @@ Establish the :ref:`network connectivity <connect_to_network>` before connecting
 .. note:: 
    
    - Connect the remote host to the same Wi-Fi access point as the device.
-   - To create a non-root user account, see `Create a non-root user account <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/faqs.html#non-root-acc>`__.
+   - To create a non-root user account, see `Create a non-root user account <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/faqs.html#non-root-acc>`__.
 
 Configure Ethernet with RJ45 port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -340,10 +350,10 @@ If you face USB or Ethernet connectivity issues on the RB3 Gen 2 device, conside
 
 .. rubric:: Prerequisites
 
-- Upgrade the software as described in `Update the software <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-253/upgrade-rb3gen2-software.html>`__ before updating the Renesas firmware.
+- Upgrade the software as described in `Update the software <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-253/upgrade-rb3gen2-software.html>`__ before updating the Renesas firmware.
 - Connect the device to the Linux host through the USB Type-C cable.
 
-.. note:: The following procedure is applicable only to Ubuntu 22.04 host. If you are using a Windows or macOS host, set up an Ubuntu virtual machine by following the instructions described in the `Virtual Machine Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-41/getting-started.html>`__.
+.. note:: The following procedure is applicable only to Ubuntu 22.04 host. If you are using a Windows or macOS host, set up an Ubuntu virtual machine by following the instructions described in the `Virtual Machine Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-41/getting-started.html>`__.
 
 1. Register and sign in to `Renesas <https://www.renesas.com/>`__.
 
