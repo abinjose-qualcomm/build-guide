@@ -58,4 +58,4 @@ Sync, build, and flash the software
 .. note:: 
    
    - See `Hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-115/soc.html>`__ that are supported on Qualcomm Linux.
-   - For IQ-615 build instructions, see `Qualcomm Dragonwing™ IQ-615 Beta Evaluation Kit quickstart <https://docs.qualcomm.com/bundle/80-70022-293/resource/80-70022-293_REV_AA_Qualcomm_Dragonwing_IQ-615_Beta_Evaluation_Kit_Quick_Start_Guide.pdf>`__.
+   - For IQ-615 build instructions, see `Qualcomm Dragonwing™ IQ-615 Beta Evaluation Kit quickstart <https://docs.qualcomm.com/bundle/80-70022-293/resource/80-70020-293_REV_AA_Qualcomm_Dragonwing_IQ-615_Beta_Evaluation_Kit_Quick_Start_Guide.pdf>`__.

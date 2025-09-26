@@ -21,19 +21,19 @@ Related documents
    * - `Qualcomm Linux Release Notes <https://docs.qualcomm.com/bundle/publicresource/topics/RNO-250926012339/>`__
      - RNO-250926012339
 
-   * - `Qualcomm Dragonwing™ IQ-615 Beta Evaluation Kit quickstart <https://docs.qualcomm.com/bundle/80-70022-293/resource/80-70022-293_REV_AA_Qualcomm_Dragonwing_IQ-615_Beta_Evaluation_Kit_Quick_Start_Guide.pdf>`__
+   * - `Qualcomm Dragonwing™ IQ-615 Beta Evaluation Kit quickstart <https://docs.qualcomm.com/bundle/80-70022-293/resource/80-70020-293_REV_AA_Qualcomm_Dragonwing_IQ-615_Beta_Evaluation_Kit_Quick_Start_Guide.pdf>`__
      - 80-70022-293   
 
    * - `Qualcomm Linux Kernel Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-3>`__
      - 80-70022-3
 
-   * - `Qualcomm Dragonwing™ RB3 Gen 2 Development Kit Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-251>`__
+   * - `Qualcomm Dragonwing™ RB3 Gen 2 Development Kit user guide – Linux <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-251>`__
      - 80-70022-251
 
-   * - `Qualcomm® Intelligent Multimedia SDK (IM SDK) quickstart <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-51>`__
+   * - `Qualcomm® Intelligent Multimedia SDK (IM SDK) quickstart documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-51>`__
      - 80-70022-51
 
-   * - `Qualcomm® Intelligent Robotics SDK (QIR SDK) quickstart <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-265>`__
+   * - `Qualcomm® Intelligent Robotics SDK (QIR SDK) documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-265>`__
      - 80-70022-265
 
    * - `Qualcomm Linux Virtual Machine Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70022-41/>`__
