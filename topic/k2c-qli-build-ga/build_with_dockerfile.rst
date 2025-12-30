@@ -57,7 +57,7 @@ Install and configure the required software tools on the Ubuntu host computer.
          bash docker/docker_setup.sh
 
 .. note:: 
-   The following figure shows the directory structure of ``qcom-download-utils`` in relation to the Docker setup:
+   The following sample figure shows the directory structure of ``qcom-download-utils`` in relation to the Docker setup:
 
    .. image:: ../../media/k2c-qli-build-ga/qcom-download-utils-folder.png
 
