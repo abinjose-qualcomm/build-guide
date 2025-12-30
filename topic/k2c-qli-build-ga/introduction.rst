@@ -11,7 +11,7 @@ Qualcomm Linux uses Yocto to build an embedded system software image. Hence, Qua
 Download prebuilt images and flash the software
 ------------------------------------------------
 
-- In the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/ReleaseNote.html#prebuilt-flashable-images-along-with-esdk>`__, go to the *Artifactory links to prebuilt flashable images and eSDK* table to download prebuilt flashable images and the Platform eSDK.
+- In the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/prebuilt_flashable_images_along_with_esdk.html>`__, go to the *Artifactory links to prebuilt flashable images and eSDK* table to download prebuilt flashable images and the Platform eSDK.
 
 .. note:: The Platform eSDK is an installer that allows you to synchronize, modify, compile, and install applications and open-source plug-ins within a complete Yocto environment. For more information, see :ref:`Download the Platform eSDK <download_platform_esdk>`.
 

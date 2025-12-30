@@ -290,11 +290,11 @@ Provision UFS
 ---------------
 Universal flash storage (UFS) provisioning helps to divide the storage into many LUNs, which stores different types of data separately. This improves access efficiency and system organization.
 
-UFS is provisioned by default. If there are any changes in LUNs, UFS must be re-provisioned. To download the provision XML file and to check the applicability of UFS provisioning for different SoCs, see the table *UFS Provision* in `Release Specific Information <https://docs.qualcomm.com/doc/80-70023-300/topic/ReleaseNote.html#release-specific-information>`__.
+UFS is provisioned by default. If there are any changes in LUNs, UFS must be re-provisioned. To download the provision XML file and to check the applicability of UFS provisioning for different SoCs, see the table *UFS Provision* in `Release Specific Information <https://docs.qualcomm.com/doc/80-70023-300/topic/release_specific_information.html>`__.
 
 1. Download the provision file.
 
-   Based on the required SoC, download the respective ‘provision’ from the *UFS Provision* table of the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/ReleaseNote.html#release-specific-information>`__.
+   Based on the required SoC, download the respective ‘provision’ from the *UFS Provision* table of the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/release_specific_information.html>`__.
 
    .. container:: nohighlight
       
@@ -422,7 +422,7 @@ Configuration data table (CDT) provides platform/device-dependent data such as p
 
 1. Download the CDT binary.
 
-   Based on the required reference kit, download the respective CDT from the *CDT* table of the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/ReleaseNote.html#release-specific-information>`__.
+   Based on the required reference kit, download the respective CDT from the *CDT* table of the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/release_specific_information.html>`__.
 
    .. container:: nohighlight
       

@@ -294,7 +294,7 @@ Download the Platform eSDK
 
 3. Download the Platform eSDK.
 
-   Based on the required SoC, download the respective eSDK from the *Artifactory links to pre-built flashable images and eSDK* table of the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/ReleaseNote.html#prebuilt-flashable-images-along-with-esdk>`__.
+   Based on the required SoC, download the respective eSDK from the *Artifactory links to pre-built flashable images and eSDK* table of the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/topic/prebuilt_flashable_images_along_with_esdk.html>`__.
 
    .. container:: nohighlight
       
