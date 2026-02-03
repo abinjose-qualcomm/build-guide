@@ -2,7 +2,7 @@
 
 .. rst_class:: flattenforhtml
 
-Build with GitHub using firmware and extras
+Build from Source (with firmware and extras)
 ============================================
 
 Use this information to build ``meta-qcom-extras`` layer using selective proprietary sources and binaries/libraries.

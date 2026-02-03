@@ -20,9 +20,9 @@ Qualcomm Linux Build Guide
       :titlesonly:
 
       topic/k2c-qli-build-ga/introduction
-      topic/k2c-qli-build-ga/build_frm_source_qsc_cli
       topic/k2c-qli-build-ga/build_from_source_github_intro
       topic/k2c-qli-build-ga/build_addn_info  
+      topic/k2c-qli-build-ga/build_frm_source_qsc_cli
       topic/k2c-qli-build-ga/flash_images
       topic/k2c-qli-build-ga/troubleshoot_sync_build_and_flash
       topic/k2c-qli-build-ga/how_to

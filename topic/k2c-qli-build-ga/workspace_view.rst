@@ -1,7 +1,7 @@
 Workspace view
 -----------------
 
-This section provides sample workspace structures with ``qsc-cli`` and GitHub workflow standalone use cases, for the supported `hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70023-115/soc.html>`__.
+This section provides sample workspace structures with ``qsc-cli`` and source workflow standalone use cases, for the supported `hardware SoCs <https://docs.qualcomm.com/bundle/publicresource/topics/80-70023-115/soc.html>`__.
 
 Workspace structure with qsc-cli
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -14,7 +14,7 @@ The following figure shows the directory structure after ``Qualcomm_Linux.SPF.1.
 
 .. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_4.png
 
-Workspace structure with GitHub workflow standalone instructions
+Workspace structure with Source workflow standalone instructions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following figure shows the directory structure after building firmware of ``qualcomm-linux-spf-1-0_ap_standard_oem_nomodem``:

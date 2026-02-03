@@ -1,7 +1,7 @@
 Workflow options
 -------------------------
 
-The two workflows for registered users to set up, sync, and build Qualcomm Linux with GitHub are described in the following table:
+The two workflows for registered users to set up, sync, and build Qualcomm Linux from source are described in the following table:
 
 .. flat-table:: 
     :header-rows: 1

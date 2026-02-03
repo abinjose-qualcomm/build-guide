@@ -22,13 +22,13 @@ Sync, build, and flash the software
 
 - Unregistered users
 
-  If you're an unregistered Qualcomm user, you can sync and build Qualcomm Linux. For more information about using firmware components in the form of binary files, see :doc:`Build with Source with Docker <build_from_source_github_intro>`.
+  If you're an unregistered Qualcomm user, you can sync and build Qualcomm Linux. For more information about using firmware components in the form of binary files, see :doc:`Build from Source <build_from_source_github_intro>`.
   
 - Registered users
 
   .. note:: You must `register with Qualcomm <https://www.qualcomm.com/support/working-with-qualcomm>`__ to sync and build Qualcomm Linux.
 
-  If you're a registered user, you can use any one of the following three methods to sync and build Qualcomm Linux. These methods use the Qualcomm Yocto layers and the supporting base Yocto layers. You can access the source of certain firmware components and Qualcomm tools, which lets you build and download the software.
+  If you're a registered user, you can use the following method to sync and build Qualcomm Linux. This method use the Qualcomm Yocto layers and the supporting base Yocto layers. You can access the source of certain firmware components and Qualcomm tools, which lets you build and download the software.
 
   .. list-table:: 
      :header-rows: 1

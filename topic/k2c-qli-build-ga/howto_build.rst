@@ -284,7 +284,7 @@ Provide an absolute path for ``<TOOLS_DIR>`` in ``qsc-cli`` and export commands 
 
 .. _image_recipes_github_workflow:
 
-Image recipes supported in the GitHub workflow
+Image recipes supported in the Source workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: 
