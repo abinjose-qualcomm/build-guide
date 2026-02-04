@@ -1,3 +1,8 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+#
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+# refered from https://www.sphinx-doc.org/en/master/usage/configuration.html
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
