@@ -461,31 +461,6 @@ Build
          export LC_ALL=en_US.UTF-8
          export LANG=en_US.UTF-8
 
--  "layer directories do not exist build-qcom-wayland/conf/../../layers/meta-qcom-qim-product-sdk"
-
-   This error occurs due to one of the following reasons:
-
-   -  Git clone of ``meta-qcom-qim-product-sdk`` didn't complete
-      successfully.
-   -  ``meta-qcom-qim-product-sdk`` layer isn't exported to
-      EXTRALAYERS.
-      
-   **Error excerpt**
-
-   .. container:: nohighlight
-      
-      ::
-
-         xxxx@xxxx:~/github_un/build-qcom-wayland$ bitbake qcom-multimedia-image
-         ERROR: The following layer directories do not exist:
-         ERROR: <workspace_path>/build-qcom-wayland/conf/../../layers/meta-qcom-qim-product-sdk
-         ERROR: Please check BBLAYERS in <workspace_path>/build-qcom-wayland/conf/bblayers.conf
-
-   **Solution**
-
-   1. Remove the ``build-qcom-wayland`` directory.
-   #. Rerun the commands in :ref:`Build Qualcomm IM SDK image <build_qim_sdk_image_unreg>`.
-
 -  "failed: database disk image is malformed. abort()ing pseudo client by server request"
 
    The Pseudo tool gets path mismatch and corrupt database issues when processing the file system operations. When Pseudo simulates the file system operations in a Yocto project, problems can occur while handling file paths and permissions.
@@ -518,44 +493,6 @@ Build
 
          sudo su
          echo 1048576 > /proc/sys/fs/inotify/max_user_watches
-
--  "fatal: repository 'https://qpm-git.qualcomm.com/home2/git/qualcomm/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk.g… not found"
-   
-   This error can occur when you download the distribution from Qualcomm ChipCode\ :sup:`™` Portal.
-
-   **Error excerpt**
-
-   .. container:: nohighlight
-      
-      ::
-
-         git clone -b r1.0_00114.0 --depth 1 https://qpm-git.qualcomm.com/home2/git/qualcomm/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk.g…
-         Cloning into 'qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk'...
-         fatal: repository 'https://qpm-git.qualcomm.com/home2/git/qualcomm/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk.g… not found
-
-   **Solution**
-
-   Run the following command with debug flags:
-
-   .. container:: nohighlight
-
-      ::
-
-         export GIT_CURL_VERBOSE=true ; time GIT_SSL_NO_VERIFY=true <git command>
-
-   If you see this error, run the following command and clone again:
-
-   .. container:: screenoutput
-
-      | Connection #2 to host chipmaster2.qti.qualcomm.com left intact
-	   | error: RPC failed; HTTP 302 curl 22 The requested URL returned error: 302
-	   | fatal: The remote end hung up unexpectedly
-
-   .. container:: nohighlight
-
-      ::
-
-         git config --global http."https://qpm-git.qualcomm.com".followRedirects true
 
 Flash
 -----------

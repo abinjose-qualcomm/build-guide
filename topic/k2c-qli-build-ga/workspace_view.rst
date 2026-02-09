@@ -6,14 +6,6 @@ This section provides sample workspace structures with ``qsc-cli`` and GitHub wo
 Workspace structure with qsc-cli
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following figure shows the directory structure before the ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK`` distribution build (``LE.QCLINUX.1.0.r1`` has the Yocto workspace):
-
-.. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_1.png
-
-The following figure shows the directory structure after ``Qualcomm_Linux.SPF.1.0|TEST|DEVICE|PB_QIMPSDK`` distribution build:
-
-.. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_2.png
-
 The following figure shows the directory structure before ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NoModem`` distribution build with firmware and extras:
 
 .. image:: ../../media/k2c-qli-build-ga/ws_qsc_cli_3.png
@@ -24,14 +16,6 @@ The following figure shows the directory structure after ``Qualcomm_Linux.SPF.1.
 
 Workspace structure with GitHub workflow standalone instructions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The following figure shows the directory structure before the GitHub workflow Qualcomm IM SDK standalone build:
-
-.. image:: ../../media/k2c-qli-build-ga/ws_standalone_1.png
-
-The following figure shows the directory structure after the GitHub workflow Qualcomm IM SDK standalone build:
-
-.. image:: ../../media/k2c-qli-build-ga/ws_standalone_2.png
 
 The following figure shows the directory structure after building firmware of ``qualcomm-linux-spf-1-0_ap_standard_oem_nomodem``:
 

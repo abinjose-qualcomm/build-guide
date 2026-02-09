@@ -54,23 +54,6 @@ Customize Qualcomm Linux
 See `User
 customizations <https://docs.qualcomm.com/bundle/publicresource/topics/80-70023-27/customize_qualcomm_linux.html>`__.
 
-Download layers for the Qualcomm IM SDK build using the manifest release tag
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For the latest ``<manifest release tag>``, see the section *Build-critical release tags* in the `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/>`__.
-
-::
-
-   # cd to directory where you have 300 GB of free storage space to create your workspaces
-   mkdir <WORKSPACE_DIR>
-   cd <WORKSPACE_DIR>
-   repo init -u https://github.com/quic-yocto/qcom-manifest -b qcom-linux-scarthgap -m <manifest release tag>
-   # Example, <manifest release tag> is qcom-6.6.116-QLI.1.7-Ver.1.1_qim-product-sdk-2.2.1.xml
-   repo sync
-
-.. note:: 
-   For the steps to set up environment and build software images, see :ref:`Build Qualcomm IM SDK image <build_qim_sdk_image_unreg>`.
-
 Download layers for the QIR SDK build by using the manifest release tag
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -104,40 +87,3 @@ For the latest ``<manifest release tag>``, see the section *Build-critical relea
 
 .. note:: 
    For the steps to set up the environment and build software images, see :ref:`Build real-time Linux image <build_real_time_linux_image_unreg>`.
-
-Build a meta-qcom-qim-product-sdk layer as an add-on layer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you have completed a base image build using GitHub standalone
-commands and already have an existing ``<WORKSPACE DIR>``, follow these steps to build ``meta-qcom-qim-product-sdk``:
-
-1. Download the latest ``<meta-qcom-qim-product-sdk release tag>``:
-
-   ::
-
-      cd <WORKSPACE DIR>
-      rm -rf layers/meta-qcom-qim-product-sdk
-      git clone https://github.com/quic-yocto/meta-qcom-qim-product-sdk -b <meta-qcom-qim-product-sdk release tag> layers/meta-qcom-qim-product-sdk
-
-   .. note:: For more information about 
-             ``<meta-qcom-qim-product-sdk release tag>``, see https://github.com/quic-yocto/meta-qcom-qim-product-sdk/tags. An
-             example ``<meta-qcom-qim-product-sdk release tag>`` is ``qcom-6.6.116-QLI.1.7-Ver.1.1_qim-product-sdk-2.2.1.xml``.
-
-2. Set up the build environment:
-
-   ::
-
-      MACHINE=<machine> DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
-      # Example, MACHINE=qcs6490-rb3gen2-vision-kit DISTRO=qcom-wayland QCOM_SELECTED_BSP=custom source setup-environment
-      # source setup-environment: Sets the environment, creates the build directory build-qcom-wayland,
-      # and enters into build-qcom-wayland directory
-
-   .. note:: To know the ``MACHINE`` parameter values, see `Release Notes <https://docs.qualcomm.com/doc/80-70023-300/>`__.
-
-3. Build the software image:
-
-   ::
-
-      bitbake qcom-multimedia-image
-      # Build SDK image
-      bitbake qcom-qim-product-sdk
