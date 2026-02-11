@@ -27,10 +27,6 @@ The following table describes the Qualcomm Yocto layers and release tags:
      - ``meta-qcom-qim-product-sdk``
      - manifest release tag
      - qcom-6.6.116-QLI.1.7-Ver.1.1_qim-product-sdk-2.2.1.xml
-   *  
-     - ``meta-qcom-robotics-sdk``
-     - manifest release tag
-     - qcom-6.6.116-QLI.1.7-Ver.1.1_robotics-sdk-1.1.xml
    * - Licensed developers with authorized access
      - ``meta-qcom-extras``
      - meta-qcom-extras release tag
@@ -77,29 +73,6 @@ The following tables describe the firmware distributions that you can download. 
        ``meta-qcom-extras``
 
        ``meta-qcom-qim-product-sdk``  
-   *  
-     - BSP build + Qualcomm IM SDK + QIR SDK
-      
-        ``Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIRPSDK``
-     - ``meta-qcom``
-
-       ``meta-qcom-hwe``
-
-       ``meta-qcom-distro``
-
-       ``meta-qcom-extras``
-
-       ``meta-qcom-robotics-extras``
-
-       ``meta-ros``   
-
-       ``meta-qcom-robotics``
-
-       ``meta-qcom-robotics-distro``
-
-       ``meta-qcom-robotics-sdk``
-
-       ``meta-qcom-qim-product-sdk``
    * - :rspan:`3` Licensed developers (contact Qualcomm for access)
      - BSP build: High-level OS and firmware (GPS only) source
        
@@ -172,10 +145,6 @@ The following table maps the firmware distributions to git repositories:
    * - Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIMPSDK
      - ``git clone -b <firmware release tag> --depth 1 https://qpm-git.qualcomm.com/home2/git/qualcomm/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk.git``
      - ``qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk``
-
-   * - Qualcomm_Linux.SPF.1.0|AP|Standard|OEM|NM_QIRPSDK
-     - ``git clone -b <firmware release tag> --depth 1 https://qpm-git.qualcomm.com/home2/git/qualcomm/qualcomm-linux-spf-1-0_ap_standard_oem_nm-qirpsdk.git``
-     - ``qualcomm-linux-spf-1-0_ap_standard_oem_nm-qirpsdk``
 
    * - Qualcomm_Linux.SPF.1.0|AP|Standard|OEM\|
      - ``git clone -b <firmware release tag> --depth 1 https://qpm-git.qualcomm.com/home2/git/qualcomm/qualcomm-linux-spf-1-0_ap_standard_oem.git``
@@ -1181,7 +1150,7 @@ The BSP image build has software components for the Qualcomm device support and 
          # CUST_ID is used to clone the proprietary source repositories downloaded by meta-qcom-extras.
          # It allows source compilation for the corresponding binaries present in meta-qcom-hwe.         
          # CUST_ID must be set to "213195" for no-modem based distributions ("qualcomm-linux-spf-1-0_ap_standard_oem_nomodem",
-         # "qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk", "qualcomm-linux-spf-1-0_ap_standard_oem_nm-qirpsdk").         
+         # "qualcomm-linux-spf-1-0_ap_standard_oem_nm-qimpsdk").         
          # For other modem based distributions, CUST_ID must be set based on the "Customer ID".
          # To find "Customer ID", sign in to your account at qualcomm.com.
          # Click the Profile icon, select Account Settings, and then scroll down to the Company Information section.

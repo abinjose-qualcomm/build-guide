@@ -36,10 +36,6 @@ Acronyms and terms
      - Product configuration assistant tool
    * - QDL
      - Qualcomm Device Loader
-   * - QIR 
-     - Qualcomm Intelligent Robotics
-   * - QIRF
-     - Qualcomm Intelligent Robotics Function
    * - QLI
      - Qualcomm Linux
    * - QNN
