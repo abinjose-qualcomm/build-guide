@@ -15,7 +15,9 @@ Install and configure the required software tools on the Ubuntu host computer.
 
          sudo apt update
          sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
-         sudo apt install kas
+         sudo apt install pipx
+         pipx ensurepath
+         pipx install kas
 
 #. Optionally download the kas-container script. The kas package also provides a kas-container script for running kas in a container. If you prefer running the image builds in an isolated evironment, consider using kas-container instead.
 
